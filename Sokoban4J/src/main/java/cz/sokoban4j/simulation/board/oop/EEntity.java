@@ -11,9 +11,10 @@ public enum EEntity {
 	BOX_6(6,    true,  false, 256, "fF", "CrateDark_Black.png", "Crate_Black.png"),
 	PLAYER(-1, false,   true, 512, "pP@", null, null);
 	
-	public static final int FIRST_BOX_FLAG = 8;
-	public static final int SOME_ENTITY_FLAG = 8 | 16 | 32 | 64 | 128 | 256 | 512;
-	public static final int NULLIFY_ENTITY_FLAG = 0xFFFFFFFF ^ SOME_ENTITY_FLAG;
+	public static final int SOME_BOX_FLAG = 8 | 16 | 32 | 64 | 128 | 256;
+	public static final int SOME_ENTITY_FLAG = 8 | 16 | 32 | 64 | 128 | 256 | 512;	
+	public static final int ALL_ENTITY_FLAG = 4 | 8 | 16 | 32 | 64 | 128 | 256 | 512;
+	public static final int NULLIFY_ENTITY_FLAG = 0xFFFFFFFF ^ ALL_ENTITY_FLAG;
 	
 	private final int flag;
 	
@@ -43,6 +44,14 @@ public enum EEntity {
 		return flag;
 	}
 	
+	public String getSymbols() {
+		return symbol;
+	}
+	
+	public String getSymbol() {
+		return symbol.substring(0,1);
+	}
+
 	public String getSprite() {
 		return sprite;
 	}

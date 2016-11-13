@@ -30,11 +30,7 @@ public class CTile {
 		
 		entityPlayer = EEntity.PLAYER.getFlag();
 		
-		int tempEntitySomeBox = 0;
-		for (EEntity entity : EEntity.values()) {
-			if (entity.isSomeBox()) tempEntitySomeBox |= entity.getFlag();
-		}
-		entitySomeBox = tempEntitySomeBox;
+		entitySomeBox = EEntity.SOME_BOX_FLAG;
 		
 		entitySpecificBox = new int[]{0, EEntity.BOX_1.getFlag(), EEntity.BOX_2.getFlag(), EEntity.BOX_3.getFlag(), EEntity.BOX_4.getFlag(), EEntity.BOX_5.getFlag(), EEntity.BOX_6.getFlag() }; 
 		
@@ -46,7 +42,7 @@ public class CTile {
 		
 		placeAnyBox = EPlace.BOX_ANY.getFlag();
 
-		placeSpecificBox = new int[]{0, EPlace.BOX_1.getFlag(), EPlace.BOX_2.getFlag(), EPlace.BOX_2.getFlag(), EPlace.BOX_3.getFlag(), EPlace.BOX_4.getFlag(), EPlace.BOX_5.getFlag() }; 
+		placeSpecificBox = new int[]{0, EPlace.BOX_1.getFlag(), EPlace.BOX_2.getFlag(), EPlace.BOX_3.getFlag(), EPlace.BOX_4.getFlag(), EPlace.BOX_5.getFlag(), EPlace.BOX_6.getFlag() }; 
 	}
 	
 	private static boolean isThis(int whatFlag, int tileFlag) {
@@ -82,6 +78,9 @@ public class CTile {
 	}
 	
 	public static boolean forBox(int boxNum, int tileFlag) {
+		if (boxNum < 1) {
+			return false;
+		}
 		return isThis(placeSpecificBox[boxNum], tileFlag);
 	}
 

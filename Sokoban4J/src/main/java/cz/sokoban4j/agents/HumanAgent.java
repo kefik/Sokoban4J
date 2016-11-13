@@ -29,6 +29,10 @@ public class HumanAgent implements IAgent, KeyListener {
 	}
 	
 	@Override
+	public void die() {
+	}
+	
+	@Override
 	public void keyTyped(KeyEvent e) {
 	}
 
@@ -58,5 +62,5 @@ public class HumanAgent implements IAgent, KeyListener {
         }
 		
 	}
-
+	
 }

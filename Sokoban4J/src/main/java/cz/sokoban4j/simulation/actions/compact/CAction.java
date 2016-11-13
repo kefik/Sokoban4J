@@ -1,10 +1,25 @@
 package cz.sokoban4j.simulation.actions.compact;
 
 import cz.sokoban4j.simulation.actions.EDirection;
+import cz.sokoban4j.simulation.actions.oop.EActionType;
+import cz.sokoban4j.simulation.actions.oop.IAction;
 import cz.sokoban4j.simulation.board.compact.BoardCompact;
+import cz.sokoban4j.simulation.board.oop.Board;
 
-public class CAction {
+public abstract class CAction {
+	
+	public abstract EActionType getType();
+	
+	public abstract EDirection getDirection();
 
+	public abstract boolean isPossible(BoardCompact board);
+	
+	public abstract void perform(BoardCompact board);
+	
+	public abstract void reverse(BoardCompact board);
+	
+	public abstract IAction getAction();
+	
 	/**
 	 * If we move 1 step in given 'dir', will we still be at board? 
 	 * @param tile
@@ -12,7 +27,7 @@ public class CAction {
 	 * @param steps
 	 * @return
 	 */
-	protected static boolean onBoard(BoardCompact board, int tileX, int tileY, EDirection dir) {
+	protected boolean onBoard(BoardCompact board, int tileX, int tileY, EDirection dir) {
 		int targetX = tileX + dir.dX;
 		if (targetX < 0 || targetX >= board.width()) return false;
 		int targetY = tileY + dir.dY;

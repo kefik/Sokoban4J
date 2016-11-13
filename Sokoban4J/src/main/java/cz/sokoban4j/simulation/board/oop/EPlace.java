@@ -30,6 +30,14 @@ public enum EPlace {
 		return flag;
 	}
 	
+	public String getSymbols() {
+		return symbol;
+	}
+	
+	public String getSymbol() {
+		return symbol.substring(0,1);
+	}
+	
 	public String getSprite() {
 		return sprite;
 	}

@@ -32,6 +32,8 @@ public class SokobanVis extends Thread {
 	private IAction agentAction;
 	private IUIAction uiAction;
 	
+	private boolean observe = true;
+	
 	private boolean firstPack = true;
 
 	public boolean shouldRun = true;
@@ -39,6 +41,8 @@ public class SokobanVis extends Thread {
 	public int steps = 0;
 	
 	public SokobanVis(Board board, IAgent agent, SpriteAtlas sprites, UIBoard uiBoard, SokobanView view, SokobanFrame frame) {
+		super("SokobanVis");
+		
 		this.board = board;
 		this.agent = agent;
 		this.sprites = sprites;
@@ -68,6 +72,7 @@ public class SokobanVis extends Thread {
 					uiAction.finish();
 					uiAction = null;
 					agentAction = null;
+					observe = true;
 				}
 				
 				// UPDATE RENDER
@@ -104,12 +109,14 @@ public class SokobanVis extends Thread {
 			
 			// OTHERWISE QUERY AGENT FOR THE NEXT ACTION
 			
-			// EXTRACT COMPACT VERSION OF THE BOARD FOR AI
-			BoardCompact compactBoard = board.makeBoardCompact();
-			
-			// PRESENT BOARD TO THE AGENT
-			agent.observe(compactBoard);
-			
+			if (observe) {
+				// EXTRACT COMPACT VERSION OF THE BOARD FOR AI
+				BoardCompact compactBoard = board.makeBoardCompact();
+				// PRESENT BOARD TO THE AGENT
+				agent.observe(compactBoard);
+				observe = false;
+			}
+				
 			// GET AGENT ACTION
 			EDirection whereToMove = agent.act();
 					

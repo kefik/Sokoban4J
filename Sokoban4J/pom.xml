@@ -15,7 +15,7 @@
 	<packaging>jar</packaging>
 
 	<name>sokoban4j</name>
-	<url>http://diana.ms.mff.cuni.cz</url>
+	<url>https://github.com/kefik/Sokoban4J</url>
 	
 	<properties>
 		<main.class>cz.sokoban4j.Sokoban</main.class>

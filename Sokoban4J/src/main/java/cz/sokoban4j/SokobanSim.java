@@ -12,6 +12,8 @@ public class SokobanSim extends Thread {
 	private Board board;
 	private IAgent agent;
 	
+	private boolean observe = true;
+	
 	private IAction agentAction;
 	
 	public int steps = 0;
@@ -19,6 +21,8 @@ public class SokobanSim extends Thread {
 	public boolean shouldRun = true;
 	
 	public SokobanSim(Board board, IAgent agent) {
+		super("SokobanSim");
+		
 		this.board = board;
 		this.agent = agent;		
 	}
@@ -28,11 +32,13 @@ public class SokobanSim extends Thread {
 		agent.newLevel();
 		
 		while (shouldRun) {
-			// EXTRACT COMPACT VERSION OF THE BOARD FOR AI
-			BoardCompact compactBoard = board.makeBoardCompact();
-			
-			// PRESENT BOARD TO THE AGENT
-			agent.observe(compactBoard);
+			if (observe) {
+				// EXTRACT COMPACT VERSION OF THE BOARD FOR AI
+				BoardCompact compactBoard = board.makeBoardCompact();
+				// PRESENT BOARD TO THE AGENT
+				agent.observe(compactBoard);
+				observe = false;
+			}
 			
 			// GET AGENT ACTION
 			EDirection whereToMove = agent.act();
@@ -50,6 +56,7 @@ public class SokobanSim extends Thread {
 					agent.victory();
 					return;
 				}
+				observe = true;
 			}
 			
 			// NULLIFY THE ACTION

@@ -1,11 +1,13 @@
 package cz.sokoban4j.simulation.board.compact;
 
 import cz.sokoban4j.simulation.board.oop.EEntity;
-import cz.sokoban4j.simulation.board.oop.Tile;
-import cz.sokoban4j.simulation.board.oop.entities.Entity;
+import cz.sokoban4j.simulation.board.oop.EPlace;
+import cz.sokoban4j.simulation.board.oop.ESpace;
 
-public class BoardCompact {
+public class BoardCompact implements Cloneable {
 
+	private Integer hash = null;
+	
 	public int[][] tiles;
 	
 	public int playerX;
@@ -14,6 +16,9 @@ public class BoardCompact {
 	public int boxCount;
 	public int boxInPlaceCount;
 	
+	private BoardCompact() {
+	}
+	
 	public BoardCompact(int width, int height) {
 		tiles = new int[width][height];
 		for (int x = 0; x < width; ++x) {
@@ -21,6 +26,49 @@ public class BoardCompact {
 				tiles[x][y] = 0;
 			}			
 		}
+	}
+	
+	@Override
+	public BoardCompact clone() {
+		BoardCompact result = new BoardCompact();
+		result.tiles = new int[width()][height()];
+		for (int x = 0; x < width(); ++x) {
+			for (int y = 0; y < height(); ++y) {
+				result.tiles[x][y] = tiles[x][y];
+			}			
+		}
+		result.playerX = playerX;
+		result.playerY = playerY;
+		result.boxCount = boxCount;
+		result.boxInPlaceCount = boxInPlaceCount;
+		return result;
+	}
+	
+	@Override
+	public int hashCode() {
+		if (hash == null) {
+			for (int x = 0; x < width(); ++x) {
+				for (int y = 0; y < height(); ++y) {
+					hash += 27 * tiles[x][y];
+				}			
+			}
+		}
+		return hash;
+	}
+	
+	@Override
+	public boolean equals(Object obj) {
+		if (obj == null) return false;
+		if (!(obj instanceof BoardCompact)) return false;
+		if (obj.hashCode() != hashCode()) return false;
+		BoardCompact other = (BoardCompact) obj;		
+		if (width() != other.width() || height() != other.height()) return false;
+		for (int x = 0; x < width(); ++x) {
+			for (int y = 0; y < height(); ++y) {
+				if (tiles[x][y] != other.tiles[x][y]) return false;
+			}			
+		}
+		return super.equals(obj);
 	}
 	
 	public int width() {
@@ -42,14 +90,17 @@ public class BoardCompact {
 		tiles[targetTileX][targetTileY] |= entity;
 		
 		tiles[sourceTileX][sourceTileY] &= EEntity.NULLIFY_ENTITY_FLAG;
-		tiles[sourceTileX][sourceTileY] |= EEntity.NONE.getFlag();		
+		tiles[sourceTileX][sourceTileY] |= EEntity.NONE.getFlag();	
+		
+		playerX = targetTileX;
+		playerY = targetTileY;
 	}
 	
 	public void moveBox(int sourceTileX, int sourceTileY, int targetTileX, int targetTileY) {
 		int entity = tiles[sourceTileX][sourceTileY] & EEntity.SOME_ENTITY_FLAG;
 		int boxNum = CTile.getBoxNum(tiles[sourceTileX][sourceTileY]);
 
-		if (CTile.forBox(boxNum, tiles[targetTileX][targetTileX])) {
+		if (CTile.forBox(boxNum, tiles[targetTileX][targetTileY])) {
 			++boxInPlaceCount;
 		}
 		tiles[targetTileX][targetTileY] &= EEntity.NULLIFY_ENTITY_FLAG;
@@ -69,6 +120,29 @@ public class BoardCompact {
 	 */
 	public boolean isVictory() {
 		return boxCount == boxInPlaceCount;
+	}
+	
+	public void debugPrint() {
+		for (int y = 0; y < height(); ++y) {
+			for (int x = 0; x < width(); ++x) {
+				EEntity entity = EEntity.fromFlag(tiles[x][y]);
+				EPlace place = EPlace.fromFlag(tiles[x][y]);
+				ESpace space = ESpace.fromFlag(tiles[x][y]);
+				
+				if (entity != null && entity != EEntity.NONE) {
+					System.out.print(entity.getSymbol());
+				} else
+				if (place != null && place != EPlace.NONE) {
+					System.out.print(place.getSymbol());
+				} else
+				if (space != null) {
+					System.out.print(space.getSymbol());
+				} else {
+					System.out.print("?");
+				}
+			}
+			System.out.println();
+		}
 	}
 	
 }

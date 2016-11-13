@@ -219,26 +219,51 @@ public class Sokoban {
 		}		
 	}
 	
-	public static void playHuman(String levelFilePath) {
+	// ================================
+	// STATIC METHODS FOR EASY START-UP 
+	// ================================
+	
+	public static void simAgent(String levelFilePath, IAgent agent) {
 		File levelFile = new File(levelFilePath);
 		if (!levelFile.exists() || !levelFile.isFile()) throw new RuntimeException("File does not exist: " + levelFile.getAbsolutePath() + "\nResolved from: " + levelFilePath);
 		
 		Sokoban sokoban = new Sokoban();
 
 		sokoban.setLevelFile(levelFile);
-		sokoban.setAgent(new HumanAgent());
+		sokoban.setAgent(agent);
+		
+		sokoban.runSimulation();
+	}
+
+	
+	public static void playAgent(String levelFilePath, IAgent agent) {
+		File levelFile = new File(levelFilePath);
+		if (!levelFile.exists() || !levelFile.isFile()) throw new RuntimeException("File does not exist: " + levelFile.getAbsolutePath() + "\nResolved from: " + levelFilePath);
+		
+		Sokoban sokoban = new Sokoban();
+
+		sokoban.setLevelFile(levelFile);
+		sokoban.setAgent(agent);
 		
 		sokoban.runVisualization();
 	}
 	
-	public static void playHumanDir(String levelDirPath) {
+	public static void playAgentDir(String levelDirPath, IAgent agent) {
 		File levelDir = new File(levelDirPath);
 		if (!levelDir.exists() || !levelDir.isDirectory()) throw new RuntimeException("Directory does not exist: " + levelDir.getAbsolutePath() + "\nResolved from: " + levelDirPath);
 		Sokoban sokoban = new Sokoban();
 
-		sokoban.setAgent(new HumanAgent());
+		sokoban.setAgent(agent);
 		
-		sokoban.runVisualization(levelDir);;
+		sokoban.runVisualization(levelDir);
+	}
+	
+	public static void playHuman(String levelFilePath) {
+		playAgent(levelFilePath, new HumanAgent());
+	}
+	
+	public static void playHumanDir(String levelDirPath) {
+		playAgentDir(levelDirPath, new HumanAgent());
 	}
 	
 	public static void main(String[] args) {

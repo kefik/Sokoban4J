@@ -27,4 +27,9 @@ public interface IAgent {
 	 */
 	public void victory();
 	
+	/**
+	 * Terminates the agent for good.
+	 */
+	public void die();
+	
 }
