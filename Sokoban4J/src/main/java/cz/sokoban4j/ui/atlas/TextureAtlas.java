@@ -2,8 +2,6 @@ package cz.sokoban4j.ui.atlas;
 
 import java.io.File;
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.List;
@@ -14,7 +12,7 @@ import com.thoughtworks.xstream.annotations.XStreamAsAttribute;
 import com.thoughtworks.xstream.annotations.XStreamImplicit;
 import com.thoughtworks.xstream.io.xml.DomDriver;
 
-import jdk.management.resource.internal.inst.FileInputStreamRMHooks;
+//import jdk.management.resource.internal.inst.FileInputStreamRMHooks;
 
 @XStreamAlias(value = "TextureAtlas")
 public class TextureAtlas {

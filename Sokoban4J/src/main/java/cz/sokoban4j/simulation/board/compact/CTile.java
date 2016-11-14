@@ -69,10 +69,21 @@ public class CTile {
 		return isThis(entitySpecificBox[boxNum], tileFlag);
 	}
 	
+	/**
+	 * There is place / target for "some" box, may be specific one.
+	 * @param tileFlag
+	 * @return
+	 */
 	public static boolean forSomeBox(int tileFlag) {
 		return isThis(placeSomeBox, tileFlag);
 	}
 	
+	/**
+	 * There is a place / target for "any" box, you can place
+	 * there "any" box you want. 
+	 * @param tileFlag
+	 * @return
+	 */
 	public static boolean forAnyBox(int tileFlag) {
 		return isThis(placeAnyBox, tileFlag);
 	}

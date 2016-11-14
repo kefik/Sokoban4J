@@ -41,7 +41,7 @@ public class DFSAgent extends ArtificialAgent {
 		
 		searchStartMillis = System.currentTimeMillis();
 		
-		dfs(5); // the number marks how deep we will search (the longest plan we will consider)
+		dfs(15); // the number marks how deep we will search (the longest plan we will consider)
 
 		long searchTime = System.currentTimeMillis() - searchStartMillis;
 		
@@ -116,10 +116,11 @@ public class DFSAgent extends ArtificialAgent {
 	}
 	
 	public static void main(String[] args) {
-		Sokoban.playAgent("../Sokoban4J/levels/level0001.s4jl", new DFSAgent());   //  5 steps required
+		//Sokoban.playAgent("../Sokoban4J/levels/level0001.s4jl", new DFSAgent());   //  5 steps required
 		//Sokoban.playAgent("../Sokoban4J/levels/level0002.1.s4jl", new DFSAgent()); // 13 steps required
 		//Sokoban.playAgent("../Sokoban4J/levels/level0002.2.s4jl", new DFSAgent()); // 25 steps required
-		//Sokoban.playAgent("../Sokoban4J/levels/level0002.3.s4jl", new DFSAgent()); // 37 steps required
+		//Sokoban.playAgent("../Sokoban4J/levels/level0002.3.s4jl", new DFSAgent()); // 37 steps required		
+		Sokoban.playAgentDir("../Sokoban4J/levels", new DFSAgent()); // plays all levels in alphabetic order	
 	}
 
 }
