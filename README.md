@@ -12,7 +12,7 @@ Art used under [CC-BY-SA-4.0](https://creativecommons.org/licenses/by-sa/4.0/leg
 
 1) Two different representation of the game state - see Board for OOP representation used by the simulator and then BoardCompact that should be used for state space search.
 
-2) HumanAgent and ArtificialAgent stubs; ArtificialAgent is using own thread for thinking (does not stuck GUI).
+2) HumanAgent and ArtificialAgent stubs; ArtificialAgent is using own thread for thinking (does not stuck GUI). See DFSAgent from Sokoban4J-Agents project for the example of artificial player.
 
 3) Character is animated; human may use arrows or WSAD to control the avatar.
 
