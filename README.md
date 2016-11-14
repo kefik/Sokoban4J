@@ -24,9 +24,9 @@ Art used under [CC-BY-SA-4.0](https://creativecommons.org/licenses/by-sa/4.0/leg
 
 7) You can define up-to 6 different kinds of "boxes" (yellow, blue, gray, purple, red and black) and their specific target places; brown place (the brown dot) is "generic spot for any kind of box".
 
-8) Mavenized; using some of my other stuff, but that can be easily cut off if you're considering branching.
+8) Mavenized (repo and dependency at the end of the page); uses some of my other stuff, but that can be easily cut off if you're considering branching.
 
-9) Tested with Java 1.8
+9) Tested with Java 1.8, compilable with 1.6 as well.
 
 ------------------------------------------------------------
 
