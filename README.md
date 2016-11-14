@@ -54,7 +54,7 @@ Linux (from bash, assuming you have mvn on path):
 
     mvn package
 
-##MAVEN REPOSITORY
+##MAVEN [REPOSITORY](http://diana.ms.mff.cuni.cz:8081/artifactory)
 
     <repository>
         <id>amis-artifactory</id>
