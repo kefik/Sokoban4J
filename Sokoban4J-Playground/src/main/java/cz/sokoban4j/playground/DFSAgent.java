@@ -4,12 +4,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 import cz.sokoban4j.Sokoban;
+import cz.sokoban4j.agents.ArtificialAgent;
 import cz.sokoban4j.simulation.actions.EDirection;
 import cz.sokoban4j.simulation.actions.compact.CAction;
 import cz.sokoban4j.simulation.actions.compact.CMove;
 import cz.sokoban4j.simulation.actions.compact.CPush;
 import cz.sokoban4j.simulation.board.compact.BoardCompact;
-import cz.sokoban4j.agents.ArtificialAgent;
 
 public class DFSAgent extends ArtificialAgent {
 
@@ -19,6 +19,10 @@ public class DFSAgent extends ArtificialAgent {
 	
 	protected boolean solutionFound;
 	
+	protected int searchedNodes;
+	
+	protected long searchStartMillis;
+	
 	@Override
 	protected List<EDirection> think(BoardCompact board) {
 		// INIT SEARCH
@@ -27,20 +31,41 @@ public class DFSAgent extends ArtificialAgent {
 		this.solutionFound = false;
 		
 		// DEBUG
+		System.out.println();
+		System.out.println("===== BOARD =====");
 		this.board.debugPrint();
+		System.out.println("=================");
 		
 		// FIRE THE SEARCH
-		dfs(10);
 		
-		if (result.size() == 0) {
-			System.out.println("FAILED TO FIND THE SOLUTION...");
-		}
+		searchedNodes = 0;
+		
+		searchStartMillis = System.currentTimeMillis();
+		
+		dfs(5); // the number marks how deep we will search (the longest plan we will consider)
 
+		long searchTime = System.currentTimeMillis() - searchStartMillis;
+		
+		System.out.println("SEARCH TOOK:   " + searchTime + " ms");
+		System.out.println("NODES VISITED: " + searchedNodes);
+		System.out.println("PERFORMANCE:   " + ((double)searchedNodes / (double)searchTime * 1000) + " nodes/sec");
+		System.out.println("SOLUTION:      " + (result.size() == 0 ? "NOT FOUND" : "FOUND in " + result.size() + " steps"));
+		if (result.size() > 0) {
+			System.out.print("STEPS:         ");
+			for (EDirection winDirection : result) {
+				System.out.print(winDirection + " -> ");
+			}
+			System.out.println("BOARD SOLVED!");
+		}
+		System.out.println("=================");
+				
 		return result;
 	}
 
 	private boolean dfs(int level) {
-		if (level <= 0) return false;
+		if (level <= 0) return false; // DEPTH-LIMITED
+		
+		++searchedNodes;
 		
 		// COLLECT POSSIBLE ACTIONS
 		
@@ -70,11 +95,6 @@ public class DFSAgent extends ArtificialAgent {
 			// CHECK VICTORY
 			if (board.isVictory()) {
 				// SOLUTION FOUND!
-				System.out.print("VICTORY[" + result.size() + "]: ");
-				for (EDirection winDirection : result) {
-					System.out.print(winDirection + " -> ");
-				}
-				System.out.println("VICTORY");
 				return true;
 			}
 			
@@ -97,7 +117,10 @@ public class DFSAgent extends ArtificialAgent {
 	}
 	
 	public static void main(String[] args) {
-		Sokoban.playAgent("../Sokoban4J/levels/level0001.s4jl", new DFSAgent());
+		Sokoban.playAgent("../Sokoban4J/levels/level0001.s4jl", new DFSAgent());   //  5 steps required
+		//Sokoban.playAgent("../Sokoban4J/levels/level0002.1.s4jl", new DFSAgent()); // 13 steps required
+		//Sokoban.playAgent("../Sokoban4J/levels/level0002.2.s4jl", new DFSAgent()); // 25 steps required
+		//Sokoban.playAgent("../Sokoban4J/levels/level0002.3.s4jl", new DFSAgent()); // 37 steps required
 	}
 
 }
