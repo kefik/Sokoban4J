@@ -1,5 +1,5 @@
 # Sokoban4J
-Sokoban for Java tailored for casual playing but especially for creating custom Sokoban agents. Fully playable but truly meant for programmers
+Sokoban for Java (using Swing) tailored for casual playing but especially for creating custom Sokoban agents. Fully playable but truly meant for programmers
 for the development of Sokoban artificial players.
 
 Art used under [CC-BY-SA-4.0](https://creativecommons.org/licenses/by-sa/4.0/legalcode) downloaded from [OpenGameArt](http://opengameart.org/content/sokoban-pack) created by 1001.com; thank you!
@@ -27,6 +27,8 @@ Art used under [CC-BY-SA-4.0](https://creativecommons.org/licenses/by-sa/4.0/leg
 8) Mavenized (repo and dependency at the end of the page); uses some of my other stuff, but that can be easily cut off if you're considering branching.
 
 9) Tested with Java 1.8, compilable with 1.6 as well.
+
+10) Using pure Swing, no complexities in there...
 
 ------------------------------------------------------------
 
