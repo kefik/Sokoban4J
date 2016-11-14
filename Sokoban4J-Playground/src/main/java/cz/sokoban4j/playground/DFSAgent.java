@@ -1,7 +1,6 @@
 package cz.sokoban4j.playground;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 
 import cz.sokoban4j.Sokoban;
@@ -10,6 +9,7 @@ import cz.sokoban4j.simulation.actions.compact.CAction;
 import cz.sokoban4j.simulation.actions.compact.CMove;
 import cz.sokoban4j.simulation.actions.compact.CPush;
 import cz.sokoban4j.simulation.board.compact.BoardCompact;
+import cz.sokoban4j.agents.ArtificialAgent;
 
 public class DFSAgent extends ArtificialAgent {
 
