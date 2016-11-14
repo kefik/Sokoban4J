@@ -2,11 +2,11 @@
 Sokoban for Java tailored for casual playing but especially for creating custom Sokoban agents. Fully playable but truly meant for programmers
 for the development of Sokoban artifical players.
 
-Art under CC-BY-SA-4.0 download from [OpenGameArt](http://opengameart.org/content/sokoban-pack) created by 1001.com; thank you!
+Art used under [CC-BY-SA-4.0](https://creativecommons.org/licenses/by-sa/4.0/legalcode) downloaded from [OpenGameArt](http://opengameart.org/content/sokoban-pack) created by 1001.com; thank you!
+
+**LICENSED UNDER** [CC-BY-SA-4.0](https://creativecommons.org/licenses/by-sa/4.0/legalcode) Please retain URL to the [Sokoban4J](https://github.com/kefik/Sokoban4J) in your work.
 
 ![alt tag](https://github.com/kefik/Sokoban4J/raw/master/Sokoban4J/screenshot.png)
-
-LICENSED UNDER: [CC-BY-SA-4.0](https://creativecommons.org/licenses/by-sa/4.0/legalcode)
 
 ## FEATURES
 
@@ -14,19 +14,19 @@ LICENSED UNDER: [CC-BY-SA-4.0](https://creativecommons.org/licenses/by-sa/4.0/le
 
 2) HumanAgent and ArtificialAgent stubs; ArtificalAgent is using own thread for thinking (does not stuck GUI).
 
-3) Possible to run headless simulations (same result as visualized, only faster).
+3) Character is animated; human may use arrows or WSAD to control the avatar.
 
-4) Simple Tree-DFS agent that can solve the simplest level.
+4) Possible to run headless simulations (same result as visualized, only faster).
 
-5) You can define up-to 6 different kinds of "boxes" (yellow, blue, gray, purple, red and black) and their specific target places; brown place (the brown dot) is "generic spot for any kind of box".
+5) Use "Sokoban" static methods for quick startups of your code (both for humans and artificial agents).
 
-6) Character is animated; human may use arrows or WSAD to control the agent.
+6) Simple Tree-DFS agent that can solve the simplest level.
 
-7) Mavenized; using some of my other stuff, but that can be easily cut off if you're considering branching.
+7) You can define up-to 6 different kinds of "boxes" (yellow, blue, gray, purple, red and black) and their specific target places; brown place (the brown dot) is "generic spot for any kind of box".
 
-8) Tested with Java 1.8
+8) Mavenized; using some of my other stuff, but that can be easily cut off if you're considering branching.
 
-9) Use "Sokoban" static methods for quick startups of your code (both for humans and artificial agents).
+9) Tested with Java 1.8
 
 ------------------------------------------------------------
 
@@ -54,3 +54,22 @@ Linux (from bash, assuming you have mvn on path):
 
     mvn package
 
+##MAVEN REPOSITORY
+
+    <repository>
+        <id>amis-artifactory</id>
+        <name>AMIS Artifactory</name>
+        <url>http://diana.ms.mff.cuni.cz:8081/artifactory/repo</url>
+    </repository>
+    
+##MAVEN DEPENDENCY
+
+    <dependency>
+        <groupId>cz.sokoban4j</groupId>
+        <artifactId>sokoban4j</artifactId>
+        <version>0.0.1-SNAPSHOT</version>
+    </dependency>
+
+    
+
+    

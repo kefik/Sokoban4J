@@ -2,6 +2,7 @@ package cz.sokoban4j;
 
 import java.io.File;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 
@@ -179,7 +180,7 @@ public class Sokoban {
 		for (File file : levelsDirectiry.listFiles()) {
 			if (file.getAbsolutePath().endsWith(".s4jl")) levels.add(file);
 		}
-		levels.sort(new Comparator<File>() {
+		Collections.sort(levels, new Comparator<File>() {
 			@Override
 			public int compare(File o1, File o2) {
 				return o1.getName().compareTo(o2.getName());
