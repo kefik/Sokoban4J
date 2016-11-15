@@ -23,6 +23,11 @@ public class Board {
 	
 	public final Tile[][] tiles;
 	
+	/**
+	 * Auto-Filled if initialized via {@link #fromFile(File)}.
+	 */
+	public File level;
+	
 	public PlayerEntity player;
 	
 	public List<BoxEntity> boxes;
@@ -100,7 +105,9 @@ public class Board {
 	 */
 	public static Board fromFile(File file) {
 		try {
-			return fromReader(new FileReader(file));
+			Board result = fromReader(new FileReader(file));
+			result.level = file;
+			return result;
 		} catch (Exception e) {
 			throw new RuntimeException("Failed to load Board from '" + file.getAbsolutePath() + "'.", e);
 		}

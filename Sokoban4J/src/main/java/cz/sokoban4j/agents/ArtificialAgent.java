@@ -15,11 +15,14 @@ public abstract class ArtificialAgent implements IAgent {
 	private ThinkThread thread;
 	
 	private Object mutex = new Object();
+	
+	private RuntimeException agentException;
 
 	@Override
 	public void newLevel() {
 		actions = null;
 		board = null;
+		agentException = null;
 	}
 
 	@Override
@@ -37,6 +40,9 @@ public abstract class ArtificialAgent implements IAgent {
 		
 		// OTHERWISE THINK!
 		synchronized(mutex) {
+			if (agentException != null) {
+				throw agentException;
+			}
 			ensureThinkThread();
 			if (actions == null || actions.size() == 0) {
 				thread.think = true;
@@ -57,27 +63,31 @@ public abstract class ArtificialAgent implements IAgent {
 	}
 	
 	@Override
-	public void die() {
+	public void stop() {
 		stopThinkThread();
 	}
 	
 	private void ensureThinkThread() {
-		if (thread != null && thread.running) return;
-		thread = new ThinkThread();
-		thread.start();
+		synchronized(mutex) {
+			if (thread != null && thread.running) return;
+			thread = new ThinkThread();
+			thread.start();
+		}
 	}
 	
 	private void stopThinkThread() {
-		if (thread != null) {
-			thread.shouldRun = false;
-			thread.interrupt();
-			thread = null;
+		synchronized(mutex) {
+			if (thread != null) {
+				thread.shouldRun = false;
+				thread.interrupt();
+				thread = null;
+			}
 		}
 	}
 	
 	protected class ThinkThread extends Thread {
 		
-		public boolean running = false;
+		public boolean running = true;
 		
 		public boolean shouldRun = true;
 		
@@ -89,7 +99,6 @@ public abstract class ArtificialAgent implements IAgent {
 		
 		@Override
 		public void run() {
-			running = true;
 			try {
 				while (shouldRun && !interrupted()) {
 					while (!think) {
@@ -99,10 +108,17 @@ public abstract class ArtificialAgent implements IAgent {
 							throw new RuntimeException("Interrupted on sleep");
 						}
 					}
-					actions = think(board);
+					List<EDirection> thinkActions = think(board);
 					synchronized(mutex) {
+						if (ArtificialAgent.this.thread == this) {
+							actions = thinkActions;
+						}
 						think = false;
 					}
+				}
+			} catch (Exception e) {
+				synchronized(mutex) {
+					agentException = new RuntimeException("ThinkThread failed.", e);
 				}
 			} finally {
 				running = false;

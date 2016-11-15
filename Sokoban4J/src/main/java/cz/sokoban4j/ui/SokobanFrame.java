@@ -18,6 +18,10 @@ public class SokobanFrame extends JFrame
 	private String level;
 	
 	private int steps = 0;
+	
+	private long timeLeftMillis = -1;
+	
+	private String prevTimeLeftMillisStr = "";
 
 	public SokobanFrame(SokobanView view, String level)
     {		
@@ -46,8 +50,24 @@ public class SokobanFrame extends JFrame
     }
     
     public void updateTitle() {
-    	setTitle("Sokoban4J - " + level + (steps > 0 ? " - Steps[" + steps + "]" : ""));
+    	prevTimeLeftMillisStr = getTimeLeftStr();
+    	setTitle("Sokoban4J - " + level + (steps > 0 ? " - Steps[" + steps + "]" : "") + (timeLeftMillis >= 0 ? " - " + prevTimeLeftMillisStr : ""));
     }
+    
+	public void setTimeLeftMillis(long timeLeftMillis) {
+		this.timeLeftMillis = timeLeftMillis;
+		if (timeLeftMillis < 0) return;
+		if (getTimeLeftStr().equals(prevTimeLeftMillisStr)) return;
+		updateTitle();
+	}
+
+	private String getTimeLeftStr() {
+		long timeLeftSecs = timeLeftMillis / 1000;
+		long timeLeftMins = timeLeftSecs / 60;
+		timeLeftSecs = timeLeftSecs % 60;	
+		long timeLeftMillis = this.timeLeftMillis % 1000;
+		return timeLeftMins + ":" + (timeLeftSecs > 9 ? timeLeftSecs : "0" + timeLeftSecs) + "." + (timeLeftMillis / 100);
+	}
 
 	public void center() {
     	Dimension screen=Toolkit.getDefaultToolkit().getScreenSize();

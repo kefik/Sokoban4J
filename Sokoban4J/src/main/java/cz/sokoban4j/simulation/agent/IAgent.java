@@ -28,8 +28,8 @@ public interface IAgent {
 	public void victory();
 	
 	/**
-	 * Terminates the agent for good.
+	 * Terminate the agent as the game has finished.
 	 */
-	public void die();
+	public void stop();
 	
 }

@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import cz.sokoban4j.Sokoban;
+import cz.sokoban4j.simulation.SokobanResult;
 import cz.sokoban4j.simulation.actions.EDirection;
 import cz.sokoban4j.simulation.actions.compact.CAction;
 import cz.sokoban4j.simulation.actions.compact.CMove;
@@ -30,7 +31,7 @@ public class DFSAgent extends ArtificialAgent {
 		this.solutionFound = false;
 		
 		// DEBUG
-		System.out.println();
+		System.out.println("=================");
 		System.out.println("===== BOARD =====");
 		this.board.debugPrint();
 		System.out.println("=================");
@@ -41,7 +42,7 @@ public class DFSAgent extends ArtificialAgent {
 		
 		searchStartMillis = System.currentTimeMillis();
 		
-		dfs(15); // the number marks how deep we will search (the longest plan we will consider)
+		dfs(5); // the number marks how deep we will search (the longest plan we will consider)
 
 		long searchTime = System.currentTimeMillis() - searchStartMillis;
 		
@@ -57,6 +58,10 @@ public class DFSAgent extends ArtificialAgent {
 			System.out.println("BOARD SOLVED!");
 		}
 		System.out.println("=================");
+		
+		if (result.size() == 0) {
+			throw new RuntimeException("FAILED TO SOLVE THE BOARD...");
+		}
 				
 		return result;
 	}
@@ -114,13 +119,22 @@ public class DFSAgent extends ArtificialAgent {
 		
 		return false;
 	}
-	
+		
 	public static void main(String[] args) {
-		//Sokoban.playAgent("../Sokoban4J/levels/level0001.s4jl", new DFSAgent());   //  5 steps required
-		//Sokoban.playAgent("../Sokoban4J/levels/level0002.1.s4jl", new DFSAgent()); // 13 steps required
-		//Sokoban.playAgent("../Sokoban4J/levels/level0002.2.s4jl", new DFSAgent()); // 25 steps required
-		//Sokoban.playAgent("../Sokoban4J/levels/level0002.3.s4jl", new DFSAgent()); // 37 steps required		
-		Sokoban.playAgentDir("../Sokoban4J/levels", new DFSAgent()); // plays all levels in alphabetic order	
+		SokobanResult result;
+		
+		// VISUALIZED GAME
+		result = Sokoban.playAgent("../Sokoban4J/levels/level0001.s4jl", new DFSAgent());   //  5 steps required
+		//result = Sokoban.playAgent("../Sokoban4J/levels/level0002.1.s4jl", new DFSAgent()); // 13 steps required
+		//result = Sokoban.playAgent("../Sokoban4J/levels/level0002.2.s4jl", new DFSAgent()); // 25 steps required
+		//result = Sokoban.playAgent("../Sokoban4J/levels/level0002.3.s4jl", new DFSAgent()); // 37 steps required
+		
+		// HEADLESS == SIMULATED-ONLY GAME
+		//result = Sokoban.simAgent("../Sokoban4J/levels/level0001.s4jl", new DFSAgent());
+		
+		System.out.println("DFSAgent result: " + result.getResult());
 	}
+
+	
 
 }

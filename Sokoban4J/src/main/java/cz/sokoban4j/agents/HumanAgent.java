@@ -29,7 +29,7 @@ public class HumanAgent implements IAgent, KeyListener {
 	}
 	
 	@Override
-	public void die() {
+	public void stop() {
 	}
 	
 	@Override

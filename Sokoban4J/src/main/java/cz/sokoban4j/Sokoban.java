@@ -6,9 +6,13 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 
+import javax.swing.JComponent;
 import javax.swing.SwingUtilities;
 
+import cz.sokoban4j.ISokobanGame.SokobanGameState;
 import cz.sokoban4j.agents.HumanAgent;
+import cz.sokoban4j.simulation.SokobanResult;
+import cz.sokoban4j.simulation.SokobanResult.SokobanResultType;
 import cz.sokoban4j.simulation.agent.IAgent;
 import cz.sokoban4j.simulation.board.oop.Board;
 import cz.sokoban4j.ui.SokobanFrame;
@@ -18,30 +22,24 @@ import cz.sokoban4j.ui.atlas.SpriteAtlas;
 
 public class Sokoban {
 	
-	private File levelFile;
+	private List<SokobanResult> results = new ArrayList<SokobanResult>();
+	
+	private SokobanConfig config;
+	
 	private SpriteAtlas sprites;	
 	private Board board;
 	private UIBoard uiBoard;
 	private SokobanView view;
-	private SokobanFrame frame;
-	private IAgent agent;
-	
-	private SokobanSim simulation;
-	private SokobanVis visualization;
+	private SokobanFrame frame;	
+	private ISokobanGame game;
 	
 	/**
-	 * Resets everything except {@link #sprites} and {@link #agent}.
+	 * Resets everything except {@link #sprites} and {@link #results}.
 	 */
 	public void reset() {
-		if (visualization != null) {
-			visualization.shouldRun = false;
-			visualization.interrupt();
-			visualization = null;
-		}
-		if (simulation != null) {
-			simulation.shouldRun = false;
-			simulation.interrupt();
-			simulation = null;
+		if (game != null) {
+			game.stopGame();
+			game = null;
 		}
 		if (frame != null) {
 			final SokobanFrame frameToDispose = frame; 
@@ -58,64 +56,129 @@ public class Sokoban {
 		view = null;
 		uiBoard = null;
 		board = null;
-		levelFile = null;
+		config = null;
 	}
 	
-	public File getLevelFile() {
-		return levelFile;
+	/**
+	 * Resets everything including {@link #sprites} and {@link #results}.
+	 */
+	public void resetAll() {
+		reset();
+		sprites = null;
+	}
+	
+	/**
+	 * Current config we're using for the {@link #getGame()}.
+	 * @return
+	 */
+	public SokobanConfig getConfig() {
+		return config;
 	}
 
+	/**
+	 * Sprites we're currently using if any.
+	 * @return
+	 */
 	public SpriteAtlas getSprites() {
 		return sprites;
 	}
 
+	/**
+	 * Board we're currently using according to {@link #getConfig()} if any.
+	 * @return
+	 */
 	public Board getBoard() {
 		return board;
 	}
 
+	/**
+	 * UIBoard we're currently using for rendering of {@link #getBoard()} if any.
+	 * @return
+	 */
 	public UIBoard getUiBoard() {
 		return uiBoard;
 	}
 
+	/**
+	 * {@link JComponent} visualizing {@link #getUiBoard()}  if any.
+	 * @return
+	 */
 	public SokobanView getView() {
 		return view;
 	}
 
+	/**
+	 * Current {@link SokobanGame} if any.
+	 * @return
+	 */
 	public SokobanFrame getFrame() {
 		return frame;
 	}
 	
-	public SokobanSim getSimulation() {
-		return simulation;
-	}
-
-	public SokobanVis getVisualization() {
-		return visualization;
-	}
-
-	public void setLevelFile(File levelFile) {
-		this.levelFile = levelFile;
+	/**
+	 * Current game that is running if any.
+	 * @return
+	 */
+	public ISokobanGame getGame() {
+		return game;
 	}
 	
-	public SpriteAtlas initSprites() {
+	/**
+	 * Results this instance have aggregated so far.
+	 * @return
+	 */
+	public List<SokobanResult> getResults() {
+		return results;
+	}
+	
+	/**
+	 * Returns first result from {@link #getResults()} if any.
+	 * @return
+	 */
+	public SokobanResult getResult() {
+		if (results == null || results.size() == 0) return null;
+		return results.get(0);
+	}
+	
+	/**
+	 * Returns last result from {@link #getResults()} if any.
+	 * @return
+	 */
+	public SokobanResult getLastResult() {
+		if (results == null || results.size() == 0) return null;
+		return results.get(results.size()-1);
+	}
+	
+	private void validateConfig() {
+		if (config == null) throw new RuntimeException("Config is null! Have you forget to setConfig()?");
+		config.validate();
+	}
+	
+	private void setConfig(SokobanConfig config) {
+		if (this.config != null) {
+			throw new RuntimeException("Config already set! You have to reset() first!");
+		}
+		this.config = config;
+	}
+	
+	private SpriteAtlas initSprites() {
 		if (sprites != null) return sprites;
 		SpriteAtlas result = new SpriteAtlas();
 		result.load();
 		return sprites = result;
 	}
 	
-	public Board initBoard() {
+	private Board initBoard() {
 		if (board != null) return board;
-		if (levelFile == null) throw new RuntimeException("levelFile not specified! Did you forget to call Sokoban.setLevelFile()?");
 		// PREREQ
-		initSprites();
+		validateConfig();		
 		// IMPL
-		Board result = Board.fromFile(levelFile);
+		Board result = Board.fromFile(config.level);
 		result.validate();
 		return board = result;
 	}
 	
-	public UIBoard initUIBoard() {
+	private UIBoard initUIBoard() {
 		if (uiBoard != null) return uiBoard;
 		// PREREQ
 		initSprites();
@@ -126,7 +189,7 @@ public class Sokoban {
 		return uiBoard = result;
 	}
 	
-	public SokobanView initView() {		
+	private SokobanView initView() {		
 		if (view != null) return view;
 		// PREREQ
 		initUIBoard();
@@ -134,32 +197,100 @@ public class Sokoban {
 		return view = new SokobanView(board, sprites, uiBoard);
 	}
 	
-	public SokobanFrame initFrame() {
+	private SokobanFrame initFrame() {
 		if (frame != null) return frame;
 		// PREREQ
 		initView();
 		// IMPL
-		return frame = new SokobanFrame(view, levelFile.getName());
+		return frame = new SokobanFrame(view, config.level.getName());
 	}
 	
-	public void setAgent(IAgent agent) {
-		this.agent = agent;
+	/**
+	 * Runs SOKOBAN according to the config.
+	 * 
+	 * Result of the game or games is going to be stored within {@link #getResults()}.
+	 * Use {@link #getResults()}, {@link #getResult()} and {@link #getLastResult()} to obtain it/them.
+	 * 
+	 * @param config
+	 * @return
+	 */
+	public void run(SokobanConfig config) {
+		if (game != null) {
+			throw new RuntimeException("Cannot run game as the game instance already exists; did you forget to reset()?");
+		}
+		
+		setConfig(config);
+		validateConfig();
+		
+		if (config.level.isDirectory()) {
+			runDir();			
+		} else {
+			runOne();			
+		}
 	}
 	
-	public void runSimulation() {
-		if (agent == null) throw new RuntimeException("'agent' cannot be null! Did you forget to call setAgent() first?");
-		// PREREQ
+	private void runDir() {
+		// READ LEVELS
+		List<File> levels = new ArrayList<File>();		
+		SokobanConfig config = this.config;
+		File levelDir = config.level;
+		try {
+			for (File file : config.level.listFiles()) {
+				if (file.getAbsolutePath().endsWith(".s4jl")) levels.add(file);
+			}
+			Collections.sort(levels, new Comparator<File>() {
+				@Override
+				public int compare(File o1, File o2) {
+					return o1.getName().compareTo(o2.getName());
+				}			
+			});
+			
+			// PLAY THROUGH LEVELS
+			for (File level : levels) {
+				// BIND LEVEL
+				this.config = config;
+				this.config.level = level;
+				// RUN GAME
+				runOne();
+				// RESET INSTANCE (does not reset this.results)
+				reset();
+				// WAIT A BIT BETWEEN GAMES
+				try {
+					Thread.sleep(50);
+				} catch (InterruptedException e) {
+					throw new RuntimeException("Interrupted on Thread.sleep(100) in between levels.");
+				}
+				if (getLastResult() == null || getLastResult().getResult() != SokobanResultType.VICTORY) {
+					// AGENT FAILED TO PASS THE LEVEL...
+					break;
+				}
+			}	
+		} finally {
+			if (config != null) config.level = levelDir;
+		}
+	}
+	
+	private void runOne() {
+		if (config.visualization) {
+			runVisualization();
+		} else {
+			runSimulation();
+		}		
+	}
+		
+	private void runSimulation() {
+		// PREREQS
+		validateConfig();
 		initBoard();		
 		// IMPL
 		
 		// START GAME W/O VISUALIZATION
-		simulation = new SokobanSim(board, agent);
-		simulation.start();
+		runGame(new SokobanSim(config.id, board, config.agent, config.timeoutMillis));		
 	}
 	
-	public void runVisualization() {
-		if (agent == null) throw new RuntimeException("'agent' cannot be null! Did you forget to call setAgent() first?");
-		// PREREQ
+	private void runVisualization() {
+		// PREREQS
+		validateConfig();
 		initFrame();
 		// IMPL
 		
@@ -168,107 +299,199 @@ public class Sokoban {
 		frame.setVisible(true);
 		
 		// START GAME WITH VISUALIZATION
-		visualization = new SokobanVis(board, agent, sprites, uiBoard, view, frame);
-		visualization.start();
+		runGame(new SokobanVis(config.id, board, config.agent, sprites, uiBoard, view, frame, config.timeoutMillis));
 	}
 	
-	public void runVisualization(File levelsDirectiry) {
-		if (agent == null) throw new RuntimeException("'agent' cannot be null! Did you forget to call setAgent() first?");
-
-		// READ LEVELS
-		List<File> levels = new ArrayList<File>();
-		for (File file : levelsDirectiry.listFiles()) {
-			if (file.getAbsolutePath().endsWith(".s4jl")) levels.add(file);
+	private void runGame(ISokobanGame game) {
+		this.game = game;
+		game.startGame();
+		try {
+			game.waitFinish();
+		} catch (InterruptedException e) {
+			throw new RuntimeException("Interrupted on game.waitFinish()");
 		}
-		Collections.sort(levels, new Comparator<File>() {
-			@Override
-			public int compare(File o1, File o2) {
-				return o1.getName().compareTo(o2.getName());
-			}			
-		});
-		
-		// PLAY THROUGH LEVELS
-		for (File level : levels) {
-			// BIND LEVEL
-			setLevelFile(level);
-			// INIT FRAME
-			initFrame();
-			// OPEN FRAME
-			SwingUtilities.invokeLater(new Runnable() {
-				@Override
-				public void run() {
-					view.render();
-					frame.setVisible(true);
-				}
-			});
-			// START GAME WITH VISUALIZATION
-			visualization = new SokobanVis(board, agent, sprites, uiBoard, view, frame);
-			visualization.start();
-			// WAIT FOR THE VICTORY
-			try {
-				visualization.join();				
-			} catch (InterruptedException e) {
-				throw new RuntimeException("Interrupted while visualization.join()");
+		if (game.getResult() != null) {
+			SokobanResult result = game.getResult();
+			results.add(result);
+			if (result.getResult() == SokobanResultType.SIMULATION_EXCEPTION) {
+				throw new RuntimeException("Game failed.", result.getExecption());
 			}
-			reset();
-			try {
-				Thread.sleep(100);
-			} catch (InterruptedException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-		}		
+		}	
 	}
 	
 	// ================================
 	// STATIC METHODS FOR EASY START-UP 
 	// ================================
 	
-	public static void simAgent(String levelFilePath, IAgent agent) {
-		File levelFile = new File(levelFilePath);
-		if (!levelFile.exists() || !levelFile.isFile()) throw new RuntimeException("File does not exist: " + levelFile.getAbsolutePath() + "\nResolved from: " + levelFilePath);
+	// --------------------
+	// HEADLESS SIMULATIONS
+	// --------------------
+	
+	/**
+	 * 'agent' will play one level from 'levelPath'.
+	 * @param levelFilePath
+	 * @param agent
+	 * @return
+	 */
+	public static SokobanResult simAgent(String levelFilePath, IAgent agent) {
+		// CREATE CONFIG
+		SokobanConfig config = new SokobanConfig();	
+		config.agent = agent;
+		config.level = new File(levelFilePath);
+		if (!config.level.exists() || !config.level.isFile()) throw new RuntimeException("Not a level file at '" + config.level.getAbsolutePath() + "'\nResolved from: " + levelFilePath);
+		config.visualization = false;
 		
 		Sokoban sokoban = new Sokoban();
-
-		sokoban.setLevelFile(levelFile);
-		sokoban.setAgent(agent);
+		sokoban.run(config);
 		
-		sokoban.runSimulation();
+		return sokoban.getResult();
 	}
-
 	
-	public static void playAgent(String levelFilePath, IAgent agent) {
-		File levelFile = new File(levelFilePath);
-		if (!levelFile.exists() || !levelFile.isFile()) throw new RuntimeException("File does not exist: " + levelFile.getAbsolutePath() + "\nResolved from: " + levelFilePath);
+	public static List<SokobanResult> simAgentDir(String levelDirPath, IAgent agent) {
+		// CREATE CONFIG
+		SokobanConfig config = new SokobanConfig();	
+		config.agent = agent;
+		config.level = new File(levelDirPath);
+		if (!config.level.exists() || !config.level.isDirectory()) throw new RuntimeException("Not a directory at '" + config.level.getAbsolutePath() + "'\nResolved from: " + levelDirPath);
+		config.visualization = false;
 		
 		Sokoban sokoban = new Sokoban();
-
-		sokoban.setLevelFile(levelFile);
-		sokoban.setAgent(agent);
+		sokoban.run(config);
 		
-		sokoban.runVisualization();
+		return sokoban.getResults();
 	}
 	
-	public static void playAgentDir(String levelDirPath, IAgent agent) {
-		File levelDir = new File(levelDirPath);
-		if (!levelDir.exists() || !levelDir.isDirectory()) throw new RuntimeException("Directory does not exist: " + levelDir.getAbsolutePath() + "\nResolved from: " + levelDirPath);
+	public static SokobanResult simAgent(String id, String levelFilePath, int timeoutMillis, IAgent agent) {
+		// CREATE CONFIG
+		SokobanConfig config = new SokobanConfig();
+		config.id = id;
+		config.agent = agent;
+		config.level = new File(levelFilePath);
+		if (!config.level.exists() || !config.level.isFile()) throw new RuntimeException("Not a level file at '" + config.level.getAbsolutePath() + "'\nResolved from: " + levelFilePath);
+		config.visualization = false;
+		config.timeoutMillis = timeoutMillis;
+		
 		Sokoban sokoban = new Sokoban();
-
-		sokoban.setAgent(agent);
+		sokoban.run(config);
 		
-		sokoban.runVisualization(levelDir);
+		return sokoban.getResult();
 	}
 	
-	public static void playHuman(String levelFilePath) {
-		playAgent(levelFilePath, new HumanAgent());
+	public static List<SokobanResult> simAgentDir(String id, String levelDirPath, int timeoutMillisPerLevel, IAgent agent) {
+		// CREATE CONFIG
+		SokobanConfig config = new SokobanConfig();
+		config.id = id;
+		config.agent = agent;
+		config.level = new File(levelDirPath);
+		if (!config.level.exists() || !config.level.isDirectory()) throw new RuntimeException("Not a directory at '" + config.level.getAbsolutePath() + "'\nResolved from: " + levelDirPath);
+		config.visualization = false;
+		config.timeoutMillis = timeoutMillisPerLevel;
+		
+		Sokoban sokoban = new Sokoban();
+		sokoban.run(config);
+		
+		return sokoban.getResults();
 	}
 	
-	public static void playHumanDir(String levelDirPath) {
-		playAgentDir(levelDirPath, new HumanAgent());
+	// ----------------------
+	// VISUALIZED SIMULATIONS
+	// ----------------------
+	
+	public static SokobanResult playAgent(String levelFilePath, IAgent agent) {
+		// CREATE CONFIG
+		SokobanConfig config = new SokobanConfig();	
+		config.agent = agent;
+		config.level = new File(levelFilePath);
+		if (!config.level.exists() || !config.level.isFile()) throw new RuntimeException("Not a level file at '" + config.level.getAbsolutePath() + "'\nResolved from: " + levelFilePath);
+		config.visualization = true;
+		
+		Sokoban sokoban = new Sokoban();
+		sokoban.run(config);
+		
+		return sokoban.getResult();
 	}
+	
+	public static List<SokobanResult> playAgentDir(String levelDirPath, IAgent agent) {
+		// CREATE CONFIG
+		SokobanConfig config = new SokobanConfig();	
+		config.agent = agent;
+		config.level = new File(levelDirPath);
+		if (!config.level.exists() || !config.level.isDirectory()) throw new RuntimeException("Not a directory at '" + config.level.getAbsolutePath() + "'\nResolved from: " + levelDirPath);
+		config.visualization = true;
+		
+		Sokoban sokoban = new Sokoban();
+		sokoban.run(config);
+		
+		return sokoban.getResults();
+	}
+	
+	public static SokobanResult playAgent(String id, String levelFilePath, IAgent agent, long timeoutMillis) {
+		// CREATE CONFIG
+		SokobanConfig config = new SokobanConfig();	
+		config.id = id;
+		config.agent = agent;
+		config.level = new File(levelFilePath);
+		if (!config.level.exists() || !config.level.isFile()) throw new RuntimeException("Not a level file at '" + config.level.getAbsolutePath() + "'\nResolved from: " + levelFilePath);
+		config.visualization = true;
+		config.timeoutMillis = timeoutMillis;
+		
+		Sokoban sokoban = new Sokoban();
+		sokoban.run(config);
+		
+		return sokoban.getResult();
+	}
+	
+	public static List<SokobanResult> playAgentDir(String id, String levelDirPath, IAgent agent, long timeoutMillis) {
+		// CREATE CONFIG
+		SokobanConfig config = new SokobanConfig();	
+		config.id = id;
+		config.agent = agent;
+		config.level = new File(levelDirPath);
+		if (!config.level.exists() || !config.level.isDirectory()) throw new RuntimeException("Not a directory at '" + config.level.getAbsolutePath() + "'\nResolved from: " + levelDirPath);
+		config.visualization = true;
+		config.timeoutMillis = timeoutMillis;
+		
+		Sokoban sokoban = new Sokoban();
+		sokoban.run(config);
+		
+		return sokoban.getResults();
+	}
+	
+	// ----------------------
+	// HUMAN PLAYING THE GAME
+	// ----------------------
+	
+	public static SokobanResult playHuman(String levelFilePath) {
+		return playAgent(levelFilePath, new HumanAgent());
+	}
+	
+	public static SokobanResult playHuman(String levelFilePath, long timeoutMillis) {
+		return playAgent("SokobanHuman", levelFilePath, new HumanAgent(), timeoutMillis);
+	}
+	
+	public static List<SokobanResult> playHumanDir(String levelDirPath) {
+		return playAgentDir(levelDirPath, new HumanAgent());
+	}
+	
+	public static List<SokobanResult> playHumanDir(String levelDirPath, long timeoutMillisPerLevel) {
+		return playAgentDir("SokobanHuman", levelDirPath, new HumanAgent(), timeoutMillisPerLevel);
+	}
+	
+	// ===========
+	// MAIN METHOD
+	// ===========
 	
 	public static void main(String[] args) {
+		// PLAY SINGLE LEVEL
+		
+		//playHuman("levels/level0001.s4jl");
+		//playHuman("levels/level0002.1.s4jl");
+		//playHuman("levels/level0002.2.s4jl");
+		//playHuman("levels/level0002.3.s4jl");
 		//playHuman("levels/level0003.s4jl");
+		
+		// PLAY ALL LEVELS
+		
 		playHumanDir("levels");
 	}
 	
