@@ -9,9 +9,16 @@ import cz.sokoban4j.simulation.actions.EDirection;
 import cz.sokoban4j.simulation.actions.compact.CAction;
 import cz.sokoban4j.simulation.actions.compact.CMove;
 import cz.sokoban4j.simulation.actions.compact.CPush;
+import cz.sokoban4j.simulation.actions.oop.EActionType;
 import cz.sokoban4j.simulation.board.compact.BoardCompact;
 
-public class DFSAgent extends ArtificialAgent {
+/**
+ * Trer-DFS update that forbids the search to immediately return to the previous state effectively cutting at least 1/4 of all "move" search nodes;
+ * very effective in "corridors" as it prevents the agent to return and forces it to mvoe through the whole corridor first.
+ * 
+ * @author Jimmy
+ */
+public class DFS2Agent extends ArtificialAgent {
 
 	protected List<EDirection> result;
 	
@@ -42,7 +49,7 @@ public class DFSAgent extends ArtificialAgent {
 		
 		searchStartMillis = System.currentTimeMillis();
 		
-		dfs(5); // the number marks how deep we will search (the longest plan we will consider)
+		dfs(37, EDirection.NONE); // the number marks how deep we will search (the longest plan we will consider)
 
 		long searchTime = System.currentTimeMillis() - searchStartMillis;
 		
@@ -66,7 +73,7 @@ public class DFSAgent extends ArtificialAgent {
 		return result;
 	}
 
-	private boolean dfs(int level) {
+	private boolean dfs(int level, EDirection previousMove) {
 		if (level <= 0) return false; // DEPTH-LIMITED
 		
 		++searchedNodes;
@@ -75,16 +82,22 @@ public class DFSAgent extends ArtificialAgent {
 		
 		List<CAction> actions = new ArrayList<CAction>(4);
 		
-		for (CMove move : CMove.getActions()) {
-			if (move.isPossible(board)) {
-				actions.add(move);
-			}
-		}
+		// TRY "PUSH" FIRST ... that's what we are here for, right?
 		for (CPush push : CPush.getActions()) {
 			if (push.isPossible(board)) {
 				actions.add(push);
 			}
 		}
+		for (CMove move : CMove.getActions()) {
+			if (move.getDirection() == previousMove.opposite()) {
+				// DO NOT CONSIDER THE ACTION THE MOVES BACK
+				continue;
+			}
+			if (move.isPossible(board)) {
+				actions.add(move);
+			}
+		}
+		
 		
 		// TRY ACTIONS
 		for (CAction action : actions) {
@@ -103,7 +116,7 @@ public class DFSAgent extends ArtificialAgent {
 			}
 			
 			// CONTINUE THE SEARCH
-			if (dfs(level-1)) {
+			if (dfs(level-1, action.getType() == EActionType.MOVE ? action.getDirection() : EDirection.NONE)) {
 				// SOLUTION FOUND!
 				return true;
 			}
@@ -124,15 +137,22 @@ public class DFSAgent extends ArtificialAgent {
 		SokobanResult result;
 		
 		// VISUALIZED GAME
-		result = Sokoban.playAgent("../Sokoban4J/levels/level0001.s4jl", new DFSAgent());   //  5 steps required
-		//result = Sokoban.playAgent("../Sokoban4J/levels/level0002.1.s4jl", new DFSAgent()); // 13 steps required
-		//result = Sokoban.playAgent("../Sokoban4J/levels/level0002.2.s4jl", new DFSAgent()); // 25 steps required
-		//result = Sokoban.playAgent("../Sokoban4J/levels/level0002.3.s4jl", new DFSAgent()); // 37 steps required
+		
+		// WE CAN SOLVE FOLLOWING 4 LEVELS WITH THIS IMPLEMENTATION
+		//result = Sokoban.playAgent("../Sokoban4J/levels/level0001.s4jl", new DFS2Agent());   //  5 steps required
+		//result = Sokoban.playAgent("../Sokoban4J/levels/level0002.1.s4jl", new DFS2Agent()); // 13 steps required
+		//result = Sokoban.playAgent("../Sokoban4J/levels/level0002.2.s4jl", new DFS2Agent()); // 25 steps required
+		result = Sokoban.playAgent("../Sokoban4J/levels/level0002.3.s4jl", new DFS2Agent()); // 37 steps required
+		
+		// THIS LEVEL IS BIT TOO MUCH
+		//result = Sokoban.playAgent("../Sokoban4J/levels/level0003.s4jl", new DFS2Agent()); // 66 steps required
 		
 		// HEADLESS == SIMULATED-ONLY GAME
-		//result = Sokoban.simAgent("../Sokoban4J/levels/level0001.s4jl", new DFSAgent());
+		//result = Sokoban.simAgent("../Sokoban4J/levels/level0001.s4jl", new DFS2Agent());
 		
-		System.out.println("DFSAgent result: " + result.getResult());
+		System.out.println("DFS2Agent result: " + result.getResult());
+		
+		System.exit(0);
 	}
 
 	

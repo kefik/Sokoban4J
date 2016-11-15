@@ -1,10 +1,9 @@
-package cz.sokoban4j.playground;
+package cz.sokoban4j.agents;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import cz.sokoban4j.Sokoban;
-import cz.sokoban4j.agents.ArtificialAgent;
 import cz.sokoban4j.simulation.SokobanResult;
 import cz.sokoban4j.simulation.actions.EDirection;
 import cz.sokoban4j.simulation.actions.compact.CAction;
@@ -13,10 +12,10 @@ import cz.sokoban4j.simulation.actions.compact.CPush;
 import cz.sokoban4j.simulation.board.compact.BoardCompact;
 
 /**
- * The simplest Tree-DFS agent. Feel free to fool around here! You're in the PLAYGROUND after all!
+ * The simplest Tree-DFS implementation
  * @author Jimmy
  */
-public class DFSAgent extends ArtificialAgent {
+public class DFS1Agent extends ArtificialAgent {
 
 	protected List<EDirection> result;
 	
@@ -34,6 +33,7 @@ public class DFSAgent extends ArtificialAgent {
 		this.board = board;
 		this.result = new ArrayList<EDirection>();
 		this.solutionFound = false;
+		this.searchedNodes = 0;		
 		
 		// DEBUG
 		System.out.println("=================");
@@ -43,11 +43,9 @@ public class DFSAgent extends ArtificialAgent {
 		
 		// FIRE THE SEARCH
 		
-		searchedNodes = 0;
-		
 		searchStartMillis = System.currentTimeMillis();
 		
-		dfs(5); // the number marks how deep we will search (the longest plan we will consider)
+		dfs(13); // the number marks how deep we will search (the longest plan we will consider)
 
 		long searchTime = System.currentTimeMillis() - searchStartMillis;
 		
@@ -80,6 +78,7 @@ public class DFSAgent extends ArtificialAgent {
 		
 		List<CAction> actions = new ArrayList<CAction>(4);
 		
+		// TODO: try to swap CMoves and CPushes => action ordering matters!
 		for (CMove move : CMove.getActions()) {
 			if (move.isPossible(board)) {
 				actions.add(move);
@@ -129,15 +128,19 @@ public class DFSAgent extends ArtificialAgent {
 		SokobanResult result;
 		
 		// VISUALIZED GAME
-		result = Sokoban.playAgent("../Sokoban4J/levels/level0001.s4jl", new DFSAgent());   //  5 steps required
-		//result = Sokoban.playAgent("../Sokoban4J/levels/level0002.1.s4jl", new DFSAgent()); // 13 steps required
-		//result = Sokoban.playAgent("../Sokoban4J/levels/level0002.2.s4jl", new DFSAgent()); // 25 steps required
-		//result = Sokoban.playAgent("../Sokoban4J/levels/level0002.3.s4jl", new DFSAgent()); // 37 steps required
+		
+		// WE CAN SOLVE FOLLOWING TWO LEVELS
+		result = Sokoban.playAgent("../Sokoban4J/levels/level0001.s4jl", new DFS1Agent());   //  5 steps required
+		//result = Sokoban.playAgent("../Sokoban4J/levels/level0002.1.s4jl", new DFS1Agent()); // 13 steps required
+		
+		// THESE ARE OO MUCH FOR THIS IMPLEMENTATION
+		//result = Sokoban.playAgent("../Sokoban4J/levels/level0002.2.s4jl", new DFS1Agent()); // 25 steps required
+		//result = Sokoban.playAgent("../Sokoban4J/levels/level0002.3.s4jl", new DFS1Agent()); // 37 steps required
 		
 		// HEADLESS == SIMULATED-ONLY GAME
-		//result = Sokoban.simAgent("../Sokoban4J/levels/level0001.s4jl", new DFSAgent());
+		//result = Sokoban.simAgent("../Sokoban4J/levels/level0001.s4jl", new DFS1Agent());
 		
-		System.out.println("DFSAgent result: " + result.getResult());
+		System.out.println("DFS1Agent result: " + result.getResult());
 		
 		System.exit(0);
 	}
