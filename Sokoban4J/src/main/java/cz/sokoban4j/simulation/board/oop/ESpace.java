@@ -2,7 +2,7 @@ package cz.sokoban4j.simulation.board.oop;
 
 public enum ESpace {
 	
-	FREE(true,  1, " .o123456ABCDEFPOabcdefp$@", "GroundGravel_Sand.png"),
+	FREE(true,  1, " .o123456ABCDEFPOabcdefp$@*", "GroundGravel_Sand.png"),
 	WALL(false, 2, "#", "Wall_Brown.png");
 	
 	private final int flag;

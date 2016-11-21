@@ -128,6 +128,9 @@ public class Board {
 			String[] parts;
 			
 			line = reader.readLine();
+			
+			while (line.startsWith(";")) line = reader.readLine();
+			
 			parts = line.split(",");
 			
 			int width = Integer.parseInt(parts[0]);

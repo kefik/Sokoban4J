@@ -46,6 +46,11 @@ public class UIBoard extends BaseRenderer {
 				} else
 				if (board.tile(x, y).isSomeBox()) {
 					UIBox box = new UIBox(board.tile(x, y).entity, sprites);
+					if (board.tile(x, y).forBox(box.entity.getType())) {
+						box.inPlace();
+					} else {
+						box.outOfPlace();
+					}
 					entity2boxes.put(board.tile(x, y).entity, box);
 					boxes2entity.put(box, board.tile(x, y).entity);
 				}

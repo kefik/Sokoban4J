@@ -304,16 +304,16 @@ public class MTDFS2Agent extends ArtificialAgent {
 		// VISUALIZED GAME
 		
 		// WE CAN SOLVE FOLLOWING 4 LEVELS
-		//result = Sokoban.playAgent("../Sokoban4J/levels/level0001.s4jl", new MTDFS2Agent());   //  5 steps required
-		//result = Sokoban.playAgent("../Sokoban4J/levels/level0002.1.s4jl", new MTDFS2Agent()); // 13 steps required
-		//result = Sokoban.playAgent("../Sokoban4J/levels/level0002.2.s4jl", new MTDFS2Agent()); // 25 steps required
-		result = Sokoban.playAgent("../Sokoban4J/levels/level0002.3.s4jl", new MTDFS2Agent()); // 37 steps required
+		//result = Sokoban.playAgent("../Sokoban4J/levels/Easy/level0001.s4jl", new MTDFS2Agent());   //  5 steps required
+		//result = Sokoban.playAgent("../Sokoban4J/levels/Easy/level0002.1.s4jl", new MTDFS2Agent()); // 13 steps required
+		//result = Sokoban.playAgent("../Sokoban4J/levels/Easy/level0002.2.s4jl", new MTDFS2Agent()); // 25 steps required
+		result = Sokoban.playAgent("../Sokoban4J/levels/Easy/level0002.3.s4jl", new MTDFS2Agent()); // 37 steps required
 		
 		// THIS LEVEL IS BIT TOO MUCH
-		//result = Sokoban.playAgent("../Sokoban4J/levels/level0003.s4jl", new MTDFS2Agent()); // 66 steps required
+		//result = Sokoban.playAgent("../Sokoban4J/levels/Easy/level0003.s4jl", new MTDFS2Agent()); // 66 steps required
 		
 		// HEADLESS == SIMULATED-ONLY GAME
-		//result = Sokoban.simAgent("../Sokoban4J/levels/level0001.s4jl", new MTDFS2Agent());
+		//result = Sokoban.simAgent("../Sokoban4J/levels/Easy/level0001.s4jl", new MTDFS2Agent());
 		
 		System.out.println("MTDFS2Agent result: " + result.getResult());
 		

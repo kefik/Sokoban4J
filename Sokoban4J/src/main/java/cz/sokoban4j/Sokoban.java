@@ -484,15 +484,22 @@ public class Sokoban {
 	public static void main(String[] args) {
 		// PLAY SINGLE LEVEL
 		
-		//playHuman("levels/level0001.s4jl");
-		//playHuman("levels/level0002.1.s4jl");
-		//playHuman("levels/level0002.2.s4jl");
-		//playHuman("levels/level0002.3.s4jl");
-		//playHuman("levels/level0003.s4jl");
+		//playHuman("levels/Easy/level0001.s4jl");
+		//playHuman("levels/Easy/level0002.1.s4jl");
+		//playHuman("levels/Easy/level0002.2.s4jl");
+		//playHuman("levels/Easy/level0002.3.s4jl");
+		//playHuman("levels/Easy/level0003.s4jl");
+		//playHuman("levels/Easy/level0004.s4jl");
+		//playHuman("levels/Easy/level0005.s4jl");
+		//playHuman("levels/Easy/level0006.s4jl");
+		//playHuman("levels/Easy/level0007.s4jl");
+		//playHuman("levels/Easy/level0008.s4jl");
+		//playHuman("levels/Easy/level0009.s4jl");
 		
 		// PLAY ALL LEVELS
 		
-		playHumanDir("levels");
+		//playHumanDir("levels/Easy");
+		playHumanDir("levels/Blazz");
 	}
 	
 }
