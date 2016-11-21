@@ -32,6 +32,8 @@ Art used under [CC-BY-SA-4.0](https://creativecommons.org/licenses/by-sa/4.0/leg
 
 11) Introductory tips for creating Sokoban artificial player in this [report](http://pavel.klavik.cz/projekty/solver/solver.pdf) (courtesy of Pavel Klavík).
 
+12) Level format fully compatible with [sokoban.de](http://sokobano.de/); some level packages converted from [sokobano.de/levels](http://sokobano.de/en/levels.php); use Sok2S4jl class to convert some more!
+
 ------------------------------------------------------------
 
 ![alt tag](https://github.com/kefik/Sokoban4J/raw/master/Sokoban4J/screenshot2.png)
