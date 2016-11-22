@@ -11,14 +11,14 @@
 
 	<groupId>cz.sokoban4j</groupId>
 	<artifactId>sokoban4j</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>0.1.0-SNAPSHOT</version>
 	<packaging>jar</packaging>
 
 	<name>sokoban4j</name>
 	<url>https://github.com/kefik/Sokoban4J</url>
 	
 	<properties>
-		<main.class>cz.sokoban4j.Sokoban</main.class>
+		<main.class>cz.sokoban4j.Main</main.class>
 	</properties>
 
 	<dependencies>

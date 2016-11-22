@@ -11,7 +11,7 @@
 
 	<groupId>cz.sokoban4j</groupId>
 	<artifactId>sokoban4j-agents</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>0.1.0-SNAPSHOT</version>
 	<packaging>jar</packaging>
 
 	<name>sokoban4j-agents</name>
@@ -24,7 +24,7 @@
         <dependency>
             <groupId>cz.sokoban4j</groupId>
             <artifactId>sokoban4j</artifactId>
-            <version>0.0.1-SNAPSHOT</version>
+            <version>0.1.0-SNAPSHOT</version>
         </dependency>
 	</dependencies>
 
