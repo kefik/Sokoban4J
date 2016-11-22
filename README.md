@@ -1,7 +1,7 @@
 # Sokoban4J
 Sokoban for Java (using Swing) tailored for casual playing but especially for creating custom Sokoban agents. Fully playable but truly meant for programmers for the development of Sokoban artificial players.
 
-Supports load of .sok packages from  [sokobano.de](http://sokobano.de/en/levels.php); many .sok packages downloaded within Sokoban4J/levels/sokobano.de folder. Thank you for such wonderful collection!
+Supports load of .sok packages from  [sokobano.de](http://sokobano.de/en/levels.php); many .sok packages downloaded within Sokoban4J/levels/sokobano.de folder. Thank you for such a wonderful collection!
 
 Art used under [CC-BY-SA-4.0](https://creativecommons.org/licenses/by-sa/4.0/legalcode) downloaded from [OpenGameArt](http://opengameart.org/content/sokoban-pack) created by 1001.com; thank you!
 
@@ -33,7 +33,7 @@ Art used under [CC-BY-SA-4.0](https://creativecommons.org/licenses/by-sa/4.0/leg
 
 11) Introductory tips for creating Sokoban artificial player in this [report](http://pavel.klavik.cz/projekty/solver/solver.pdf) (courtesy of Pavel Klavík).
 
-12) Load of .sok level packages from [sokobano.de](http://sokobano.de/) fully supported; many packages from http://sokobano.de/en/levels.php were downloaded into Sokoban4J/levels/sokobano.de (Thank you for such wonderful collection!)
+12) Load of .sok level packages from [sokobano.de](http://sokobano.de/) fully supported; many packages from http://sokobano.de/en/levels.php were downloaded into Sokoban4J/levels/sokobano.de (Thank you for such a wonderful collection!)
 
 13) Large levels automatically scales down to fit the screen in order to be playable by humans.
 
