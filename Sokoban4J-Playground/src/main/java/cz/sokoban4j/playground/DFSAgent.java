@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import cz.sokoban4j.Sokoban;
+import cz.sokoban4j.SokobanConfig.ELevelFormat;
 import cz.sokoban4j.agents.ArtificialAgent;
 import cz.sokoban4j.simulation.SokobanResult;
 import cz.sokoban4j.simulation.actions.EDirection;
@@ -129,13 +130,13 @@ public class DFSAgent extends ArtificialAgent {
 		SokobanResult result;
 		
 		// VISUALIZED GAME
-		result = Sokoban.playAgent("../Sokoban4J/levels/Easy/level0001.s4jl", new DFSAgent());   //  5 steps required
-		//result = Sokoban.playAgent("../Sokoban4J/levels/Easy/level0002.1.s4jl", new DFSAgent()); // 13 steps required
-		//result = Sokoban.playAgent("../Sokoban4J/levels/Easy/level0002.2.s4jl", new DFSAgent()); // 25 steps required
-		//result = Sokoban.playAgent("../Sokoban4J/levels/Easy/level0002.3.s4jl", new DFSAgent()); // 37 steps required
+		result = Sokoban.playAgentFile("../Sokoban4J/levels/Easy/level0001.s4jl", ELevelFormat.S4JL, new DFSAgent());   //  5 steps required
+		//result = Sokoban.playAgent("../Sokoban4J/levels/Easy/level0002.1.s4jl", ELevelFormat.S4JL, new DFSAgent()); // 13 steps required
+		//result = Sokoban.playAgent("../Sokoban4J/levels/Easy/level0002.2.s4jl", ELevelFormat.S4JL, new DFSAgent()); // 25 steps required
+		//result = Sokoban.playAgent("../Sokoban4J/levels/Easy/level0002.3.s4jl", ELevelFormat.S4JL, new DFSAgent()); // 37 steps required
 		
 		// HEADLESS == SIMULATED-ONLY GAME
-		//result = Sokoban.simAgent("../Sokoban4J/levels/Easy/level0001.s4jl", new DFSAgent());
+		//result = Sokoban.simAgent("../Sokoban4J/levels/Easy/level0001.s4jl", ELevelFormat.S4JL, new DFSAgent());
 		
 		System.out.println("DFSAgent result: " + result.getResult());
 		

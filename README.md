@@ -32,7 +32,9 @@ Art used under [CC-BY-SA-4.0](https://creativecommons.org/licenses/by-sa/4.0/leg
 
 11) Introductory tips for creating Sokoban artificial player in this [report](http://pavel.klavik.cz/projekty/solver/solver.pdf) (courtesy of Pavel Klavík).
 
-12) Level format fully compatible with [sokobano.de](http://sokobano.de/); some level packages converted from [sokobano.de/levels](http://sokobano.de/en/levels.php); use Sok2S4jl class to convert some more!
+12) Load of .sok level packages from [sokobano.de](http://sokobano.de/) fully supported; all packages from http://sokobano.de/en/levels.php were downloaded into Sokoban4J/levels/sokobano.de (Thank you for such wonderful collection!)
+
+13) Large levels automatically scales down to fit the screen in order to be playable by humans.
 
 ------------------------------------------------------------
 
