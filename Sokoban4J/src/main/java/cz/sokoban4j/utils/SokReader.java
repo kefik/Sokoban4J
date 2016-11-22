@@ -137,7 +137,7 @@ public class SokReader {
 			maze.add(adjustMazeLine(lines.get(i), width));
 		}
 		
-		return new TextLevelS4JL(name, width, height, maze, comments);
+		return new TextLevelS4JL(name + " / " + nextLevelNumber, width, height, maze, comments);
 	}
 	
 	private String adjustMazeLine(String line, int width) {

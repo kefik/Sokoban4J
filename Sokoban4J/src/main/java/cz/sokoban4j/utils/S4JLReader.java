@@ -107,7 +107,7 @@ public class S4JLReader {
 				maze.add(line);
 			}
 						
-			TextLevelS4JL result = new TextLevelS4JL(name, width, height, maze, comments);
+			TextLevelS4JL result = new TextLevelS4JL(name + " / " + nextLevelNumber, width, height, maze, comments);
 				
 			++nextLevelNumber;
 				

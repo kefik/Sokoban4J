@@ -207,7 +207,7 @@ public class Sokoban {
 		// PREREQ
 		initView();
 		// IMPL
-		return frame = new SokobanFrame(view, config.level.getName());
+		return frame = new SokobanFrame(view, board.level);
 	}
 	
 	/**

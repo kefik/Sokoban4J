@@ -255,6 +255,7 @@ public class Board {
 		}
 		// EXTRACT LEVEL DATA
 		TextLevelS4JL level = reader.readNext();
+		reader.close();
 		
 		// PARSE LEVEL DATA
 		return fromTextLevel(level);
