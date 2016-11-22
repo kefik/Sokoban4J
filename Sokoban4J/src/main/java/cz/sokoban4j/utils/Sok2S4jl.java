@@ -1,26 +1,18 @@
 package cz.sokoban4j.utils;
 
-import java.io.BufferedReader;
 import java.io.File;
-import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.PrintWriter;
-import java.util.ArrayList;
-import java.util.List;
 
 /**
  * Transforms .sok files from "http://sokobano.de/en/levels.php" into multiple 
  * files in .s4jl format.
  * 
- * Created for manual use - modify {@link Sok2S4jl#main(String[])} and run ;)
+ * Manual use - modify {@link SOK2S4JL#main(String[])} and run from IDE ;)
  * 
  * @author Jimmy
  */
-public class Sok2S4jl {
-	
-	private static final String NUMBERS = "0123456789";
-	
-	private static final String MAZE_SYMBOLS = " #.*@$";
+public class SOK2S4JL {
 	
 	private static final String ALLOWED_ID_CHAR = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789-_";
 	
@@ -28,9 +20,13 @@ public class Sok2S4jl {
 	
 	private File targetDir;
 	
-	public Sok2S4jl(File sourceFile, File targetDir) {
+	/**
+	 * @param source may be .sok file or directory to process (no directory recursion)
+	 * @param targetDir where to save respective S4JL files
+	 */
+	public SOK2S4JL(File source, File targetDir) {
 		super();
-		this.sourceFile = sourceFile;
+		this.sourceFile = source;
 		this.targetDir = targetDir;
 	}
 	
@@ -84,46 +80,15 @@ public class Sok2S4jl {
 				
 		System.out.println("TRANSFORMING: " + sourceFile.getAbsolutePath());
 		
-		FileReader fileReader = null;
+		SokReader reader = new SokReader(sourceFile);
 		
-		try {
-			fileReader = new FileReader(sourceFile);
-			BufferedReader reader = new BufferedReader(fileReader);
-			
-			List<String> lines = new ArrayList<String>();
-			
-			String line = "";
-			
-			// FIND START
-			while (reader.ready() && (line.length() == 0 || NUMBERS.indexOf(line.substring(0, 1)) < 0)) line = reader.readLine();
-			
-			int levelNum = 1;
-			
-			while (reader.ready()) {
-				lines.clear();
-				line = reader.readLine();
-				if (line == null) {
-					break;
-				}
-				while (reader.ready() && (line.length() == 0 || NUMBERS.indexOf(line.substring(0, 1)) < 0)) {					
-					lines.add(line);
-					line = reader.readLine();
-				}
-				transform(lines, new File(targetDir, getLevelName(levelNum)));
-				++levelNum;
-			}
-		} catch (Exception e) {
-			throw new RuntimeException("Failed to transform.", e);
-		} finally {
-			if (fileReader != null) {
-				try {
-					fileReader.close();
-				} catch (Exception e) {					
-				}
-			}
+		TextLevelS4JL level = reader.readNext();
+		while (level != null) {
+			transform(level, new File(targetDir, getLevelName(reader.getNextLevelNumber()-1)));
+			level = reader.readNext();
 		}
 	}
-
+	
 	private String getLevelName(int num) {
 		return "level" + zeros(num, 4) + ".s4jl";
 	}
@@ -134,28 +99,7 @@ public class Sok2S4jl {
 		return result;
 	}
 
-	private void transform(List<String> lines, File targetFile) {		
-		// FIND MAZE
-		int mazeStart = 0;
-		int mazeEnd = 0;
-		
-		int maxLength = 0;
-		
-		while (mazeEnd < lines.size() && isMazeLine(lines.get(mazeEnd))) {			
-			String line = lines.get(mazeEnd);
-			int length = line.length()-1;
-			while (length > 0 && line.substring(length, length+1).equals(" ")) --length;
-			if (length+1 > maxLength) maxLength = length+1;
-			++mazeEnd;
-		}
-		
-		int width = maxLength;
-		int height = mazeEnd - mazeStart;
-		
-		if (width <= 4 || height < 4) {
-			return;
-		}
-		
+	private void transform(TextLevelS4JL level, File targetFile) {		
 		System.out.println("  +-- Writing: " + targetFile.getAbsolutePath());
 		
 		FileWriter fileWriter = null;
@@ -164,19 +108,17 @@ public class Sok2S4jl {
 			PrintWriter writer = new PrintWriter(fileWriter);
 			
 			// COMMENTS
-			for (int i = mazeEnd; i < lines.size(); ++i) {
-				if (lines.get(i).trim().length() > 0) {
-					writer.print(";");
-					writer.println(lines.get(i).trim());
-				}
+			for (String comment : level.getComments()) {
+				writer.print(";");
+				writer.println(comment.trim());				
 			}
 			
 			// DIMENSIONS
-			writer.println(width + "," + height);
+			writer.println(level.getWidth() + "," + level.getHeight());
 			
 			// MAZE
-			for (int i = mazeStart; i < mazeEnd; ++i) {
-				writer.println(adjustMazeLine(lines.get(i), width));
+			for (String maze : level.getMaze()) {
+				writer.println(maze);
 			}
 		} catch (Exception e) {
 			throw new RuntimeException("Failed to save target file: " + targetFile.getAbsolutePath(), e);
@@ -190,46 +132,17 @@ public class Sok2S4jl {
 		}
 		
 	}
-	
-	private String adjustMazeLine(String line, int width) {
-		String result = "";
-		
-		int i = 0;
-		
-		while (i < line.length() && line.substring(i, i+1).equals(" ")) {
-			result += "#";
-			++i;
-		}
-		result += line.substring(i);
-		i = result.length()-1;
-		while (result.substring(i, i+1).equals(" ")) {
-			result = result.substring(0, i) + "#" + result.substring(i+1);
-			++i;
-		}
-		while (result.length() < width) result += "#";
-		result = result.substring(0, width);
-
-		return result;			
-	}
-
-	private boolean isMazeLine(String line) {
-		for (int i = 0; i < line.length(); ++i) {
-			if (MAZE_SYMBOLS.indexOf(line.substring(i, i+1)) < 0) return false;
-		}
-		return true;
-	}
 
 	public static void main(String[] args) {
 		String sourceDirPath = "levels/sokobano.de";
 		
 		String targetDirPath = "levels";
 		
-		Sok2S4jl transformer = new Sok2S4jl(new File(sourceDirPath), new File(targetDirPath));
+		SOK2S4JL transformer = new SOK2S4JL(new File(sourceDirPath), new File(targetDirPath));
 		
 		transformer.transform();
 		
 		System.out.println("---/// DONE ///---");
 	}
-
 
 }

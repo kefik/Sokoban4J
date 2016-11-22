@@ -91,7 +91,7 @@ public class SokobanVis implements ISokobanGame, Runnable {
 		
 		result.setId(id);
 		result.setAgent(agent);
-		result.setLevel(board.level == null ? "N/A" : board.level.getName());
+		result.setLevel(board.level == null ? "N/A" : board.level);
 	}
 	
 	@Override

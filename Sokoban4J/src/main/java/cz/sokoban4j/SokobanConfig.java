@@ -6,6 +6,22 @@ import cz.sokoban4j.simulation.agent.IAgent;
 
 public class SokobanConfig {
 	
+	public static enum ELevelFormat {
+		S4JL(".s4jl"),
+		SOK(".sok");
+		
+		private String extension;
+
+		private ELevelFormat(String extension) {
+			this.extension = extension;
+		}
+
+		public String getExtension() {
+			return extension;
+		}
+		
+	}
+	
 	/**
 	 * Can be used to mark unique name of the simulation.
 	 */
@@ -18,6 +34,17 @@ public class SokobanConfig {
 	 * DIRECTORY == play all *.s4kl files in alphabetic order found in this directory (no directory recursion).
 	 */
 	public File level;
+	
+	/**
+	 * If {@link #level} is FILE, than this contains what number of the level to load; 0-based.
+	 * -1 == run all levels sequentially.
+	 */
+	public int levelNumber;
+	
+	/**
+	 * Expected format of the level(s) in file / directory {@link #level}.
+	 */
+	public ELevelFormat levelFormat;
 	
 	/**
 	 * Timeout for the game; positive number == timeout in effect; otherwise no timeout.
@@ -42,6 +69,8 @@ public class SokobanConfig {
 		if (id.length() == 0) throw new RuntimeException("ID is of zero length.");
 		if (agent == null) throw new RuntimeException("Agent is null.");
 		if (level == null) throw new RuntimeException("Level is null.");
+		if (levelFormat == null) throw new RuntimeException("LevelFormat is null.");
+		if (levelNumber < -1) throw new RuntimeException("LevelNumber < -1");
 		if (!level.exists()) throw new RuntimeException("Level '" + level.getAbsolutePath() + "' does not exist.");
 		if (!level.isFile() && !level.isDirectory()) throw new RuntimeException("Level '" + level.getAbsolutePath() + "' is neither a file nor a directory.");
 	}

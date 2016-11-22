@@ -14,6 +14,9 @@ import cz.sokoban4j.simulation.board.oop.entities.BoxEntity;
 import cz.sokoban4j.simulation.board.oop.entities.Entity;
 import cz.sokoban4j.simulation.board.oop.entities.EntityFactory;
 import cz.sokoban4j.simulation.board.oop.entities.PlayerEntity;
+import cz.sokoban4j.utils.S4JLReader;
+import cz.sokoban4j.utils.SokReader;
+import cz.sokoban4j.utils.TextLevelS4JL;
 
 public class Board {
 
@@ -24,9 +27,9 @@ public class Board {
 	public final Tile[][] tiles;
 	
 	/**
-	 * Auto-Filled if initialized via {@link #fromFile(File)}.
+	 * Auto-Filled if initialized via {@link #fromFileS4JL(File)}.
 	 */
-	public File level;
+	public String level;
 	
 	public PlayerEntity player;
 	
@@ -96,72 +99,6 @@ public class Board {
 		}
 		
 		return result;
-	}
-	
-	/**
-	 * Creates the board from file.
-	 * @param file
-	 * @return
-	 */
-	public static Board fromFile(File file) {
-		try {
-			Board result = fromReader(new FileReader(file));
-			result.level = file;
-			return result;
-		} catch (Exception e) {
-			throw new RuntimeException("Failed to load Board from '" + file.getAbsolutePath() + "'.", e);
-		}
-	}
-	
-	/**
-	 * Creates the board from the data given by reader (expects chars).
-	 * @param textReader
-	 * @return
-	 */
-	public static Board fromReader(Reader textReader) {
-		Board board = null;
-		
-		BufferedReader reader = new BufferedReader(textReader);
-		try {
-		
-			String line;
-			String[] parts;
-			
-			line = reader.readLine();
-			
-			while (line.startsWith(";")) line = reader.readLine();
-			
-			parts = line.split(",");
-			
-			int width = Integer.parseInt(parts[0]);
-			int height = Integer.parseInt(parts[1]);
-			
-			board = new Board(width, height);
-			
-			for (int y = 0; y < height; ++y) {
-				line = reader.readLine();
-				for (int x = 0; x < width; ++x) {
-					String symbol = line.substring(x, x+1);
-					Tile tile = board.tile(x, y);
-					tile.space = ESpace.fromSymbol(symbol);
-					tile.entity = EntityFactory.createEntity(EEntity.fromSymbol(symbol), tile);
-					tile.place = EPlace.fromSymbol(symbol);					
-				}
-			}
-			
-			board.initEntities();
-			
-		} catch (Exception e) {
-			throw new RuntimeException("Failed to load Board, invalid format.", e);
-		} finally {
-		
-			try {
-				reader.close();
-			} catch (Exception e) {			
-			}
-		}
-		
-		return board;
 	}
 	
 	/**
@@ -241,6 +178,115 @@ public class Board {
 		if (anyBox > 0 && anyBox > anyPlaceCount) {
 			throw new RuntimeException("Invalid/Incompatible combination of places for boxes.");
 		}
+	}
+	
+	// ==============
+	// STATIC LOADERS
+	// ==============
+	
+	/**
+	 * Creates the board from file .s4jl.
+	 * @param file
+	 * @param levelNumber level number to load; 0-based
+	 * @return
+	 */
+	public static Board fromFileS4JL(File file, int levelNumber) {
+		try {
+			return fromReaderS4JL(file.getName(), new FileReader(file), levelNumber);
+		} catch (Exception e) {
+			throw new RuntimeException("Failed to load Board from '" + file.getAbsolutePath() + "'.", e);
+		}
+	}
+	
+	/**
+	 * Creates the board from the data given by reader (expects .s4jl format).
+	 * @param levelName 
+	 * @param textReader
+	 * @param levelNumber level number to load; 0-based
+	 * @return
+	 */
+	public static Board fromReaderS4JL(String levelName, Reader textReader, int levelNumber) {
+		Board board = null;
+		
+		// INIT READER
+		S4JLReader reader = new S4JLReader(levelName, textReader);
+		
+		// FIND CORRECT LEVEL
+		for (int i = 0; i < levelNumber; ++i) {
+			reader.readNext();
+		}
+		// EXTRACT LEVEL DATA
+		TextLevelS4JL level = reader.readNext();
+		
+		// PARSE LEVEL DATA
+		return fromTextLevel(level);
+	}
+	
+	/**
+	 * Creates the board from file .sok; reads 'levelNumber'-th level (0-based).
+	 * @param file
+	 * @param levelNumber level number to load; 0-based
+	 * @return
+	 */
+	public static Board fromFileSok(File file, int levelNumber) {
+		try {
+			return fromReaderSok(file.getName(), new FileReader(file), levelNumber);
+		} catch (Exception e) {
+			throw new RuntimeException("Failed to load Board from '" + file.getAbsolutePath() + "'.", e);
+		}
+	}
+	
+	/**
+	 * Creates the board from the data given by reader (expects .sok format).
+	 * @param levelName
+	 * @param textReader
+	 * @param levelNumber level number to load; 0-based
+	 * @return
+	 */
+	public static Board fromReaderSok(String levelName, Reader textReader, int levelNumber) {
+		Board board = null;
+		
+		// INIT READER
+		SokReader reader = new SokReader(levelName, textReader);
+		
+		// FIND CORRECT LEVEL
+		for (int i = 0; i < levelNumber; ++i) {
+			reader.readNext();
+		}
+		// EXTRACT LEVEL DATA
+		TextLevelS4JL level = reader.readNext();
+		
+		// PARSE LEVEL DATA
+		return fromTextLevel(level);
+	}
+	
+	/**
+	 * Creates the board from {@link TextLevelS4JL} description.
+	 * @param level
+	 * @return
+	 */
+	public static Board fromTextLevel(TextLevelS4JL level) {
+		if (level == null) throw new RuntimeException("Passed level is null.");
+		level.validate();
+		
+		Board board = new Board(level.getWidth(), level.getHeight());
+		
+		board.level = level.getName();
+		
+		for (int y = 0; y < level.getHeight(); ++y) {
+			String line = level.getMaze().get(y);
+			for (int x = 0; x < level.getWidth(); ++x) {
+				String symbol = line.substring(x, x+1);
+				Tile tile = board.tile(x, y);
+				tile.space = ESpace.fromSymbol(symbol);
+				tile.entity = EntityFactory.createEntity(EEntity.fromSymbol(symbol), tile);
+				tile.place = EPlace.fromSymbol(symbol);					
+			}
+		}
+			
+		board.initEntities();
+			
+		return board;
 	}
 	
 }
