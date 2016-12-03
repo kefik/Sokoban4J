@@ -9,7 +9,7 @@ public enum EEntity {
 	BOX_4(4,    true,  false,  64, "dD", "CrateDark_Purple.png", "Crate_Purple.png"),
 	BOX_5(5,    true,  false, 128, "eE", "CrateDark_Gray.png", "Crate_Gray.png"),
 	BOX_6(6,    true,  false, 256, "fF", "CrateDark_Black.png", "Crate_Black.png"),
-	PLAYER(-1, false,   true, 512, "pP@", null, null);
+	PLAYER(-1, false,   true, 512, "pP@+", null, null);
 	
 	public static final int SOME_BOX_FLAG = 8 | 16 | 32 | 64 | 128 | 256;
 	public static final int SOME_ENTITY_FLAG = 8 | 16 | 32 | 64 | 128 | 256 | 512;	

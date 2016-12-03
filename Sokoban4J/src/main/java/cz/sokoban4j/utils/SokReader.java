@@ -13,7 +13,7 @@ public class SokReader {
 
 	private static final String NUMBERS = "0123456789";
 	
-	private static final String MAZE_SYMBOLS = " #.*@$";
+	private static final String MAZE_SYMBOLS = " #.*@$+";
 		
 	private BufferedReader reader;
 	

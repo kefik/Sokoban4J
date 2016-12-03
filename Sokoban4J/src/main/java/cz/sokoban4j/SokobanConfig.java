@@ -20,6 +20,18 @@ public class SokobanConfig {
 			return extension;
 		}
 		
+		/**
+		 * Returns {@link ELevetFormat} according to the 'file' extension.
+		 * @param file
+		 * @return
+		 */
+		public static ELevelFormat getExpectedLevelFormat(File file) {
+			for (ELevelFormat format : ELevelFormat.values()) {
+				if (file.getAbsolutePath().toLowerCase().endsWith(format.extension)) return format;
+			}
+			return null;
+		}
+		
 	}
 	
 	/**
@@ -60,7 +72,7 @@ public class SokobanConfig {
 	 * Instance of the agent that should play the game.
 	 */
 	public IAgent agent;
-	
+		
 	/**
 	 * Validates the configuration; throws {@link RuntimeException} if config is found invalid. 
 	 */
@@ -69,10 +81,10 @@ public class SokobanConfig {
 		if (id.length() == 0) throw new RuntimeException("ID is of zero length.");
 		if (agent == null) throw new RuntimeException("Agent is null.");
 		if (level == null) throw new RuntimeException("Level is null.");
-		if (levelFormat == null) throw new RuntimeException("LevelFormat is null.");
 		if (levelNumber < -1) throw new RuntimeException("LevelNumber < -1");
 		if (!level.exists()) throw new RuntimeException("Level '" + level.getAbsolutePath() + "' does not exist.");
 		if (!level.isFile() && !level.isDirectory()) throw new RuntimeException("Level '" + level.getAbsolutePath() + "' is neither a file nor a directory.");
+		if (level.isFile() && levelFormat == null) throw new RuntimeException("LevelFormat is null.");
 	}
 
 }

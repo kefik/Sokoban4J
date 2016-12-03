@@ -4,7 +4,7 @@ public enum EPlace {
 
 	NONE(-1,     1024, " #abcdefp$@", null),
 	BOX_ANY(0,   2048, "oOABCDEFP", "EndPoint_Brown.png"),
-	BOX_1(1,     4096, "1.*", "EndPoint_Yellow.png"),
+	BOX_1(1,     4096, "1.*+", "EndPoint_Yellow.png"),
 	BOX_2(2,     8192, "2", "EndPoint_Blue.png"),
 	BOX_3(3,    16384, "3", "EndPoint_Red.png"),
 	BOX_4(4,    32768, "4", "EndPoint_Purple.png"),
