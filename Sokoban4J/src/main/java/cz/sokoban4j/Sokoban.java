@@ -733,8 +733,7 @@ public class Sokoban {
 		
 		playHumanDir("levels/Easy");
 		//playHumanFile("levels/sokobano.de/Blazz.sok");
-		
-		
+		//playHumanFile("levels/MultiBox/level0001.s4jl");
 		
 	}
 	
