@@ -47,6 +47,7 @@ public class BoardCompact implements Cloneable {
 	@Override
 	public int hashCode() {
 		if (hash == null) {
+			hash = 0;
 			for (int x = 0; x < width(); ++x) {
 				for (int y = 0; y < height(); ++y) {
 					hash += 27 * tiles[x][y];
