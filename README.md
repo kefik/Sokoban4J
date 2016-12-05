@@ -41,6 +41,8 @@ Art used under [CC-BY-SA-4.0](https://creativecommons.org/licenses/by-sa/4.0/leg
 
 ![alt tag](https://github.com/kefik/Sokoban4J/raw/master/Sokoban4J/screenshot2.png)
 
+![alt tag](https://github.com/kefik/Sokoban4J/raw/master/Sokoban4J/screenshot3.png)
+
 ------------------------------------------------------------
 
 ##PROJECT STRUCTURE
