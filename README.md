@@ -37,6 +37,8 @@ Art used under [CC-BY-SA-4.0](https://creativecommons.org/licenses/by-sa/4.0/leg
 
 13) Large levels automatically scales down to fit the screen in order to be playable by humans.
 
+14) Level play time may be limited (in milliseconds).
+
 ------------------------------------------------------------
 
 ![alt tag](https://github.com/kefik/Sokoban4J/raw/master/Sokoban4J/screenshot2.png)
