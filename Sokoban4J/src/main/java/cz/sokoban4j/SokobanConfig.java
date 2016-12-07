@@ -42,8 +42,8 @@ public class SokobanConfig {
 	/**
 	 * Sokoban level file or directory to play.
 	 * 
-	 * FILE == play this file.
-	 * DIRECTORY == play all *.s4kl files in alphabetic order found in this directory (no directory recursion).
+	 * FILE == play from file.
+	 * DIRECTORY == play all {@link ELevelFormat} recognized files in alphabetic order found in this directory (no directory recursion).
 	 */
 	public File level;
 	
@@ -54,7 +54,8 @@ public class SokobanConfig {
 	public int levelNumber;
 	
 	/**
-	 * Expected format of the level(s) in file / directory {@link #level}.
+	 * Expected format of the level(s) in file {@link #level} file. Ignored if {@link #level} points to directory. In such a case,
+	 * {@link Sokoban} will play through all supported level files supported in alphabetic order.
 	 */
 	public ELevelFormat levelFormat;
 	
@@ -84,7 +85,7 @@ public class SokobanConfig {
 		if (levelNumber < -1) throw new RuntimeException("LevelNumber < -1");
 		if (!level.exists()) throw new RuntimeException("Level '" + level.getAbsolutePath() + "' does not exist.");
 		if (!level.isFile() && !level.isDirectory()) throw new RuntimeException("Level '" + level.getAbsolutePath() + "' is neither a file nor a directory.");
-		if (level.isFile() && levelFormat == null) throw new RuntimeException("LevelFormat is null.");
+		if (level.isFile() && levelFormat == null) throw new RuntimeException("LevelFormat is null but Level points to a file '" + level.getAbsolutePath() + "'.");
 	}
 
 }
