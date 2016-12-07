@@ -7,6 +7,9 @@ Art used under [CC-BY-SA-4.0](https://creativecommons.org/licenses/by-sa/4.0/leg
 
 **LICENSED UNDER** [CC-BY-SA-4.0](https://creativecommons.org/licenses/by-sa/4.0/legalcode) Please retain URL to the [Sokoban4J](https://github.com/kefik/Sokoban4J) in your work.
 
+What are benefits over using [JSoko](http://www.sokoban-online.de/jsoko.html)? The answer is simplicity; this project does not contain any technical commplexities (no applet, no need for the installer, no extra framework overhead
+in agent implementation, much more smaller code base).
+
 ![alt tag](https://github.com/kefik/Sokoban4J/raw/master/Sokoban4J/screenshot.png)
 
 ## FEATURES
