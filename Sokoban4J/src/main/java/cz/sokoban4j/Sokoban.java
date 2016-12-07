@@ -449,6 +449,21 @@ public class Sokoban {
 	}
 	
 	/**
+	 * 'agent' will play (headless == simulation only) 'levelNumber' (0-based) level from file on 'levelFilePath'.
+	 * An agent will be given 'timeoutMillis' time to solve the level.
+	 * 
+	 * @param id id to be given to the config; may be null
+	 * @param levelFilePath file to load the level from
+	 * @param levelNumber 0-based; a level to be played
+	 * @param timeoutMillis time given to the agent to solve every level; non-positive number == no timeout
+	 * @param agent
+	 * @return
+	 */
+	public static SokobanResult simAgentLevel(String id, String levelFilePath, int levelNumber, int timeoutMillis, IAgent agent) {
+		return simAgentLevel(id, levelFilePath, determineLevelFormat(levelFilePath), levelNumber, timeoutMillis, agent);
+	}
+	
+	/**
 	 * 'agent' will play (headless == simulation only) all levels from file on 'levelFilePath' assuming 'levelFormat'.
 	 * An agent will be given 'timeoutMillis' time to solve every level.
 	 * The run will stop on the level the agent fail to solve.
@@ -475,6 +490,22 @@ public class Sokoban {
 		config.timeoutMillis = timeoutMillis;
 		
 		return runAgentLevels(config);
+	}
+	
+	/**
+	 * 'agent' will play (headless == simulation only) all levels from file on 'levelFilePath'.
+	 * An agent will be given 'timeoutMillis' time to solve every level.
+	 * The run will stop on the level the agent fail to solve.
+	 * 
+	 * @param id id to be given to the config; may be null
+	 * @param levelFilePath file to load the level from
+	 * @param levelNumber 0-based; a level to be played
+	 * @param timeoutMillis time given to the agent to solve every level; non-positive number == no timeout
+	 * @param agent
+	 * @return
+	 */
+	public static List<SokobanResult> simAgentFile(String id, String levelFilePath, int timeoutMillis, IAgent agent) {
+		return simAgentFile(id, levelFilePath, determineLevelFormat(levelFilePath), timeoutMillis, agent);
 	}
 	
 	/**
@@ -574,6 +605,21 @@ public class Sokoban {
 	}
 	
 	/**
+	 * 'agent' will play (visualized) 'levelNumber' (0-based) level from file on 'levelFilePath'.
+	 * An agent will be given 'timeoutMillis' time to solve the level.
+	 * 
+	 * @param id id to be given to the config; may be null
+	 * @param levelFilePath file to load the level from
+	 * @param levelNumber 0-based; a level to be played
+	 * @param timeoutMillis time given to the agent to solve every level; non-positive number == no timeout
+	 * @param agent
+	 * @return
+	 */
+	public static SokobanResult playAgentLevel(String id, String levelFilePath, int levelNumber, int timeoutMillis, IAgent agent) {
+		return playAgentLevel(id, levelFilePath, determineLevelFormat(levelFilePath), levelNumber, timeoutMillis, agent);
+	}
+	
+	/**
 	 * 'agent' will play (visualized) all levels from file on 'levelFilePath' assuming 'levelFormat'.
 	 * An agent will be given 'timeoutMillis' time to solve every level.
 	 * The run will stop on the level the agent fail to solve.
@@ -600,6 +646,22 @@ public class Sokoban {
 		config.timeoutMillis = timeoutMillis;
 		
 		return runAgentLevels(config);
+	}
+	
+	/**
+	 * 'agent' will play (visualized) all levels from file on 'levelFilePath'.
+	 * An agent will be given 'timeoutMillis' time to solve every level.
+	 * The run will stop on the level the agent fail to solve.
+	 * 
+	 * @param id id to be given to the config; may be null
+	 * @param levelFilePath file to load the level from
+	 * @param levelNumber 0-based; a level to be played
+	 * @param timeoutMillis time given to the agent to solve every level; non-positive number == no timeout
+	 * @param agent
+	 * @return
+	 */
+	public static List<SokobanResult> playAgentFile(String id, String levelFilePath, int timeoutMillis, IAgent agent) {
+		return playAgentFile(id, levelFilePath, determineLevelFormat(levelFilePath), timeoutMillis, agent);
 	}
 	
 	/**
