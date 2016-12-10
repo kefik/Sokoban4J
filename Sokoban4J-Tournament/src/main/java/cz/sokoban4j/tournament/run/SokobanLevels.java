@@ -4,6 +4,8 @@ import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
+import cz.sokoban4j.SokobanConfig.ELevelFormat;
+
 public class SokobanLevels {
 
 	public List<SokobanLevel> levels = new ArrayList<SokobanLevel>();
@@ -32,9 +34,23 @@ public class SokobanLevels {
 			String level = parts[index + 1];
 			
 			if (level.toLowerCase().equals("all")) {
-				int levelCount = SokobanLevel.getLevelCount(new File(fileString));
-				for (int i = 0; i < levelCount; ++i) {
-					results.levels.add(new SokobanLevel(file, i));
+				if (file.isDirectory()) {
+					for (File childFile : file.listFiles()) {
+						if (ELevelFormat.getExpectedLevelFormat(childFile) != null) {
+							int levelCount = SokobanLevel.getLevelCount(childFile);
+							for (int i = 0; i < levelCount; ++i) {
+								results.levels.add(new SokobanLevel(childFile, i));
+							}
+						}
+					}
+				} else
+				if (file.isFile()) {
+					int levelCount = SokobanLevel.getLevelCount(new File(fileString));
+					for (int i = 0; i < levelCount; ++i) {
+						results.levels.add(new SokobanLevel(file, i));
+					}
+				} else {
+					throw new RuntimeException("Invalid file, neither file nor directory: " + file.getAbsolutePath());
 				}
 			} else {
 				int levelNumber = Integer.parseInt(level);

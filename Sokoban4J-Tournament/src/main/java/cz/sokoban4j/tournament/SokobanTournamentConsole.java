@@ -60,8 +60,6 @@ public class SokobanTournamentConsole {
 	
 	private static String agentClassString;
 	
-	private static Class agentClass;
-	
 	private static IAgent agent;
 	
 	private static String id;
@@ -225,13 +223,7 @@ public class SokobanTournamentConsole {
 		levelList.validate();
 		
 		System.out.println("---- going to run at max: " + levelList.levels.size() + " levels");
-				
-		try {
-			agentClass = Class.forName(agentClassString);
-		} catch (ClassNotFoundException e) {
-			fail("Failed to find class for name: " + agentClassString, e);
-		}
-		
+						
 		resultFile = new File(resultFileString);
 		System.out.println("-- result file: " + resultFileString + " --> " + resultFile.getAbsolutePath());
 		
@@ -253,18 +245,7 @@ public class SokobanTournamentConsole {
 			}
 		}
 		
-		Object agentObject = null;
-		try {
-			agentObject = agentClass.getConstructor().newInstance();
-		} catch (Exception e) {
-			fail("Failed to instantiate class: " + agentClassString, e);
-		} 
-		if (!IAgent.class.isAssignableFrom(agentObject.getClass())) {
-			fail("Class does not implement IAgent: " + agentClassString);
-		}
-		agent = (IAgent)agentObject; 
-		
-		System.out.println("-- agent checked: " + agentClassString);
+		System.out.println("-- agent: " + agentClassString);
 		
 		if (extraJavaArgsString != null) {
 			extraJavaArgs = extraJavaArgsString.split(" ");
@@ -282,12 +263,11 @@ public class SokobanTournamentConsole {
 		
 		SokobanConfig config = new SokobanConfig();
 		
-		config.agent = agent;
 		config.id = id;
 		config.timeoutMillis = timeoutMillis;
 		config.visualization = visualiztion;
 		
-		RunSokobanLevels run = new RunSokobanLevels(config, agentClass, levelList, resultFile, extraJavaArgs);
+		RunSokobanLevels run = new RunSokobanLevels(config, agentClassString, levelList, resultFile, extraJavaArgs);
 		
 		run.run();
 	}
@@ -312,7 +292,7 @@ public class SokobanTournamentConsole {
 		// -----------
 		// FOR TESTING
 		// -----------
-		args = getTestArgs();		
+		//args = getTestArgs();		
 		
 		// --------------
 		// IMPLEMENTATION

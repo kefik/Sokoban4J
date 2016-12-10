@@ -412,6 +412,32 @@ public class SokobanConsole {
 		return (String[]) args.toArray(new String[0]);
 	}
 	
+	public static String[] getArgs(SokobanConfig config, String agentClass, File resultFile) {
+		List<String> args = new ArrayList<String>();
+		
+		args.add("-f"); args.add(config.level.getAbsolutePath()); // level file to play
+		
+		args.add("-r"); args.add(resultFile.getAbsolutePath());   // result file
+		
+		args.add("-l"); args.add(String.valueOf(config.levelNumber)); // level number
+		
+		if (config.levelFormat != null) {
+			args.add("-m"); args.add(config.levelFormat.getExtension()); // level file format
+		}
+		
+		args.add("-t"); args.add(String.valueOf(config.timeoutMillis)); // timeout
+		
+		args.add("-a"); args.add(agentClass == null ? config.agent.getClass().getName() : agentClass); // class name
+		
+		args.add("-v"); args.add(String.valueOf(config.visualization)); // visualization
+		
+		if (config.id != null) {
+			args.add("-i"); args.add(config.id); // simulation id
+		}
+		
+		return (String[]) args.toArray(new String[0]);
+	}
+	
 	public static void main(String[] args) throws JSAPException {
 		if (args == null || args.length == 0) {
 			Main.main(args);

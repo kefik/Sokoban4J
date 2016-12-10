@@ -177,7 +177,7 @@ public class SokobanSummaryConsole {
 		// -----------
 		// FOR TESTING
 		// -----------
-		args = getTestArgs();		
+		//args = getTestArgs();		
 		
 		// --------------
 		// IMPLEMENTATION

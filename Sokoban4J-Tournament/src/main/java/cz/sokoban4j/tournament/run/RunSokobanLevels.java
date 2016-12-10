@@ -26,7 +26,7 @@ public class RunSokobanLevels {
 	
 	private SokobanLevels levels;
 	
-	private Class agentClass;
+	private String agentClass;
 	
 	private File resultFile;
 	
@@ -34,7 +34,7 @@ public class RunSokobanLevels {
 	
 	private String[] extraJavaArgs;
 	
-	public RunSokobanLevels(SokobanConfig config, Class agentClass, SokobanLevels levels, File resultFile, String[] extraJavaArgs) {
+	public RunSokobanLevels(SokobanConfig config, String agentClass, SokobanLevels levels, File resultFile, String[] extraJavaArgs) {
 		super();
 		this.config = config;
 		this.agentClass = agentClass;
@@ -105,7 +105,7 @@ public class RunSokobanLevels {
 	    	System.out.println("");
 	    	System.out.println("===============================================");
 	    	System.out.println("===============================================");
-	    	System.out.println("RUNNING " + (i+1) + " / " + levels.levels.size() + " FOR " + agentClass.getName());
+	    	System.out.println("RUNNING " + (i+1) + " / " + levels.levels.size() + " FOR " + agentClass);
 	    	System.out.println("===============================================");
 	    	System.out.println("===============================================");	    	
 	    	
@@ -125,12 +125,6 @@ public class RunSokobanLevels {
 		    	break;
 	    	}
 
-	    	
-			try {
-				SokobanConsole.main(consoleArgs);
-			} catch (Exception e) {
-				throw new RuntimeException("Failed to run [" + i + "] = " + level);
-			}
 		}
 		
 	}
