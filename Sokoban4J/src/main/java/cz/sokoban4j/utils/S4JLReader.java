@@ -128,4 +128,16 @@ public class S4JLReader {
 		}
 	}
 	
+	/**
+	 * Returns how many levels are within 'file'
+	 * @param s4jlFile
+	 */
+	public static int getLevelNumber(File s4jlFile) {
+		S4JLReader reader = new S4JLReader(s4jlFile);
+		int count = 0;
+		while (reader.readNext() != null) ++count;
+		reader.close();
+		return count;
+	}
+	
 }

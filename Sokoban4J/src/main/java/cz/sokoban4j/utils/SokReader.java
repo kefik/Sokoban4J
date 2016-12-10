@@ -178,4 +178,16 @@ public class SokReader {
 		}
 	}
 	
+	/**
+	 * Returns how many levels are within 'file'
+	 * @param sokFile
+	 */
+	public static int getLevelNumber(File sokFile) {
+		SokReader reader = new SokReader(sokFile);
+		int count = 0;
+		while (reader.readNext() != null) ++count;
+		reader.close();
+		return count;
+	}
+	
 }

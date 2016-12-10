@@ -11,28 +11,45 @@ public class SokobanResult {
 		/**
 		 * Simulation ended with agent winning the game.
 		 */
-		VICTORY,
+		VICTORY(0),
 		
 		/**
 		 * Simulation ended with timeout; agent failed to finish the game.
 		 */
-		TIMEOUT,
+		TIMEOUT(1),
 		
 		/**
 		 * Simulation ended with an agent exception; agent failed. 
 		 */
-		AGENT_EXCEPTION,
+		AGENT_EXCEPTION(2),
 		
 		/**
 		 * Simulation ended with simulation exception; simulation failed.
 		 */
-		SIMULATION_EXCEPTION,
+		SIMULATION_EXCEPTION(3),
 		
 		/**
 		 * Simulation has been terminated from the outside.
 		 */
-		TERMINATED
+		TERMINATED(4);
 		
+		private int exitValue;
+
+		private SokobanResultType(int exitValue) {
+			this.exitValue = exitValue;
+		}
+
+		public int getExitValue() {
+			return exitValue;
+		}
+		
+		public static SokobanResultType getForExitValue(int exitValue) {
+			for (SokobanResultType value : SokobanResultType.values()) {
+				if (value.exitValue == exitValue) return value;
+			}
+			return null;
+		}
+
 	}
 	
 	private String id = null;
@@ -153,6 +170,11 @@ public class SokobanResult {
 
 	public void setExecption(Throwable execption) {
 		this.execption = execption;
+	}
+	
+	@Override
+	public String toString() {
+		return "SokobanResult[" + getResult() + "]";
 	}
 	
 }

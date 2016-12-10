@@ -3,6 +3,7 @@ package cz.sokoban4j;
 import java.io.File;
 
 import cz.sokoban4j.simulation.agent.IAgent;
+import cz.sokoban4j.utils.Sanitize;
 
 public class SokobanConfig {
 	
@@ -26,8 +27,18 @@ public class SokobanConfig {
 		 * @return
 		 */
 		public static ELevelFormat getExpectedLevelFormat(File file) {
+			return getForExtension(file.getAbsolutePath());
+		}
+		
+		/**
+		 * Returns {@link ELevelFormat} for given file extension.
+		 * @param extension
+		 * @return
+		 */
+		public static ELevelFormat getForExtension(String extension) {
+			extension = extension.toLowerCase();
 			for (ELevelFormat format : ELevelFormat.values()) {
-				if (file.getAbsolutePath().toLowerCase().endsWith(format.extension)) return format;
+				if (extension.endsWith(format.extension)) return format;
 			}
 			return null;
 		}
@@ -80,6 +91,7 @@ public class SokobanConfig {
 	public void validate() {
 		if (id == null) throw new RuntimeException("ID is null.");
 		if (id.length() == 0) throw new RuntimeException("ID is of zero length.");
+		id = Sanitize.idify(id);
 		if (agent == null) throw new RuntimeException("Agent is null.");
 		if (level == null) throw new RuntimeException("Level is null.");
 		if (levelNumber < -1) throw new RuntimeException("LevelNumber < -1");
