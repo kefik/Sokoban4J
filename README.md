@@ -42,6 +42,8 @@ in agent implementation, much more smaller code base).
 
 14) Level play time may be limited (in milliseconds).
 
+15) Possibility to assess Sokoban4J Java agents using Sokoban4J-Tournament project; tournament is executing separate JVMs per agent/level so it is possible to give an agent specific amount of memory for solving the levels.
+
 ------------------------------------------------------------
 
 ![alt tag](https://github.com/kefik/Sokoban4J/raw/master/Sokoban4J/screenshot2.png)
@@ -57,6 +59,8 @@ in agent implementation, much more smaller code base).
 **Sokoban4J-Agents** -> example artificial agents for Sokoban4J, so far only Tree DFS in here
 
 **Sokoban4J-Playground** -> meant for easy hop-on the train of Sokoban agent development; fool around in here rather than Sokoban4J-Agents that should serve for you as backup ;)
+
+**Sokoban4J-Tournament** -> meant for batch-assessing of your Java agents from console.
 
 ##COMPILATION
 
@@ -85,7 +89,9 @@ Linux (from bash, assuming you have mvn on path):
         <artifactId>sokoban4j</artifactId>
         <version>0.1.0-SNAPSHOT</version>
     </dependency>
-
     
-
-    
+    <dependency>
+        <groupId>cz.sokoban4j</groupId>
+	    <artifactId>sokoban4j-tournament</artifactId>
+	    <version>0.1.0-SNAPSHOT</version>
+    </dependency>
