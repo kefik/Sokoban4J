@@ -66,7 +66,16 @@ public class SokReader {
 		// FIND START
 		if (reader == null || !reader.ready()) throw new RuntimeException("Failed to find first level within the SOK.");
 		String line = reader.readLine();
-		while (reader.ready() && (line.length() == 0 || NUMBERS.indexOf(line.substring(0, 1)) < 0)) line = reader.readLine();
+		while (reader.ready()) {
+			if (line.length() != 0) {
+				try {
+					Integer.parseInt(line);
+					break;
+				} catch (Exception e) {					
+				}
+			}
+			line = reader.readLine();
+		}
 		if (NUMBERS.indexOf(line.substring(0, 1)) < 0) throw new RuntimeException("Failed to find first level within the SOK.");
 	}
 	

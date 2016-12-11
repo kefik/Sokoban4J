@@ -124,7 +124,8 @@ public class SokobanSim implements ISokobanGame, Runnable {
 
 				// TIMEOUT?
 				if (timeoutMillis > 0) {
-					long timeLeftMillis = System.currentTimeMillis() - result.getSimStartMillis();
+					long now = System.currentTimeMillis();
+					long timeLeftMillis = timeoutMillis - (now - result.getSimStartMillis());
 					if (timeLeftMillis <= 0) {						
 						onTimeout();
 						return;
