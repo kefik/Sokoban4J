@@ -70,8 +70,9 @@ public class BoardCompressed {
 	@Override
 	public boolean equals(Object obj) {
 		if (obj == null) return false;
-		if (!(obj instanceof BoardCompressed)) return false;
+		if (this == obj) return true;
 		if (obj.hashCode() != hashCode()) return false;
+		if (!(obj instanceof BoardCompressed)) return false;		
 		BoardCompressed other = (BoardCompressed) obj;		
 		if (getCompressedWidth() != other.getCompressedWidth() || getCompressedHeight() != other.getCompressedHeight()) return false;
 		for (int x = 0; x < getCompressedWidth(); ++x) {
@@ -79,7 +80,7 @@ public class BoardCompressed {
 				if (tiles[x][y] != other.tiles[x][y]) return false;
 			}			
 		}
-		return super.equals(obj);
+		return true;
 	}
 	
 	public int width() {

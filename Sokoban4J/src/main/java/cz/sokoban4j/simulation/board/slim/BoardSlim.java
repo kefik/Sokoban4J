@@ -67,8 +67,9 @@ public class BoardSlim {
 	@Override
 	public boolean equals(Object obj) {
 		if (obj == null) return false;
-		if (!(obj instanceof BoardSlim)) return false;
+		if (this == obj) return true;
 		if (obj.hashCode() != hashCode()) return false;
+		if (!(obj instanceof BoardSlim)) return false;		
 		BoardSlim other = (BoardSlim) obj;		
 		if (width() != other.width() || height() != other.height()) return false;
 		for (byte x = 0; x < width(); ++x) {
@@ -76,7 +77,7 @@ public class BoardSlim {
 				if (tiles[x][y] != other.tiles[x][y]) return false;
 			}			
 		}
-		return super.equals(obj);
+		return true;
 	}
 	
 	public byte width() {

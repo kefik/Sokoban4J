@@ -60,8 +60,9 @@ public class BoardCompact implements Cloneable {
 	@Override
 	public boolean equals(Object obj) {
 		if (obj == null) return false;
-		if (!(obj instanceof BoardCompact)) return false;
+		if (this == obj) return true;
 		if (obj.hashCode() != hashCode()) return false;
+		if (!(obj instanceof BoardCompact)) return false;		
 		BoardCompact other = (BoardCompact) obj;		
 		if (width() != other.width() || height() != other.height()) return false;
 		for (int x = 0; x < width(); ++x) {
@@ -69,7 +70,7 @@ public class BoardCompact implements Cloneable {
 				if (tiles[x][y] != other.tiles[x][y]) return false;
 			}			
 		}
-		return super.equals(obj);
+		return true;
 	}
 	
 	public int width() {
