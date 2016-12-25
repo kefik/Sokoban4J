@@ -14,7 +14,7 @@ in agent implementation, much more smaller code base).
 
 ## FEATURES
 
-1) Four different representation of the game state - see Board for OOP representation used by the simulator and, then BoardCompact (use CMove and CPush to update), BoardSlim (use SMove and SPush to update) and BoardCompressed (use MMove and MPush to update) that should be used for state space search.
+1) Four different representation of the game state - see Board for OOP representation used by the simulator and then BoardCompact (use CMove and CPush to update), BoardSlim (use SMove and SPush to update) and BoardCompressed (use MMove and MPush to update) that should be used for state space search. Use StateCompressed for representation of no-good states.
 
 2) HumanAgent and ArtificialAgent stubs; ArtificialAgent is using own thread for thinking (does not stuck GUI). See DFSAgent from Sokoban4J-Agents project for the example of artificial player.
 
@@ -24,25 +24,25 @@ in agent implementation, much more smaller code base).
 
 5) Use "Sokoban" static methods for quick startups of your code (both for humans and artificial agents).
 
-6) Simple Tree-DFS agent that can solve the simplest level.
+6) Simple Tree-DFS agent that can solve the simplest levels.
 
 7) You can define up-to 6 different kinds of "boxes" (yellow, blue, gray, purple, red and black) and their specific target places; brown place (the brown dot) is "generic spot for any kind of box".
 
 8) Mavenized (repo and dependency at the end of the page); uses some of my other stuff, but that can be easily cut off if you're considering branching.
 
-9) Tested with Java 1.8, compilable with 1.6 as well.
+9) Tested with Java 1.8, compilable with 1.6 as well; jars in Maven are compiled using Java 1.6.
 
-10) Using pure Swing, no complexities in there...
+10) Using pure Swing, no other 3rd-party libs = no complexities...
 
-11) Introductory tips for creating Sokoban artificial player in this [report](http://pavel.klavik.cz/projekty/solver/solver.pdf) (courtesy of Pavel Klavík).
+11) Load of .sok level packages from [sokobano.de](http://sokobano.de/) fully supported; many packages from http://sokobano.de/en/levels.php were downloaded into Sokoban4J/levels/sokobano.de (Thank you for such a wonderful collection!)
 
-12) Load of .sok level packages from [sokobano.de](http://sokobano.de/) fully supported; many packages from http://sokobano.de/en/levels.php were downloaded into Sokoban4J/levels/sokobano.de (Thank you for such a wonderful collection!)
+12) Large levels automatically scales down to fit the screen in order to be playable by humans.
 
-13) Large levels automatically scales down to fit the screen in order to be playable by humans.
+13) Level play time may be limited (in milliseconds).
 
-14) Level play time may be limited (in milliseconds).
+14) Possibility to assess Sokoban4J Java agents using Sokoban4J-Tournament project; tournament is executing separate JVMs per agent/level so it is possible to give an agent specific amount of memory for solving the levels.
 
-15) Possibility to assess Sokoban4J Java agents using Sokoban4J-Tournament project; tournament is executing separate JVMs per agent/level so it is possible to give an agent specific amount of memory for solving the levels.
+15) Find introductory tips for creating Sokoban artificial player in this [report](http://pavel.klavik.cz/projekty/solver/solver.pdf) (courtesy of Pavel Klavík).
 
 ------------------------------------------------------------
 
