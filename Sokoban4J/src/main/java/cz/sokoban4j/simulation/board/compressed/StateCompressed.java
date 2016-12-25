@@ -2,10 +2,12 @@ package cz.sokoban4j.simulation.board.compressed;
 
 import cz.sokoban4j.simulation.board.compact.BoardCompact;
 import cz.sokoban4j.simulation.board.compact.CTile;
+import cz.sokoban4j.simulation.board.compressed.MTile.SubSlimTile;
 import cz.sokoban4j.simulation.board.slim.BoardSlim;
+import cz.sokoban4j.simulation.board.slim.STile;
 
 /**
- * To be used for marking state of SokobanBoard; can be used only for boards with single type of boxes.
+ * To be used for marking state of Sokoban board; can be used only for boards with single type of boxes.
  * 
  * Can be used for boards up-to 2^5x2^5 = 32x32 big.
  * 
@@ -52,6 +54,69 @@ public class StateCompressed {
 		for (int x = 0; x < board.width(); ++x) {
 			for (int y = 0; y < board.height(); ++y) {
 				if (CTile.isSomeBox(board.tile(x, y))) {
+					positions[positionIndex] = addPosition(positions[positionIndex], x, y);
+					++positionNum;
+					if (positionNum == POSITIONS_IN_INT) {
+						++positionIndex;
+						positionNum = 0;
+					}
+				}
+			}
+		}
+	}
+	
+	/**
+	 * Creates the state out of the 'board' assuming there are certain number of 'boxes'.
+	 * @param board
+	 * @param boxes
+	 */
+	public StateCompressed(BoardSlim board, int boxes) {
+		positions = new int[(boxes+1) / (POSITIONS_IN_INT) + ((((boxes+1) / (POSITIONS_IN_INT)) % POSITIONS_IN_INT) == 0 ? 0 : 1)];
+		
+		for (int i = 0; i < positions.length; ++i) {
+			positions[i] = 0;
+		}
+		
+		positions[0] = addPosition(0, board.playerX, board.playerY);
+		
+		int positionIndex = 0;
+		int positionNum = 1;
+		
+		for (int x = 0; x < board.width(); ++x) {
+			for (int y = 0; y < board.height(); ++y) {
+				if (STile.isBox(board.tile(x, y))) {
+					positions[positionIndex] = addPosition(positions[positionIndex], x, y);
+					++positionNum;
+					if (positionNum == POSITIONS_IN_INT) {
+						++positionIndex;
+						positionNum = 0;
+					}
+				}
+			}
+		}
+	}
+	
+	/**
+	 * Creates the state out of the 'board' assuming there are certain number of 'boxes'.
+	 * @param board
+	 * @param boxes
+	 */
+	public StateCompressed(BoardCompressed board, int boxes) {
+		positions = new int[(boxes+1) / (POSITIONS_IN_INT) + ((((boxes+1) / (POSITIONS_IN_INT)) % POSITIONS_IN_INT) == 0 ? 0 : 1)];
+		
+		for (int i = 0; i < positions.length; ++i) {
+			positions[i] = 0;
+		}
+		
+		positions[0] = addPosition(0, board.playerX, board.playerY);
+		
+		int positionIndex = 0;
+		int positionNum = 1;
+		
+		for (int x = 0; x < board.width(); ++x) {
+			for (int y = 0; y < board.height(); ++y) {
+				SubSlimTile subSlimTile = MTile.getSubSlimTile(x, y);
+				if (MTile.isBox(subSlimTile, board.tile(x, y))) {
 					positions[positionIndex] = addPosition(positions[positionIndex], x, y);
 					++positionNum;
 					if (positionNum == POSITIONS_IN_INT) {
