@@ -1,11 +1,15 @@
 package cz.sokoban4j.simulation.board.oop;
 
+import cz.sokoban4j.simulation.board.slim.STile;
+
 public enum ESpace {
 	
-	FREE(true,  1, " .o123456ABCDEFPOabcdefp$@*+", "GroundGravel_Sand.png"),
-	WALL(false, 2, "#", "Wall_Brown.png");
+	FREE(true,  1, (byte)0,              " .o123456ABCDEFPOabcdefp$@*+", "GroundGravel_Sand.png"),
+	WALL(false, 2, STile.WALL_FLAG, "#",                            "Wall_Brown.png");
 	
 	private final int flag;
+	
+	private final byte slimFlag;
 	
 	private final boolean walkable;
 
@@ -13,9 +17,10 @@ public enum ESpace {
 
 	private String sprite;
 	
-	private ESpace(boolean walkable, int flag, String symbol, String sprite) {
+	private ESpace(boolean walkable, int flag, byte slimFlag, String symbol, String sprite) {
 		this.walkable = walkable;
 		this.flag = flag;
+		this.slimFlag = slimFlag;
 		this.symbol = symbol;
 		this.sprite = sprite;
 	}
@@ -24,6 +29,10 @@ public enum ESpace {
 		return flag;
 	}
 	
+	public byte getSlimFlag() {
+		return slimFlag;
+	}
+
 	public String getSymbols() {
 		return symbol;
 	}
@@ -49,6 +58,13 @@ public enum ESpace {
 			if (space.isSpace(tileFlag)) return space;
 		}
 		return null;
+	}
+	
+	public static ESpace fromSlimFlag(int tileSlimFlag) {
+		for (ESpace space : ESpace.values()) {
+			if ((space.getSlimFlag() & tileSlimFlag) > 0) return space;
+		}
+		return ESpace.FREE;
 	}
 	
 	public static ESpace fromSymbol(String symbol) {

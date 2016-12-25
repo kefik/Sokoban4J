@@ -101,13 +101,13 @@ public class BoardCompact implements Cloneable {
 		int entity = tiles[sourceTileX][sourceTileY] & EEntity.SOME_ENTITY_FLAG;
 		int boxNum = CTile.getBoxNum(tiles[sourceTileX][sourceTileY]);
 
-		if (CTile.forBox(boxNum, tiles[targetTileX][targetTileY])) {
+		if (CTile.forBox(boxNum, tiles[targetTileX][targetTileY]) || CTile.forAnyBox(tiles[targetTileX][targetTileY])) {
 			++boxInPlaceCount;
 		}
 		tiles[targetTileX][targetTileY] &= EEntity.NULLIFY_ENTITY_FLAG;
 		tiles[targetTileX][targetTileY] |= entity;
 		
-		if (CTile.forBox(boxNum, tiles[sourceTileX][sourceTileY])) {
+		if (CTile.forBox(boxNum, tiles[sourceTileX][sourceTileY]) || CTile.forAnyBox(tiles[sourceTileX][sourceTileY])) {
 			--boxInPlaceCount;
 		}
 		tiles[sourceTileX][sourceTileY] &= EEntity.NULLIFY_ENTITY_FLAG;

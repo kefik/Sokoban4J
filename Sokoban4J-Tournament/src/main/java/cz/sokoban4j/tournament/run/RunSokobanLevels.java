@@ -114,7 +114,9 @@ public class RunSokobanLevels {
 			
 	    	if (execution.getExitValue() > 0) {
 	    		System.out.println("========================================================");
-		    	System.out.println("AGENT FAILED TO SOLVE THE LEVEL " + (i+1) + "! Exit code: " + execution.getExitValue() + " ~ " + SokobanResultType.getForExitValue(execution.getExitValue()));
+		    	System.out.println("AGENT FAILED TO SOLVE THE LEVEL " + (i+1));
+		    	System.out.println(level.file.getName() + " / " + level.levelNumber);
+		    	System.out.println("Exit code: " + execution.getExitValue() + " ~ " + SokobanResultType.getForExitValue(execution.getExitValue()));
 		    	System.out.println("========================================================");
 		    	break;
 	    	}

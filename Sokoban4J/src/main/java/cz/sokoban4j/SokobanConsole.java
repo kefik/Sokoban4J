@@ -274,6 +274,7 @@ public class SokobanConsole {
 		if (!file.isFile()) {
 			fail("Level file specified is not a file: " + fileString + " --> " + file.getAbsolutePath());
 		}
+		System.out.println("-- level number: " + level);
 		
 		try {
 			agentClass = Class.forName(agentClassString);

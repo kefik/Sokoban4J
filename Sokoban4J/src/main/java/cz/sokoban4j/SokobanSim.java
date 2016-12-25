@@ -47,6 +47,10 @@ public class SokobanSim implements ISokobanGame, Runnable {
 	
 	private SokobanResult result = new SokobanResult();
 	
+	private int steps = 0;
+	
+	private long simMovesMillis = 0;
+	
 	/**
 	 * @param id
 	 * @param board
@@ -147,11 +151,13 @@ public class SokobanSim implements ISokobanGame, Runnable {
 					agent.observe(compactBoard);
 					observe = false;
 				}
-					
+									
 				// GET AGENT ACTION
 				EDirection whereToMove = agent.act();
-						
+				
 				if (whereToMove == null || whereToMove == EDirection.NONE) continue;
+				
+				long simMovesBegin = System.currentTimeMillis();
 							
 				agentAction = MoveOrPush.getMoveOrPush(whereToMove);
 	
@@ -159,10 +165,12 @@ public class SokobanSim implements ISokobanGame, Runnable {
 				if (agentAction != null && agentAction.isPossible(board)) {
 					// PERFORM THE ACTION
 					agentAction.perform(board);
+					++steps;
 				}
 				
 				agentAction = null;
 				
+				simMovesMillis += System.currentTimeMillis() - simMovesBegin;				
 			}
 		} catch (Exception e) {
 			onSimulationException(e);
@@ -195,6 +203,7 @@ public class SokobanSim implements ISokobanGame, Runnable {
 	private void onVictory() {
 		result.setSimEndMillis(System.currentTimeMillis());
 		result.setResult(SokobanResultType.VICTORY);
+		result.setSteps(steps);
 		try {
 			agent.victory();
 		} catch (Exception e) {

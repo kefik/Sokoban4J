@@ -1,27 +1,34 @@
 package cz.sokoban4j.simulation.board.oop;
 
+import cz.sokoban4j.simulation.board.slim.STile;
+
 public enum EPlace {
 
-	NONE(-1,     1024, " #abcdefp$@", null),
-	BOX_ANY(0,   2048, "oOABCDEFP", "EndPoint_Brown.png"),
-	BOX_1(1,     4096, "1.*+", "EndPoint_Yellow.png"),
-	BOX_2(2,     8192, "2", "EndPoint_Blue.png"),
-	BOX_3(3,    16384, "3", "EndPoint_Red.png"),
-	BOX_4(4,    32768, "4", "EndPoint_Purple.png"),
-	BOX_5(5,    65536, "5", "EndPoint_Gray.png"),
-	BOX_6(6,   131072, "6", "EndPoint_Black.png");
+	NONE(-1,     1024, (byte)0,             " #abcdefp$@", null),
+	BOX_ANY(0,   2048, STile.BOX_FLAG, "oOABCDEFP", "EndPoint_Brown.png"),
+	BOX_1(1,     4096, STile.BOX_FLAG, "1.*+", "EndPoint_Yellow.png"),
+	BOX_2(2,     8192, STile.BOX_FLAG, "2", "EndPoint_Blue.png"),
+	BOX_3(3,    16384, STile.BOX_FLAG, "3", "EndPoint_Red.png"),
+	BOX_4(4,    32768, STile.BOX_FLAG, "4", "EndPoint_Purple.png"),
+	BOX_5(5,    65536, STile.BOX_FLAG, "5", "EndPoint_Gray.png"),
+	BOX_6(6,   131072, STile.BOX_FLAG, "6", "EndPoint_Black.png");
+	
+	public static final int SOME_BOX_PLACE_FLAG = 2048 | 4096 | 8192 | 16384 | 32768 | 65536 | 131072;
 	
 	private final int boxNum;
 	
 	private final int flag;
+	
+	private final int slimFlag;
 
 	private final String symbol;
 
 	private final String sprite;
 	
-	private EPlace(int boxNum, int flag, String symbol, String sprite) {
+	private EPlace(int boxNum, int flag, int slimFlag, String symbol, String sprite) {
 		this.boxNum = boxNum;
 		this.flag = flag;
+		this.slimFlag = slimFlag;
 		this.symbol = symbol;
 		this.sprite = sprite;
 	}
@@ -30,6 +37,10 @@ public enum EPlace {
 		return flag;
 	}
 	
+	public int getSlimFlag() {
+		return slimFlag;
+	}
+
 	public String getSymbols() {
 		return symbol;
 	}
@@ -71,6 +82,13 @@ public enum EPlace {
 	public static EPlace fromFlag(int tileFlag) {
 		for (EPlace place : EPlace.values()) {
 			if (place.isPlace(tileFlag)) return place;
+		}
+		return null;
+	}
+	
+	public static EPlace fromSlimFlag(int tileSlimFlag) {
+		for (EPlace place : EPlace.values()) {
+			if ((place.getSlimFlag() & tileSlimFlag) > 0) return place;
 		}
 		return null;
 	}

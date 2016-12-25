@@ -34,11 +34,7 @@ public class CTile {
 		
 		entitySpecificBox = new int[]{0, EEntity.BOX_1.getFlag(), EEntity.BOX_2.getFlag(), EEntity.BOX_3.getFlag(), EEntity.BOX_4.getFlag(), EEntity.BOX_5.getFlag(), EEntity.BOX_6.getFlag() }; 
 		
-		int tempPlaceSomeBox = 0;
-		for (EPlace place : EPlace.values()) {
-			if (place.forSomeBox()) tempPlaceSomeBox |= place.getFlag();
-		}
-		placeSomeBox = tempPlaceSomeBox;
+		placeSomeBox = EPlace.SOME_BOX_PLACE_FLAG;
 		
 		placeAnyBox = EPlace.BOX_ANY.getFlag();
 
@@ -88,6 +84,12 @@ public class CTile {
 		return isThis(placeAnyBox, tileFlag);
 	}
 	
+	/**
+	 * Is 'tile' specifically for box of number 'boxNumber'?
+	 * @param boxNum
+	 * @param tileFlag
+	 * @return
+	 */
 	public static boolean forBox(int boxNum, int tileFlag) {
 		if (boxNum < 1) {
 			return false;
