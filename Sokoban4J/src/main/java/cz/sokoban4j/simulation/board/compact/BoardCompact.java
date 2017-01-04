@@ -50,8 +50,8 @@ public class BoardCompact implements Cloneable {
 			hash = 0;
 			for (int x = 0; x < width(); ++x) {
 				for (int y = 0; y < height(); ++y) {
-					hash += 27 * tiles[x][y];
-				}			
+					hash += (290317 * x + 97 * y) * tiles[x][y];
+				}		
 			}
 		}
 		return hash;

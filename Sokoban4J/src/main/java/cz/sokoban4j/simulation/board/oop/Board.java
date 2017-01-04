@@ -180,6 +180,32 @@ public class Board {
 		}
 	}
 	
+	/**
+	 * Outputs the board into System.out.
+	 */
+	public void debugPrint() {
+		for (int y = 0; y < height; ++y) {
+			for (int x = 0; x < width; ++x) {
+				Entity entity = tiles[x][y].entity;
+				EPlace place = tiles[x][y].place;
+				ESpace space = tiles[x][y].space;
+				
+				if (entity != null && entity.getType() != EEntity.NONE) {
+					System.out.print(entity.getType().getSymbol());
+				} else
+				if (place != null && place != EPlace.NONE) {
+					System.out.print(place.getSymbol());
+				} else
+				if (space != null) {
+					System.out.print(space.getSymbol());
+				} else {
+					System.out.print("?");
+				}
+			}
+			System.out.println();
+		}
+	}
+	
 	// ==============
 	// STATIC LOADERS
 	// ==============

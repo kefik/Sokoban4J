@@ -60,7 +60,7 @@ public class BoardCompressed {
 			hash = 0;
 			for (int x = 0; x < getCompressedWidth(); ++x) {
 				for (int y = 0; y < getCompressedHeight(); ++y) {
-					hash += 27 * tiles[x][y];
+					hash += (290317 * x + 97 * y) * tiles[x][y];
 				}			
 			}
 		}

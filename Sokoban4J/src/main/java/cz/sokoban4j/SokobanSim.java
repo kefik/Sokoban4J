@@ -1,10 +1,5 @@
 package cz.sokoban4j;
 
-import java.awt.event.KeyListener;
-
-import javax.swing.SwingUtilities;
-
-import cz.sokoban4j.ISokobanGame.SokobanGameState;
 import cz.sokoban4j.simulation.SokobanResult;
 import cz.sokoban4j.simulation.SokobanResult.SokobanResultType;
 import cz.sokoban4j.simulation.actions.EDirection;
@@ -13,13 +8,6 @@ import cz.sokoban4j.simulation.actions.oop.MoveOrPush;
 import cz.sokoban4j.simulation.agent.IAgent;
 import cz.sokoban4j.simulation.board.compact.BoardCompact;
 import cz.sokoban4j.simulation.board.oop.Board;
-import cz.sokoban4j.ui.SokobanFrame;
-import cz.sokoban4j.ui.SokobanView;
-import cz.sokoban4j.ui.UIBoard;
-import cz.sokoban4j.ui.actions.IUIAction;
-import cz.sokoban4j.ui.actions.UIActionFactory;
-import cz.sokoban4j.ui.atlas.SpriteAtlas;
-import cz.sokoban4j.ui.utils.TimeDelta;
 
 public class SokobanSim implements ISokobanGame, Runnable {
 
@@ -166,6 +154,13 @@ public class SokobanSim implements ISokobanGame, Runnable {
 					// PERFORM THE ACTION
 					agentAction.perform(board);
 					++steps;
+					observe = true;
+				} else {
+					// TODO: should we have "verbose" version of SokobanSim?
+					//System.out.println("!!!!!!!!!!!!!!!!!");
+					//System.out.println("SokobanSim: cannot perform the action '" + agentAction.getDirection() + "'; not possible in the following board...");
+					//board.debugPrint();
+					//System.out.println("!!!!!!!!!!!!!!!!!");
 				}
 				
 				agentAction = null;
