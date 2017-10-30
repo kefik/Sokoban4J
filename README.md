@@ -14,7 +14,7 @@ in agent implementation, much more smaller code base).
 
 ## FEATURES
 
-1) Four different representation of the game state - see Board for OOP representation used by the simulator and then BoardCompact (use CMove and CPush to update), BoardSlim (use SMove and SPush to update) and BoardCompressed (use MMove and MPush to update) that should be used for state space search. Use StateCompressed for representation of no-good states.
+1) Four different representation of the game state - see Board for OOP representation used by the simulator and then BoardCompact (use CMove and CPush to update), BoardSlim (use SMove and SPush to update) and BoardCompressed (use MMove and MPush to update) that should be used for state space search. Use StateCompressed or StateMinimal for the representation of no-good states.
 
 2) HumanAgent and ArtificialAgent stubs; ArtificialAgent is using own thread for thinking (does not stuck GUI). See DFSAgent from Sokoban4J-Agents project for the example of artificial player.
 

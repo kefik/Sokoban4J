@@ -48,6 +48,7 @@ public class BoardSlim {
 		result.playerY = playerY;
 		result.boxCount = boxCount;
 		result.boxInPlaceCount = boxInPlaceCount;
+		result.hash = hash;
 		return result;
 	}
 	

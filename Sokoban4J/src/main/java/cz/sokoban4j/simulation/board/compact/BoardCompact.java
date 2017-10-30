@@ -8,6 +8,9 @@ public class BoardCompact implements Cloneable {
 
 	private Integer hash = null;
 	
+	/**
+	 * Compact representation of tiles.
+	 */
 	public int[][] tiles;
 	
 	public int playerX;

@@ -131,8 +131,11 @@ public class StateCompressed {
 	public int hashCode() {
 		if (hash == null) {
 			hash = 0;
+			int[] coefs = new int[] { 290317, 97 };
+			int coef = 0;
 			for (int p : positions) {
-				hash += 27 * p;
+				hash += coefs[coef % 2] * p;
+				++coef;
 			}
 		}
 		return hash;
