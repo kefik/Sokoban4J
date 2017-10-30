@@ -64,9 +64,9 @@ in agent implementation, much more smaller code base).
 
 ## COMPILATION
 
-Compile Sokoban4J project (from within Sokoban4J directory):
+Compile Sokoban4J project (from within Sokoban4J directory), requires [Maven](https://maven.apache.org/):
 
-Windows (from cmd; assuming you have mvn on path):
+Windows (from cmd; assuming you have mvn.bat on path):
 
     mvn package
     
