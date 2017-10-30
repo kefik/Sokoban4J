@@ -26,7 +26,7 @@ Arrangements of David W. Skinner's levels
 They are published with David W. Skinner's permission
 original level page: http://users.bentonrea.com/~sasquatch/sokoban/
 
-3a
+3
    #####
    #   #
 #### # #
@@ -43,7 +43,7 @@ Comment:
 added 1 box
 Comment-End:
 
-17a
+17
        #####
        #   #
       ## # #
@@ -67,7 +67,7 @@ Comment:
 added 1 box
 Comment-End:
 
-25a
+25
         #####
         #   #####
    ######$#     ##
@@ -88,7 +88,7 @@ Comment:
 added 1 box
 Comment-End:
 
-27a
+27
    #######        ########
    #     #        #  ##  #
 #### ### #    #####$    $##
@@ -114,7 +114,7 @@ Comment:
 added 1 box
 Comment-End:
 
-29a
+29
      #####
      #   #
     ## # #####
@@ -139,7 +139,7 @@ Comment:
 added 2 boxes
 Comment-End:
 
-29b
+29
      #####
      #   #
     ## # #####
@@ -164,7 +164,7 @@ Comment:
 added 2 walls
 Comment-End:
 
-35a
+35
  ###########
 ##    #    ##
 # .$$. .$$. #
@@ -184,7 +184,7 @@ Comment:
 added 1 box
 Comment-End:
 
-36a
+36
 #############
 #     #     #
 # # # $ # # #
@@ -204,7 +204,7 @@ Comment:
 added 1 box
 Comment-End:
 
-38a
+38
      ########
   ####   @ *####
  ##  $$ ##. .  ##
@@ -229,7 +229,7 @@ Comment:
 added 2 boxes
 Comment-End:
 
-39a
+39
     #########
     #       #
   ###$#$ $#$###
@@ -253,7 +253,7 @@ Comment:
 added 1 box
 Comment-End:
 
-39b
+39
     #########
     #   .   #
   ###$#$ $#$###
@@ -277,7 +277,7 @@ Comment:
 added 2 boxes
 Comment-End:
 
-39b1
+39
     #########
     #   .   #
   ###$#$ $#$###
@@ -301,7 +301,7 @@ Comment:
 added 2 boxes, 6 floors
 Comment-End:
 
-40a
+40
  ####### #######
 ##     ###     ##
 # .$.$. # .$.$. #
@@ -325,7 +325,7 @@ Comment:
 changed 1 wall to box, added 1 box
 Comment-End:
 
-40b
+40
  ####### #######
 ##     ###     ##
 # .$.$. # .$.$. #
@@ -349,7 +349,7 @@ Comment:
 changed 4 walls to boxes, added 4 boxes
 Comment-End:
 
-40c
+40
  ####### #######
 ##     ###     ##
 # .$.$.## .$.$. #
@@ -374,7 +374,7 @@ changed 4 walls to boxes, added 4 boxes
 adding 8 walls to b version - M.L.
 Comment-End:
 
-40d
+40
  ###### ########
 ##    ###      ##
 # .$.$.## *$.$. #
@@ -400,7 +400,7 @@ adding 8 walls to b version - M.L.
 added 4 boxes
 Comment-End:
 
-40e
+40
  ###### ########
 ##    ###      ##
 # .$.$.## #$.$. #
@@ -427,7 +427,7 @@ added 4 boxes
 stoned 8 boxes- M.L.
 Comment-End:
 
-42a
+42
     #####   #####   #####
     #   #   #   #   #   #
   ###   #####   #####   ###
@@ -455,7 +455,7 @@ Comment:
 added 45 boxes
 Comment-End:
 
-42b
+42
     #####   #####
     #   #   #   #
   ### . ##### . ###
@@ -483,7 +483,7 @@ Comment:
 added 4 boxes
 Comment-End:
 
-42c
+42
     #####   #####   #####
     #   #   #   #   #   #
   ### . ##### . ##### . ###
@@ -511,7 +511,7 @@ Comment:
 added 51 boxes
 Comment-End:
 
-42c1
+42
     #####   #####   #####
     #   #   #   #   #   #
   ### . ##### . ##### . ###
@@ -540,7 +540,7 @@ added 51 boxes
 stoned 3 boxes - M.L.
 Comment-End:
 
-42c2
+42
     #####   #####   #####
     #   #   #   #   #   #
   ### . ##### . ##### . ###
@@ -569,7 +569,7 @@ added 51 boxes
 stoned 3 boxes - M.L.
 Comment-End:
 
-42c3
+42
     #####   #####   #####
     #   #   #   #   #   #
   ### . ##### . ##### . ###
@@ -598,7 +598,7 @@ added 51 boxes
 stoned 3 boxes - M.L.
 Comment-End:
 
-42c4
+42
     #####   #####   #####
     #   #   #   #   #   #
   ### . ##### . ##### . ###
@@ -628,7 +628,7 @@ stoned 3 boxes - M.L.
 changed boxes position
 Comment-End:
 
-42c5
+42
     #####   #####   #####
     #   #   #   #   #   #
   ### . ##### . ##### . ###
@@ -659,7 +659,7 @@ changed boxes position
 stone 2 boxes
 Comment-End:
 
-42d
+42
     #####   #####
     #   #   #   #
   ### . ##### . ###
@@ -687,7 +687,7 @@ Comment:
 added 7 boxes
 Comment-End:
 
-42e
+42
     #####   #####   #####
     #   #   #   #   #   #
   ### . ##### . ##### . ###
@@ -715,7 +715,7 @@ Comment:
 added 55 boxes
 Comment-End:
 
-42f
+42
     #####   #####   #####
     #   #   #   #   #   #
   ### . ##### . ##### . ###
@@ -743,7 +743,7 @@ Comment:
 added 56 boxes
 Comment-End:
 
-43a
+43
      #####   #####   #####
     ##   ## ##   ## ##   ##
     #.$.$.# #.$.$.# #.$.$.#
@@ -773,7 +773,7 @@ Comment:
 added 86 boxes
 Comment-End:
 
-43b
+43
          #####
         ## . ##
         #.$.$.#
@@ -803,7 +803,7 @@ Comment:
 added 4 boxes
 Comment-End:
 
-43c
+43
      #####   #####   #####
     ## . ## ## . ## ## . ##
     #.$.$.# #.$.$.# #.$.$.#
@@ -833,7 +833,7 @@ Comment:
 added 94 boxes
 Comment-End:
 
-43d
+43
      #####   #####   #####
     ## . ## ## . ## ## . ##
     #.$.$.# #.$.$.# #.$.$.#
@@ -863,7 +863,7 @@ Comment:
 added 98 boxes
 Comment-End:
 
-44a
+44
           ###
          ## ##
         ##   ##
@@ -893,7 +893,7 @@ Comment:
 added 5 boxes
 Comment-End:
 
-44b
+44
           ###
          ## ##
         ## . ##
@@ -923,7 +923,7 @@ Comment:
 added 8 boxes
 Comment-End:
 
-45a
+45
      ####
      #  ########
      #  .      #
@@ -951,7 +951,7 @@ Comment:
 added 1 box
 Comment-End:
 
-46a
+46
      #####
      #   #####
      # # #   #####
@@ -980,7 +980,7 @@ Comment:
 added 3 boxes
 Comment-End:
 
-47a
+47
 ################   #######
 #              #   #     #
 # $$ $ $ $ ### ##### ### #
@@ -1004,7 +1004,7 @@ Comment:
 added 3 boxes
 Comment-End:
 
-47b
+47
 ################   #######
 #              #   #     #
 # $$ $ $ $ ### ##### ### #
@@ -1028,7 +1028,7 @@ Comment:
 added 4 boxes
 Comment-End:
 
-48a
+48
 #################################
 #.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.#
 #* $ $.$ $ * $ $.$ $ * $ $.$ $ *#
@@ -1057,7 +1057,7 @@ Comment-End:
 Title: Sasquatch V 48a
 Author: David W. Skinner, York Shen
 
-48a1
+48
  ##########################
 ##                        #
 # *.*.* *.*.* *.*.* *.*.* ##
@@ -1082,7 +1082,7 @@ Comment:
 added 2 boxes
 Comment-End:
 
-48b
+48
  ##########################
 ##                        #
 # *.*.* *.*.* *.*.* *.*.* ##
@@ -1107,7 +1107,7 @@ Comment:
 added 4 boxes
 Comment-End:
 
-48c
+48
  ##########################
 ##                        #
 # *.*.* *.*.* *.*.* *.*.* ##
@@ -1132,7 +1132,7 @@ Comment:
 added 6 boxes
 Comment-End:
 
-48d
+48
  ##########################
 ##                        #
 # *.*.* *.*.* *.*.* *.*.* ##
@@ -1157,7 +1157,7 @@ Comment:
 delete 2 walls, added 10 boxes
 Comment-End:
 
-48e
+48
  ##########################
 ##                        #
 # *.*.* *.*.* *.*.* *.*.* ##
@@ -1182,7 +1182,7 @@ Comment:
 delete 2 walls, added 10 boxes
 Comment-End:
 
-48e1
+48
     #####################
   ###                   #
 ###.*.# #.*.* *.*.* #.#.##
@@ -1208,7 +1208,7 @@ delete 2 walls, added 10 boxes
 stoneing study - M.L.
 Comment-End:
 
-48e2
+48
     #####################
   ###                   #
 ###.#.# #.#.# #.#.# #.#.##
@@ -1234,7 +1234,7 @@ delete 2 walls, added 10 boxes
 stoneing study - M.L.
 Comment-End:
 
-48e3
+48
       ###################
   #####                 #
  ##.#.# #.#.# #.#.# #.#.##
@@ -1260,7 +1260,7 @@ delete 2 walls, added 10 boxes
 stoneing study - M.L.
 Comment-End:
 
-48f
+48
  ##########################
 ##                        #
 # *.*.* *.*.* *.*.* *.*.* ##
@@ -1285,7 +1285,7 @@ Comment:
 delete 2 walls, added 10 boxes
 Comment-End:
 
-48f1
+48
  ########################
  #                      #
 ##*.*.* *.*.* *.*.# #.#.##
@@ -1311,7 +1311,7 @@ delete 2 walls, added 10 boxes
 stoneing study - M.L.
 Comment-End:
 
-48f2
+48
       ###################
   #####                 #
  ##.#.# #.#.# #.#.# #.#.##
@@ -1337,7 +1337,7 @@ delete 2 walls, added 10 boxes
 stoneing study - M.L.
 Comment-End:
 
-49a
+49
   ####################
   #      #    #      #
 ###$.$  $.$  $.$  $.$###
@@ -1368,7 +1368,7 @@ Comment:
 added 4 boxes
 Comment-End:
 
-49b
+49
   ####################
   #      #    #      #
 ###$*$. $.$  $.$ .$*$###
@@ -1399,7 +1399,7 @@ Comment:
 added 8 boxes
 Comment-End:
 
-49c
+49
   ####################
   #      #    #      #
 ###$*$. $.$..$.$ .$*$###
@@ -1430,7 +1430,7 @@ Comment:
 added 12 boxes
 Comment-End:
 
-49d
+49
   ####################
   #      #    #      #
 ###$*$. $.$..$.$ .$*$###
@@ -1461,7 +1461,7 @@ Comment:
 added 19 boxes
 Comment-End:
 
-49e
+49
   ####################
   #      #    #      #
 ###$*$. $.$..$.$ .$*$###
@@ -1492,7 +1492,7 @@ Comment:
 added 20 boxes
 Comment-End:
 
-49f
+49
   ####################
   #      #    #      #
 ###$#$. $.$..$.$ .$#$###
@@ -1524,7 +1524,7 @@ added 20 boxes
 stoned 6 boxes again - M.L.
 Comment-End:
 
-49g
+49
   ####################
   #      #    ##     #
 ###$#$. $.$..$.$ .$#$###
@@ -1556,7 +1556,7 @@ added 19 boxes
 remodel Sasquatch 49d - stoned 8 boxes - M. L.
 Comment-End:
 
-50a
+50
  #########################
 ##   #       #       #   ##
 # #  .$.$.$.$ $.$.$.$.  # #
@@ -1590,7 +1590,7 @@ Comment:
 added 4 boxes
 Comment-End:
 
-50b
+50
      #################
   ####       #       ####
  ##  .$.$.$.$ $.$.$.$.  ##
@@ -1625,7 +1625,7 @@ added 4 boxes
 added another 24 walls (limit moving space)
 Comment-End:
 
-50c
+50
      #################
   ####       #       ####
  ##  .$.$.$.$.$.$.$.$.  ##
@@ -1661,7 +1661,7 @@ added another 24 walls (limit moving space)
 added 3 boxes
 Comment-End:
 
-50d
+50
      #################
   ####       #       ####
  ##  .$.$.$.$ $.$.$.$.  ##
@@ -1697,7 +1697,7 @@ added another 24 walls (limit moving space)
 added 4 boxes
 Comment-End:
 
-50e
+50
      #################
   ####       #       ####
  ##  .$.$.$.$.$.$.$.$.  ##

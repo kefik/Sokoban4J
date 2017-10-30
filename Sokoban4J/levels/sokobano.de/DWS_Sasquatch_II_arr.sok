@@ -26,7 +26,7 @@ Arrangements of David W. Skinner's levels
 They are published with David W. Skinner's permission
 original level page: http://users.bentonrea.com/~sasquatch/sokoban/
 
-1a
+1
 #####
 #   #####
 # $ $ $ #
@@ -44,7 +44,7 @@ Comment:
 added 1 box
 Comment-End:
 
-2a
+2
      ####
 ######..#
 #     ..#
@@ -62,7 +62,7 @@ Comment:
 added 1 box
 Comment-End:
 
-9a
+9
               ####
            ####  ##
         ####  $   #     ####
@@ -86,7 +86,7 @@ Comment:
 added 1 box
 Comment-End:
 
-12a
+12
   #####
  ##   ##
 ##*.$ .##
@@ -104,7 +104,7 @@ Comment:
 added 2 boxes
 Comment-End:
 
-13a
+13
     #####
     #   #####
     # # #   #
@@ -128,7 +128,7 @@ Comment:
 added 4 boxes
 Comment-End:
 
-15a
+15
   #####
   #   #####
   # $$#   #####
@@ -153,7 +153,7 @@ Comment:
 added 2 boxes
 Comment-End:
 
-15b
+15
   #####
   #   #####
   # $$#   #####
@@ -178,7 +178,7 @@ Comment:
 added 4 boxes
 Comment-End:
 
-15c
+15
   #####
   #   #####
   # $$#   #####
@@ -203,7 +203,7 @@ Comment:
 added 6 boxes
 Comment-End:
 
-16a
+16
 #############
 #     #     #
 # .$.$.$.$. #
@@ -223,7 +223,7 @@ Comment:
 added 4 walls
 Comment-End:
 
-17a
+17
 #################################
 #                               #
 # .$.$.$.$.$.$.$.$.$.$.$.$.$.$. #
@@ -255,7 +255,7 @@ Comment:
 added 142 boxes
 Comment-End:
 
-17b
+17
 #############################
 #             #             #
 # .$.$.$.$.$.$.$.$.$.$.$.$. #
@@ -279,7 +279,7 @@ Comment:
 added 4 walls
 Comment-End:
 
-17c
+17
 #############################
 #             #             #
 # .$.$.$.$.$.$.$.$.$.$.$.$. #
@@ -303,7 +303,7 @@ Comment:
 added 6 walls
 Comment-End:
 
-17d
+17
 #################################
 #               #               #
 # .$.$.$.$.$.$.$.$.$.$.$.$.$.$. #
@@ -336,7 +336,7 @@ added 142 boxes
 added 6 walls
 Comment-End:
 
-17e
+17
 #############################
 #             #             #
 # .$.$.$.$.$.$.$.$.$.$.$.$. #
@@ -360,7 +360,7 @@ Comment:
 added 8 walls
 Comment-End:
 
-17e1
+17
 #############################
 #             #             #
 # .$.$.$.$.$.$.$.$.$.$.$.$. #
@@ -384,7 +384,7 @@ Comment:
 added 8 walls
 Comment-End:
 
-17e2
+17
 #############################
 #             #             #
 # .$.$.$.$.$.$.$.$.$.$.$.$. #
@@ -408,7 +408,7 @@ Comment:
 added 8 walls
 Comment-End:
 
-17f
+17
 #################################
 #               #               #
 # .$.$.$.$.$.$.$.$.$.$.$.$.$.$. #
@@ -441,7 +441,7 @@ added 142 boxes
 added 10 walls
 Comment-End:
 
-18a
+18
   #####################
  ##        #     #    #
  #  $ $ $  #$ $ $ $  $###
@@ -465,7 +465,7 @@ Comment:
 added 8 boxes
 Comment-End:
 
-19a
+19
        #####  #####
        #   #  #   #
        # #.####.# #
@@ -487,7 +487,7 @@ Comment:
 added 3 boxes
 Comment-End:
 
-21a
+21
    #############
    #     #     #
    # $ $ $ $ $ #
@@ -509,7 +509,7 @@ Comment:
 added 2 boxes
 Comment-End:
 
-31a
+31
  #####
 ##   # ####
 #    ###  #
@@ -531,7 +531,7 @@ Comment:
 added 2 boxes
 Comment-End:
 
-32a
+32
      ###
     ## ##
    ##   ##
@@ -551,7 +551,7 @@ Comment:
 changed wall position
 Comment-End:
 
-34a
+34
  #####  #####
  #   ####   #
 ## *$.*.$.$ #
@@ -587,7 +587,7 @@ Comment:
 added 4 boxes
 Comment-End:
 
-35b
+35
          #####
 ##########   #
 #      $ $$$ #
@@ -609,7 +609,7 @@ Comment:
 added 5 boxes
 Comment-End:
 
-36a
+36
  ####### #######
 ##  .  ###     ##
 # *$.$* # .$.$* #
@@ -633,7 +633,7 @@ Comment:
 added 6 boxes
 Comment-End:
 
-36b
+36
   ###### ######
  ## .  ###    ##
 ##*$.$* # .$.$*##
@@ -658,7 +658,7 @@ added 6 boxes
 added 8 walls - M.L.
 Comment-End:
 
-36c
+36
  ####### #######
 ##  .  ###     ##
 # *$.$* # .$.$* #
@@ -683,7 +683,7 @@ added 6 boxes
 added 9 walls - M.L. (centrum variant)
 Comment-End:
 
-37a
+37
             #####
         #####   #####
     #####   # $ #   #####
@@ -707,7 +707,7 @@ Comment:
 added 6 boxes
 Comment-End:
 
-37b
+37
             #####
         #####   #####
     #####   # $ #   #####
@@ -731,7 +731,7 @@ Comment:
 added 7 boxes
 Comment-End:
 
-38a
+38
 #####                 #####
 #   ###################   #
 # # $ $ $ $ $ $ $ $ $ $ # #
@@ -753,7 +753,7 @@ Comment:
 added 6 boxes
 Comment-End:
 
-38b
+38
 #####                 #####
 #   ###################   #
 # # $ $ $ $ $ $ $ $ $ $ # #
@@ -775,7 +775,7 @@ Comment:
 added 10 boxes
 Comment-End:
 
-40a
+40
                 #####
   ###############   ########
   # $ $ $ $ $  $ $ $ $ $ $ #
@@ -800,7 +800,7 @@ Comment:
 added 4 boxes
 Comment-End:
 
-40b
+40
                 #####
   ###############   ########
   # $ $ $ $ $  $ $ $ $ $ $ #
@@ -825,7 +825,7 @@ Comment:
 added 6 boxes
 Comment-End:
 
-40c
+40
                 #####
   ###############   ########
   # $ $ $ $ $  $ $ $ $ $ $ #
@@ -850,7 +850,7 @@ Comment:
 added 10 boxes
 Comment-End:
 
-40d
+40
                 #####
   ###############   ########
   # $ $ $ $ $  $ $ $ $ $ $ #
@@ -875,7 +875,7 @@ Comment:
 added 12 boxes
 Comment-End:
 
-40e
+40
                 #####
   ###############   ########
   # $ $ $ $ $  $ $ $ $ $ $ #
@@ -900,7 +900,7 @@ Comment:
 added 14 boxes
 Comment-End:
 
-41a
+41
  ###########
 ##    #    ##
 # $$*.$.*$$ #
@@ -918,7 +918,7 @@ Comment:
 added 2 boxes
 Comment-End:
 
-41b
+41
  ###########
 ##    #    ##
 # $$*.$.*$$ #
@@ -936,7 +936,7 @@ Comment:
 added 1 box, 1 wall
 Comment-End:
 
-41c
+41
  ###########
 ##    #    ##
 # $$*.$.*$$ #
@@ -954,7 +954,7 @@ Comment:
 added 2 boxes
 Comment-End:
 
-41c1
+41
  ###########
 ##    #    #
 # $$*.$.*$$##
@@ -973,7 +973,7 @@ added 2 boxes
 added 4 walls - M.L.
 Comment-End:
 
-41d
+41
  ###########
 ##    #    ##
 # $$*.*.*$$ #
@@ -991,7 +991,7 @@ Comment:
 added 3 boxes
 Comment-End:
 
-41d1
+41
  ###########
 ##    #    #
 # $$*.#.*$$##
@@ -1010,7 +1010,7 @@ added 3 boxes
 stoned 2 boxes, added 4 walls - M.L.
 Comment-End:
 
-45a
+45
              ####
           #### .#
     ####  #    .####
@@ -1030,7 +1030,7 @@ Comment:
 added 2 walls
 Comment-End:
 
-46a
+46
          #### ####
          #  ###  #
       #### $ $   #######
@@ -1055,7 +1055,7 @@ Comment:
 added 2 boxes
 Comment-End:
 
-47a
+47
       #####
       # . #
   ##### * #####
@@ -1079,7 +1079,7 @@ Comment:
 added 4 boxes
 Comment-End:
 
-48a
+48
        ###
       ## ##
      ##   ##
@@ -1103,7 +1103,7 @@ Comment:
 added 2 boxes
 Comment-End:
 
-48b
+48
        ###
       ## ##
      ##   ##
@@ -1127,7 +1127,7 @@ Comment:
 added 4 boxes
 Comment-End:
 
-48c
+48
      #####
     ##   ##
    ## $.$ ##
@@ -1150,7 +1150,7 @@ added 2 boxes
 added 2 walls
 Comment-End:
 
-48d
+48
      #####
     ##   ##
    ## $.$ ##
@@ -1173,7 +1173,7 @@ added 2 boxes
 added 4 walls
 Comment-End:
 
-49a
+49
     ####
     #  ######
     #  $ $  ###    ####
@@ -1198,7 +1198,7 @@ Comment:
 added 7 boxes
 Comment-End:
 
-49c
+49
     ####
     #  ######
     #  $ $  ###    ####

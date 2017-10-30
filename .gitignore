@@ -1,0 +1,17 @@
+/.metadata
+/.recommenders
+
+/Sokoban4J/.settings
+/Sokoban4J/target
+
+/Sokoban4J-Agents/.settings
+/Sokoban4J-Agents/target
+
+/Sokoban4J-Playground/.settings
+/Sokoban4J-Playground/target
+
+/Sokoban4J-Tournament/.settings
+/Sokoban4J-Tournament/results
+/Sokoban4J-Tournament/target
+
+/Sokoban4J-Competition

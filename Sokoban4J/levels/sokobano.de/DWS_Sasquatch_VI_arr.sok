@@ -26,7 +26,7 @@ Arrangements of David W. Skinner's levels
 They are published with David W. Skinner's permission
 original level page: http://users.bentonrea.com/~sasquatch/sokoban/
 
-8a
+8
 ###########
 #    @    #
 # ####### #
@@ -42,7 +42,7 @@ Comment:
 changed box position, added 1 wall (limit moving space)
 Comment-End:
 
-9a
+9
  #######
  #     #
  # $ $ ####
@@ -60,7 +60,7 @@ Comment:
 added 1 box
 Comment-End
 
-15a
+15
        ####
       ##  ##
       # $  ##
@@ -83,7 +83,7 @@ Comment:
 added 4 boxes
 Comment-End:
 
-16a
+16
  ####
  #  ####
 ##. #  #
@@ -105,7 +105,7 @@ Comment:
 added 1 box
 Comment-End:
 
-16b
+16
  ####
  #  ####
 ##. #  #
@@ -127,7 +127,7 @@ Comment:
 added 2 boxes
 Comment-End:
 
-17a
+17
          #####   ####
          #   #####  #
          #   $ $    #
@@ -151,7 +151,7 @@ Comment:
 added 2 boxes
 Comment-End:
 
-18a
+18
 ####  ####     ####  ####
 #  ####  #######  ####  #
 # .$. # .$. # .$. # .$. #
@@ -167,7 +167,7 @@ Comment:
 added 1 box
 Comment-End:
 
-27a
+27
  ########
 ##      ##
 # $.$.$. #
@@ -184,7 +184,7 @@ Comment:
 added 1 wall
 Comment-End:
 
-30a
+30
   #######
   #     #
 ###$$  $###
@@ -202,7 +202,7 @@ Comment:
 added 1 box
 Comment-End:
 
-30b
+30
   #######
   #     #
 ###$$  $###
@@ -220,7 +220,7 @@ Comment:
 added 2 boxes
 Comment-End:
 
-32a
+32
 #####   #####
 #   #####   #
 # #   #   # #
@@ -240,7 +240,7 @@ Comment:
 added 4 walls, decrease 4 boxes
 Comment-End:
 
-32b
+32
 #####   #####
 #   #####   #
 # #   #   # #
@@ -260,7 +260,7 @@ Comment:
 added 5 walls, decrease 4 boxes
 Comment-End:
 
-33a
+33
  ###########
 ##    #    ##
 # $.$.*.$.$ #
@@ -280,7 +280,7 @@ Comment:
 added 4 boxes
 Comment-End:
 
-33b
+33
  ###########
 ##    #    ##
 # $.$.#.$.$ #
@@ -301,7 +301,7 @@ added 4 boxes
 stoned 4 boxes - M.L.
 Comment-End:
 
-33b1
+33
  ###########
  #    ##   #
 ##$.$.#.$.$##
@@ -322,7 +322,7 @@ added 4 boxes
 stoned 4 boxes, 8 floors- M.L.
 Comment-End:
 
-35a
+35
   ####   ####
   #  #   #  #
 ###.$#####$.###
@@ -344,7 +344,7 @@ Comment:
 added 1 box
 Comment-End:
 
-35b
+35
   ####   ####
   #  #   #  #
 ###.$#####$.###
@@ -366,7 +366,7 @@ Comment:
 added 1 wall
 Comment-End:
 
-36a
+36
      #####
   ####   ###
   #    #   ###
@@ -388,7 +388,7 @@ Comment:
 added 1 wall
 Comment-End:
 
-36b
+36
      #####
   ####   ###
   #    #   ###
@@ -411,7 +411,7 @@ ys:added 1 wall
 gr:added 4 boxes
 Comment-End:
 
-37a
+37
     #######
   ###     ###
  ##    #    ##
@@ -430,7 +430,7 @@ Comment-End:
 Title: Sasquatch VI 37a
 Author: David W. Skinner, York Shen
 
-38a
+38
      #######
  ######   ######
  ##   $. .$   ##
@@ -454,7 +454,7 @@ Comment:
 added 4 boxes
 Comment-End:
 
-40a
+40
               ####
               #  #
               #  #
@@ -480,7 +480,7 @@ Comment-End:
 Title: Sasquatch VI 40a
 Author: David W. Skinner, York Shen
 
-40b
+40
               ####
               #  #
               #  #
@@ -506,7 +506,7 @@ Author: David W. Skinner, York Shen
 Title: Sasquatch VI 40b
 Author: David W. Skinner, York Shen
 
-42a
+42
       #########
    ####   #   ####
   ##      $      ##
@@ -534,7 +534,7 @@ Comment:
 enlarged size
 Comment-End:
 
-42b
+42
         #########
    ######   #   ######
   ##        $        ##
@@ -566,7 +566,7 @@ Comment:
 enlarged size
 Comment-End:
 
-42b2
+42
         #########
    ######   #   #
   ##        $   #   ###
@@ -595,7 +595,7 @@ Comment-End:
 Title: Sasquatch VI 42b2
 Author: David W. Skinner, York Shen, Marek Letrab, Tian Lang
 
-42c
+42
         #########
    ######   #   #
   ##        $   #   ###
@@ -628,7 +628,7 @@ enlarged size
 something stoned - M.L. [A.D. X'mas '03 gift from Poland]
 Comment-End:
 
-42cy
+42
         #####
        ## # ##
       ##  #  ##
@@ -656,7 +656,7 @@ Comment:
 different target position
 Comment-End:
 
-42cy1
+42
       #######
      ##  #  ##
     ##   #   ##
@@ -683,7 +683,7 @@ different target position
 stoned 6 boxes - M.L.
 Comment-End:
 
-42d
+42
       #########
    ####   #   #
   ##      $   # ###
@@ -711,7 +711,7 @@ Comment:
 remodel Sasquatch VI 42a - M.L.
 Comment-End:
 
-42e
+42
       #########
    ####   #   #
   ##      $   # ###
@@ -739,7 +739,7 @@ Comment:
 remodeling Sasquatch VI 42a - M.L.
 Comment-End:
 
-42f
+42
         #########
    ######   #   #
   ##        $   #   ###
@@ -772,7 +772,7 @@ enlarged size
 Remodeling Sasquatch VI 42b - M.L.
 Comment-End:
 
-42f1
+42
         #########
    ######   #   #
   ##        $   #   ###
@@ -805,7 +805,7 @@ enlarged size
 Remodeling Sasquatch VI 42b
 Comment-End:
 
-42f2
+42
         #########
    ######   #   #
   ##        $   #   ###
@@ -838,7 +838,7 @@ enlarged size
 Remodeling Sasquatch VI 42b
 Comment-End:
 
-42g
+42
       #######
      ##  #  ##
     ##   #   ##
@@ -864,7 +864,7 @@ Comment:
 remodeling Sasquatch VI 42
 Comment-End:
 
-43a
+43
 ###################
 #    #   #   #    #
 # #  #   #   #  # #
@@ -890,7 +890,7 @@ Comment:
 added 1 box
 Comment-End:
 
-43b
+43
 ###################
 #    #   #   #    #
 # #  #   #   #  # #
@@ -916,7 +916,7 @@ Comment:
 added 2 boxes
 Comment-End:
 
-43d
+43
 ###################
 #    #   #   #    #
 # #  #   #   #  # #
@@ -942,7 +942,7 @@ Comment:
 deleted 4 boxes
 Comment-End:
 
-43e
+43
 ###################
 #    #   #   #    #
 # #  #   #   #  # #
@@ -969,7 +969,7 @@ changed central walls to boxes (49 more), easy version
 due different target position
 Comment-End:
 
-43e1
+43
 ###################
 #    #   #   #    #
 # #  #   #   #  # #
@@ -996,7 +996,7 @@ changed central walls to boxes (49 more), easy version due different target posi
 stoned 22 boxes (now middle version)- M.L.
 Comment-End:
 
-43f
+43
 ###################
 #    #   #   #    #
 # #  #   #   #  # #
@@ -1022,7 +1022,7 @@ Comment:
 changed central walls to boxes (48 more)
 Comment-End:
 
-44a
+44
     #####   #####   #####
 #####   #####   #####   #####
 #   #   #   #   #   #   #   #
@@ -1050,7 +1050,7 @@ Comment:
 added 46 boxes
 Comment-End:
 
-44b
+44
     #####   #####   #####
 #####   #   #   #   #   #####
 #   #$ $#   #$ $#   #$ $#   #
@@ -1078,7 +1078,7 @@ Comment:
 added 26 boxes
 Comment-End:
 
-44c
+44
     #####   #####
 #####   #####   #####
 #   #   #   #   #   #
@@ -1106,7 +1106,7 @@ Comment:
 added 8 boxes
 Comment-End:
 
-44c1
+44
     #####   #####
 #####   #####   #####
 #   #   #   #   #   #
@@ -1135,7 +1135,7 @@ added 8 boxes
 stoned 8 boxes - M.L.
 Comment-End:
 
-44d
+44
     #####   #####   #####
 #####   #   #   #   #   #####
 #   #$ $#   #$ $#   #$ $#   #
@@ -1163,7 +1163,7 @@ Comment:
 added 36 boxes
 Comment-End:
 
-44e
+44
     #####   #####   #####
 #####   #   #   #   #   #####
 #   #$ $#   #$ $#   #$ $#   #
@@ -1192,7 +1192,7 @@ added 36 boxes
 stone 6 boxes
 Comment-End:
 
-44e1
+44
     #####   #####   #####
 #####   #   #   #   #   #####
 #   #$ $#   #$ $#   #$ $#   #
@@ -1221,7 +1221,7 @@ added 36 boxes
 stoned 4 boxes- M.L.
 Comment-End:
 
-45a
+45
  ###########################
 ##  #      *     *      #  ##
 #   # #   # #   # #   # #   #
@@ -1251,7 +1251,7 @@ Comment:
 added 38 boxes
 Comment-End:
 
-45b
+45
  ###########################
 ##  #      *     *      #  ##
 #   # #   # #   # #   # #   #
@@ -1281,7 +1281,7 @@ Comment:
 added 38 boxes
 Comment-End:
 
-45c
+45
  ###########################
 ##  #      *     *      #  ##
 #   # #   # #   # #   # #   #
@@ -1311,7 +1311,7 @@ Comment:
 added 38 boxes
 Comment-End:
 
-45d
+45
  #####################
 ##  #   .  *  .   #  ##
 #   # # $ # # $ # #   #
@@ -1341,7 +1341,7 @@ Comment:
 added 8 boxes
 Comment-End:
 
-45d1
+45
  #####################
  #  #   .  *  .   #  #
  #  # # $ # # $ # #  #
@@ -1372,7 +1372,7 @@ added 8 boxes
 added 14 walls
 Comment-End:
 
-45e
+45
  ###########################
 ##  #   .  *  .  *  .   #  ##
 #   # # $ # # $ # # $ # #   #
@@ -1402,7 +1402,7 @@ Comment:
 added 48 boxes
 Comment-End:
 
-45f
+45
  ###########################
 ##  #   .  *  .  *  .   #  ##
 #   # # $ # # $ # # $ # #   #
@@ -1432,7 +1432,7 @@ Comment:
 added 48 boxes
 Comment-End:
 
-45g
+45
  ###########################
 ##  #   .  *  .  *  .   #  ##
 #   # # $ # # $ # # $ # #   #
@@ -1462,7 +1462,7 @@ Comment:
 added 48 boxes
 Comment-End:
 
-45h
+45
  ########################
  #  #   .  *  .  *  .   #####
  #  # # $ # # $ # # $ # #   #
@@ -1493,7 +1493,7 @@ added 48 boxes
 added 8 walls - M.L.
 Comment-End:
 
-45h01
+45
  ########################
  #  #   .  *  .  *  .   #####
  #  # # $ # # $ # # $ # #   #
@@ -1525,7 +1525,7 @@ added 8 walls - M.L.
 added 6 boxes - LZY
 Comment-End:
 
-45h02
+45
  ########################
  #  #   .  *  .  *  .   #####
  #  # # $ # # $ # # $ # #   #
@@ -1557,7 +1557,7 @@ added 8 walls - M.L.
 added 6 boxes - LZY (changed to walls by York Shen)
 Comment-End:
 
-45h03
+45
  ########################
  #  #   .  *  .  *  .   #####
  #  # # $ # # $ # # $ # #   #
@@ -1589,7 +1589,7 @@ added 8 walls - M.L.
 added 8 boxes - LZY
 Comment-End:
 
-45h04
+45
  ########################
  #  #   .  *  .  *  .   #####
  #  # # $ # # $ # # $ # #   #
@@ -1621,7 +1621,7 @@ added 8 walls - M.L.
 added 14 boxes - LZY
 Comment-End:
 
-45h05
+45
  ########################
  #  #   .  *  .  *  .   #####
  #  # # $ # # $ # # $ # #   #
@@ -1653,7 +1653,7 @@ added 8 walls - M.L.
 added 14 boxes - LZY(stone 10 boxes by York Shen)
 Comment-End:
 
-45h06
+45
  ########################
  #  #   .  *  .  *  .   #####
  #  # # $ # # $ # # $ # #   #
@@ -1685,7 +1685,7 @@ added 8 walls - M.L.
 added 10 boxes, 6 walls - LZY
 Comment-End:
 
-45h07
+45
  ########################
  #  #   .  *  .  *  .   #####
  #  # # $ # # $ # # $ # #   #
@@ -1717,7 +1717,7 @@ added 8 walls - M.L.
 added 10 boxes, 6 walls - LZY (stone 8 boxes by York Shen)
 Comment-End:
 
-45h08
+45
  ########################
  #  #   .  *  .  *  .   #####
  #  # # $ # # $ # # $ # #   #
@@ -1750,7 +1750,7 @@ added 10 boxes, 6 walls - LZY (stone 8 boxes, added 2 boxes by York Shen)
 changed walls position
 Comment-End:
 
-45h09
+45
  ########################
  #  #   .  *  .  *  .   #####
  #  # # $ # # $ # # $ # #   #
@@ -1783,7 +1783,7 @@ added 10 boxes, 6 walls - LZY (stone 8 boxes, added 2 walls by York Shen)
 changed walls position
 Comment-End:
 
-45h10
+45
  ########################
  #  #   .  *  .  *  .   #####
  #  # # $ # # $ # # $ # #   #
@@ -1817,7 +1817,7 @@ added 10 boxes, 6 walls - LZY
 LZY changed 2 boxes to walls
 Comment-End:
 
-45hy
+45
  #####################
  #  #   .  #  .   #  #
  #  # # $ # # $ # #  #
@@ -1847,7 +1847,7 @@ Comment:
 added 6 boxes, 10 walls
 Comment-End:
 
-45hy1
+45
  #####################
  #  #   .  #  .   #  #
  #  # # $ # # $ # #  #
@@ -1877,7 +1877,7 @@ Comment:
 added 6 boxes, 16 walls
 Comment-End:
 
-45i
+45
  ########################
  #  #   .  *  .  *  .   #####
  #  # # $ # # $ # # $ # #   #
@@ -1907,7 +1907,7 @@ Comment:
 remodel Sasquatch VI 45e - added 8 walls - M.L.
 Comment-End:
 
-45j
+45
  ########################
  #  #   .  *  .  *  .   #####
  #  # # $ # # $ # # $ # #   #
@@ -1937,7 +1937,7 @@ Comment:
 remodel Sasquatch VI 45g - added 8 walls - M.L.
 Comment-End:
 
-45k
+45
  ##################
  #  #   .  *  .   #####
  #  # # $ # # $ # #   #
@@ -1968,7 +1968,7 @@ added 8 boxes
 added 8 walls - M.L.
 Comment-End:
 
-46a
+46
   ######     ###########
  ##    #######. .$. . .##
 ##.$.$.$     .$.$.$.$.$.##
@@ -2001,7 +2001,7 @@ Comment:
 added 4 boxes
 Comment-End:
 
-47a
+47
  ######             ######
 ##    ###############    ##
 # * $ $.$ $ $.$ $ $.$ $ * #
@@ -2035,7 +2035,7 @@ Comment:
 added 4 boxes
 Comment-End:
 
-47b
+47
  ######             ######
 ##    ###############    ##
 # * $ $.$ $ $.$ $ $.$ $ * #
@@ -2069,7 +2069,7 @@ Comment:
 added 5 boxes
 Comment-End:
 
-47c
+47
  ######             ######
 ##    ###############    ##
 # * $ $.$ $ $.$ $ $.$ * * #
@@ -2103,7 +2103,7 @@ Comment:
 added 8 boxes
 Comment-End:
 
-47c1
+47
  ######             ######
 ##    ###############    ##
 # * $ $.$ * $.$ * $.$ * * #
@@ -2138,7 +2138,7 @@ added 8 boxes
 added 8 walls, stoned 5 boxes
 Comment-End:
 
-47d
+47
  ######             ######
 ##    ###############    ##
 # * * $.$ $ $.$ $ $.$ * * #
@@ -2172,7 +2172,7 @@ Comment:
 added 16 boxes
 Comment-End:
 
-47d2
+47
  ######             ######
 ##    ###############    ##
 # * * $.$ $ * * $ $.$ * * #
@@ -2206,7 +2206,7 @@ Comment:
 added 16 boxes
 Comment-End:
 
-47e
+47
  ######             ######
 ##    ###############    ##
 # * * $.$ $ * * $ $.$ * * #
@@ -2240,7 +2240,7 @@ Comment:
 added 17 boxes
 Comment-End:
 
-47f
+47
  ######             ######
 ##    ###############    ##
 # * * * * $ $.$ $ * * * * #
@@ -2274,7 +2274,7 @@ Comment:
 added 16 boxes
 Comment-End:
 
-47g
+47
  ######             ######
 ##    ###############    ##
 # * * * * $ * * $ * * * * #
@@ -2308,7 +2308,7 @@ Comment:
 added 17 boxes
 Comment-End:
 
-47h
+47
  ######             ######
 ##    ###############    ##
 # * * * * $ $.$ $ * * * * #
@@ -2342,7 +2342,7 @@ Comment:
 added 18 boxes
 Comment-End:
 
-47t
+47
  ######             ######
 ##    ###############    ##
 # * * * * $ $.$ $ * * * * #
@@ -2376,7 +2376,7 @@ Comment:
 added 18 boxes
 Comment-End:
 
-48a
+48
        #    #    #    #
   ##########################
  ##    #    #    #    #    ##
@@ -2410,7 +2410,7 @@ Comment-End:
 Title: Sasquatch VI 48a
 Author: David W. Skinner, York Shen
 
-49a
+49
          #####     #####
         ## . ##   ## . ##
        ##.$.$.## ##.$.$.##
@@ -2447,7 +2447,7 @@ Author: David W. Skinner, York Shen
 Title: Sasquatch VI 49a
 Author: D. W. Skinner, LZY
 
-49b
+49
          #####     #####
         ## . ##   ## . ##
        ##.$.$.## ##.$.$.##
@@ -2484,7 +2484,7 @@ Author: D. W. Skinner, LZY
 Title: Sasquatch VI 49b
 Author: David W. Skinner, LZY
 
-49c
+49
          #####     #####
         ## . ##   ## . ##
        ##.$.$.## ##.$.$.##
@@ -2521,7 +2521,7 @@ Author: David W. Skinner, LZY
 Title: Sasquatch VI 49c
 Author: David W. Skinner, LZY
 
-50a
+50
 #################################
 ##   ###   #   ###   #   ###   ##
 # $.$. .$.$ $.$. .$.$ $.$. .$.$ #
@@ -2558,7 +2558,7 @@ Author: David W. Skinner, LZY
 Title: Sasquatch VI 50a
 Author: David W. Skinner, Lzy
 
-50b
+50
 #################################
 ##   ###   #   ###   #   ###   ##
 # $.$. .$.$ $.$. .$.$ $.$. .$.$ #
@@ -2595,7 +2595,7 @@ Author: David W. Skinner, Lzy
 Title: Sasquatch VI 50b
 Author: David W. Skinner, Lzy
 
-50c
+50
 #################################
 ##   ###   #   ###   #   ###   ##
 # $.$. .$.$$$.$. .$.$$$.$. .$.$ #
@@ -2632,7 +2632,7 @@ Author: David W. Skinner, Lzy
 Title: Sasquatch VI 50c
 Author: David W. Skinner, Lzy, York Shen
 
-50d
+50
 #################################
 ##   ###   #   ###   #   ###   ##
 # $.$. .$.$$$.$. .$.$$$.$. .$.$ #
@@ -2669,7 +2669,7 @@ Author: David W. Skinner, Lzy, York Shen
 Title: Sasquatch VI 50d
 Author: David W. Skinner, Lzy, York Shen
 
-50e
+50
 #################################
 ##   ###   #   ###   #   ###   ##
 # $.$. .$.$$$.$. .$.$$$.$. .$.$ #
@@ -2706,7 +2706,7 @@ Author: David W. Skinner, Lzy, York Shen
 Title: Sasquatch VI 50e
 Author: David W. Skinner, Lzy, York Shen
 
-50f
+50
 #################################
 ##   ###   #   ###   #   ###   ##
 # $.$. .$.$$$.$. .$.$$$.$. .$.$ #
@@ -2743,7 +2743,7 @@ Author: David W. Skinner, Lzy, York Shen
 Title: Sasquatch VI 50f
 Author: David W. Skinner, Lzy, York Shen
 
-50g
+50
 #################################
 ##   ###   #   ###   #   ###   ##
 # $.$. .$.$$$.$. .$.$$$.$. .$.$ #
@@ -2780,7 +2780,7 @@ Author: David W. Skinner, Lzy, York Shen
 Title: Sasquatch VI 50g
 Author: David W. Skinner, Lzy, York Shen
 
-50h
+50
 #################################
 ##   ###   #   ###   #   ###   ##
 # $.$. .$.$$$.$. .$.$$$.$. .$.$ #

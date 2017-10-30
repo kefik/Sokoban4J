@@ -22,7 +22,7 @@ Sokoban WIKI            at http://sokobano.de/wiki/
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 
-1a
+1
     ####
   ###  #
   #    ###
@@ -39,7 +39,7 @@ Comment:
 earlier version
 Comment-End:
 
-2a
+2
     ######
     #    #
  ####$## ###
@@ -54,7 +54,7 @@ Comment:
 earlier version
 Comment-End:
 
-5a
+5
    #######
    #     ###
  ### #$#   #
@@ -67,7 +67,7 @@ Comment-End:
 Title: Dance In The Hall (5a)
 Author: kenyam
 
-9a
+9
    ########
   ##      ###
  ## $ #  $  #
@@ -82,7 +82,7 @@ Comment:
 earlier version
 Comment-End:
 
-15a
+15
       #####
     ###   ##
     # $ $  #
@@ -101,7 +101,7 @@ Comment-End:
 Title: Double Detour (15a)
 Author: kenyam
 
-15b
+15
          #####
        ###   ##
        # $ $  #
@@ -126,7 +126,7 @@ Comment:
 revised 03/05/11
 Comment-End:
 
-18a
+18
 ####
 #..#####
 #..    #

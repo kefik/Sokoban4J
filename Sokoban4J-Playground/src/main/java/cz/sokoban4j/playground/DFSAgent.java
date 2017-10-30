@@ -125,7 +125,7 @@ public class DFSAgent extends ArtificialAgent {
 		
 		return false;
 	}
-		
+	
 	public static void main(String[] args) {
 		SokobanResult result;
 		
@@ -134,6 +134,8 @@ public class DFSAgent extends ArtificialAgent {
 		//result = Sokoban.playAgentLevel("../Sokoban4J/levels/Easy/level0002.1.s4jl", new DFSAgent()); // 13 steps required
 		//result = Sokoban.playAgentLevel("../Sokoban4J/levels/Easy/level0002.2.s4jl", new DFSAgent()); // 25 steps required
 		//result = Sokoban.playAgentLevel("../Sokoban4J/levels/Easy/level0002.3.s4jl", new DFSAgent()); // 37 steps required
+		
+
 		
 		// HEADLESS == SIMULATED-ONLY GAME
 		//result = Sokoban.simAgentLevel("../Sokoban4J/levels/Easy/level0001.s4jl", new DFSAgent());

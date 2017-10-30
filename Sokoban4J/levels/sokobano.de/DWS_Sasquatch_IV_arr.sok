@@ -26,7 +26,7 @@ Arrangements of David W. Skinner's levels
 They are published with David W. Skinner's permission
 original level page: http://users.bentonrea.com/~sasquatch/sokoban/
 
-7a
+7
  ###############
 ## $.   .   .$ ##
 #  # ### ### #  #
@@ -42,7 +42,7 @@ Comment:
 added 1 box
 Comment-End:
 
-11a
+11
   ########
  ##.... @#
  #  #..$ #
@@ -59,7 +59,7 @@ Comment:
 added 1 box
 Comment-End:
 
-14a
+14
  ######
  #    #####
  # $ *#   #
@@ -77,7 +77,7 @@ Comment:
 added 1 box
 Comment-End:
 
-14b
+14
  ######
  #    #####
  # $ *#   #
@@ -95,7 +95,7 @@ Comment:
 added 1 wall
 Comment-End:
 
-17a
+17
 ###############
 #      #      #
 # $.$.$.$.$.$ #
@@ -117,7 +117,7 @@ Comment:
 added 4 walls
 Comment-End:
 
-17b
+17
 ###############
 #      #      #
 # $.$.$.$.$.$ #
@@ -139,7 +139,7 @@ Comment:
 added 5 walls
 Comment-End:
 
-18a
+18
  ###############
 ##  #   #   #  ##
 #   **...*.**   #
@@ -163,7 +163,7 @@ Comment:
 added 2 boxes
 Comment-End:
 
-18b
+18
  ###############
 ##  #   #   #  ##
 #   **.. *.**   #
@@ -187,7 +187,7 @@ Comment:
 added 4 boxes (different arrange but easy)
 Comment-End:
 
-18c
+18
  ###############
 ##  #   #   #  ##
 #   **...*.**   #
@@ -211,7 +211,7 @@ Comment:
 added 3 boxes
 Comment-End:
 
-18d
+18
  ###############
 ##  #   #   #  ##
 #   **.. *.**   #
@@ -232,7 +232,7 @@ Comment-End:
 Title: Sasquatch IV 18d
 Author: David W. Skinner, unknown
 
-22b
+22
   ####  ####
   #  ####  ####
 ###     $ $   #
@@ -249,7 +249,7 @@ Comment:
 added 3 boxes
 Comment-End:
 
-25a
+25
  ###############
 ##  ....#      ##
 #  # #     ###  #
@@ -265,7 +265,7 @@ Comment-End:
 Title: Sasquatch IV 25a
 Author: David W. Skinner, Gyjgw
 
-25b
+25
  ###############
 ##  ....#      ##
 #  # #     ###  #
@@ -281,7 +281,7 @@ Author: David W. Skinner, Gyjgw
 Title: Sasquatch IV 25b
 Author: David W. Skinner, Gyjgw
 
-31a
+31
 #####   #########   #####
 #   #####   #   #####   #
 #  $     $  #  $     $  #
@@ -296,7 +296,7 @@ Author: David W. Skinner, Gyjgw
 Title: Sasquatch IV 31a
 Author: David W. Skinner, Gyjgw
 
-34a
+34
      #####
      # @ #
      # $ #
@@ -318,7 +318,7 @@ Comment:
 added 4 boxes
 Comment-End:
 
-36a
+36
        ####
      ###  ##
     ## $   ##
@@ -342,7 +342,7 @@ Comment:
 added 4 boxes
 Comment-End:
 
-37a
+37
   #######
   #  #  #
 ###     ###
@@ -360,7 +360,7 @@ Comment:
 added 1 wall
 Comment-End:
 
-38a
+38
    #######
  ###  #  ###
  #  .$*$.  #
@@ -380,7 +380,7 @@ Comment:
 added 2 boxes
 Comment-End:
 
-39a
+39
 ###############
 #  #   #   #  #
 # $# $   $ *$ #
@@ -402,7 +402,7 @@ Comment:
 stoned 4 boxes
 Comment-End:
 
-40a
+40
        ###############
    #####   ## @ ##   #####
 ####   # $$   #   $$ #   ####
@@ -422,7 +422,7 @@ Comment:
 added 3 boxes
 Comment-End:
 
-44a
+44
 ###############################
 #  .  .  .  .  .  .  .  .  .  #
 # $ $ # $ $ # $ $ # $ $ # $ $ #
@@ -445,7 +445,7 @@ Comment:
 added 2 boxes
 Comment-End:
 
-44b
+44
 ###############################
 #  .  .  .  .  .  .  .  .  .  #
 # $ $ # $ $ # $ $ # $ $ # $ $ #
@@ -468,7 +468,7 @@ Comment:
 added 6 boxes
 Comment-End:
 
-46a
+46
   #####################
  ##    #    #    #    ##
 ## .$$.#.$$.#.$$.#.$$. ##
@@ -490,7 +490,7 @@ Comment:
 added 8 walls
 Comment-End:
 
-46b
+46
   #####################
   #    #    #    #    #
 ###.$$.#.$$.#.$$.#.$$.###
@@ -512,7 +512,7 @@ Comment:
 added 12 walls
 Comment-End:
 
-46c
+46
   ##########################
  ##    #    #    #    #    ##
 ## .$$. .$$. .$$. .$$. .$$. ##
@@ -544,7 +544,7 @@ Comment:
 added 102 boxes
 Comment-End:
 
-46d
+46
   ##########################
  ##    #    #    #    #    ##
 ## .$$.#.$$.#.$$.#.$$.#.$$. ##
@@ -576,7 +576,7 @@ Comment:
 added 102 boxes, 14 walls
 Comment-End:
 
-46e
+46
   ##########################
   #    #    #    #    #    #
 ###.$$.#.$$.#.$$.#.$$.#.$$.###
@@ -608,7 +608,7 @@ Comment:
 added 102 boxes, 18 walls
 Comment-End:
 
-46f
+46
   #####################
   #    #    #    #    #
 ###.$$.#.$$.#.$$.#.$$.###
@@ -630,7 +630,7 @@ Comment:
 added 12 walls, 2 boxes
 Comment-End:
 
-46g
+46
   ####################
   #   ##   ##   ##   ##
  ##.$$.#.$$.#.$$.#.$$.###
@@ -652,7 +652,7 @@ Comment:
 added 26 walls
 Comment-End:
 
-46h
+46
   ####################
   #   ##   ##   ##   ##
  ##.$$.#.$$.#.$$.#.$$.###
@@ -674,7 +674,7 @@ Comment:
 added 27 walls
 Comment-End:
 
-46h1
+46
   ####################
   #   ##   ##   ##   ##
  ##.$$.#.$$.#.$$.#.$$.###
@@ -696,7 +696,7 @@ Comment:
 added 27 walls
 Comment-End:
 
-48a
+48
 #############################
 #   #   #   #   #   #   #   #
 # # #   #   #   #   #   # # #
@@ -720,7 +720,7 @@ Comment:
 added 8 boxes
 Comment-End:
 
-48b
+48
 #################################
 #   #   #   #   #   #   #   #   #
 # # #   #   #   #   #   #   # # #
@@ -752,7 +752,7 @@ Comment:
 added 86 boxes
 Comment-End:
 
-49a
+49
 #############################
 #         *   *   *         #
 #  $ ### $  #####  $ ### $  #
@@ -776,7 +776,7 @@ Comment:
 added 4 boxes
 Comment-End:
 
-49b
+49
 #############################
 #         *   *   *         #
 #  $ ### $  #####  $ ### $  #
@@ -800,7 +800,7 @@ Comment:
 added 8 boxes
 Comment-End:
 
-49c
+49
 #############################
 #         *   *   *         #
 #  $ ### $  #####  $ ### $  #
@@ -824,7 +824,7 @@ Comment:
 added 10 boxes
 Comment-End:
 
-49c1
+49
 #############################
 #         *   *   *         #
 #  $ ### $  #####  $ ### $  #
@@ -849,7 +849,7 @@ added 10 boxes
 stoned 8 boxes, more - M.L.
 Comment-End:
 
-50a
+50
 ##############################
 # .$ ## $. ## .$ ## $. ## .$ #
 #$  .$ .  $##$  .  .  $##$  .#
@@ -874,7 +874,7 @@ Comment:
 added 6 boxes
 Comment-End:
 
-50b
+50
 ##############################
 # .$ ## $. ## .$ ## $. ## .$ #
 #$  .$ .  $##$  .  .  $##$  .#

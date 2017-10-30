@@ -26,7 +26,7 @@ Arrangements of David W. Skinner's levels
 They are published with David W. Skinner's permission
 original level page: http://users.bentonrea.com/~sasquatch/sokoban/
 
-1a
+1
  #######
  #  .$ #
  # $@  #
@@ -45,7 +45,7 @@ Comment:
 changed box position
 Comment-End:
 
-2a
+2
       ####
 #######  #
 #     * .##
@@ -62,7 +62,7 @@ Comment:
 added 1 box
 Comment-End:
 
-2b
+2
       ####
 #######  #
 #     * .##
@@ -79,7 +79,7 @@ Comment:
 added 1 box
 Comment-End:
 
-2c
+2
       ####
 #######  #
 #     * .##
@@ -97,7 +97,7 @@ added 1 box
 1 box, 2 floors stoned in a version - M.L.
 Comment-End:
 
-5a
+5
  ##############################
 ##                            #
 #  #########################$##
@@ -114,7 +114,7 @@ Comment:
 added 17 boxes
 Comment-End:
 
-7a
+7
   #####
   #   #####
 ### #     ##
@@ -134,7 +134,7 @@ Comment:
 added 1 box
 Comment-End:
 
-7b
+7
   #####
   #   #####
 ### #     ##
@@ -154,7 +154,7 @@ Comment:
 added 2 boxes
 Comment-End:
 
-9a
+9
  ###########
  #   #  #  #
  # $ #$ $  #
@@ -173,7 +173,7 @@ Comment:
 added 1 box
 Comment-End:
 
-9b
+9
  ###########
  #   #  #  #
  # $ #$ $  #
@@ -192,7 +192,7 @@ Comment:
 added 1 box (different target position)
 Comment-End:
 
-10a
+1
     ###   ###
    ## ## ## ##
   ##   ###   ##
@@ -210,7 +210,7 @@ Comment:
 enlarged map, reorganize boxes, targets (added 4 boxes)
 Comment-End:
 
-10b
+1
   ##### #####
  ##   ###   ##
 ##  *  #  #  ##
@@ -227,7 +227,7 @@ enlarged map, reorganize boxes, targets (added 4 boxes)
 4 boxes stoned
 Comment-End:
 
-11a
+1
       ###
      ## ##
     ##   ##
@@ -249,7 +249,7 @@ Comment:
 added 2 boxes
 Comment-End:
 
-14a
+1
           #####
   #########   #
 ### $ $ $ $.$ #
@@ -265,7 +265,7 @@ Comment:
 added 1 box
 Comment-End:
 
-16a
+1
  #########
 ##   #   ##
 #  # # #  #
@@ -283,7 +283,7 @@ Comment:
 stoned 4 boxes
 Comment-End:
 
-18a
+1
  #############
 ##    #   #  ##
 # .##$$  $  . #
@@ -305,7 +305,7 @@ Comment:
 added 1 wall
 Comment-End:
 
-19a
+1
  #############
 ##     *     ##
 #  ##.# ##.#  #
@@ -327,7 +327,7 @@ Comment:
 added 4 boxes
 Comment-End:
 
-19b
+19
  #############
 ##     *     ##
 #  ##.# ##.#  #
@@ -349,7 +349,7 @@ Comment:
 added 2 walls
 Comment-End:
 
-20a
+20
  ###########################
 ##  #   #   # @ #   #   #  ##
 #  $#$ $#$ $#$ $#$ $#$ $#$  #
@@ -377,7 +377,7 @@ Comment:
 added 84 boxes
 Comment-End:
 
-20b
+20
  ###########
 ##  # @ #  ##
 #  $#$ $#$  #
@@ -397,7 +397,7 @@ Comment:
 added 2 boxes
 Comment-End:
 
-20c
+20
  ###########
 ##  # @ #  ##
 #  $#$ $#$  #
@@ -417,7 +417,7 @@ Comment:
 added 2 walls
 Comment-End:
 
-21a
+21
    #### ####
   ##  ###  ##
  ##    #    ##
@@ -439,7 +439,7 @@ Comment:
 added 4 boxes
 Comment-End:
 
-22a
+22
   #################
   #               #
 ###$######.######$###
@@ -467,7 +467,7 @@ Comment:
 added 36 boxes
 Comment-End:
 
-23a
+23
 ###############
 #    #   #    #
 # #  #   #  # #
@@ -489,7 +489,7 @@ Comment:
 added 1 box
 Comment-End:
 
-23b
+23
 ###############
 #    #   #    #
 # #  #   #  # #
@@ -511,7 +511,7 @@ Comment:
 added 1 wall
 Comment-End:
 
-24a
+24
  ###############
  #.  $  .  $  .#
  # ##$# # #$## #
@@ -533,7 +533,7 @@ Comment:
 added 2 boxes
 Comment-End:
 
-24b
+24
  ###############
  #.  $  .  $  .#
  # ##$# # #$## #
@@ -555,7 +555,7 @@ Comment:
 added 4 boxes
 Comment-End:
 
-24c
+24
  ###############
  #.  $  .  $  .#
  # ##$# # #$## #
@@ -577,7 +577,7 @@ Comment:
 added 5 walls
 Comment-End:
 
-24c1
+24
  ###############
  #.  $  .  $  .#
  # ##$# # #$## #
@@ -600,7 +600,7 @@ added 4 boxes,
 stoned 4 boxes, added 2 walls
 Comment-End:
 
-24d
+24
       #####
  ######   ######
  #   $  *  $   #
@@ -624,7 +624,7 @@ Comment:
 added 5 walls
 Comment-End:
 
-24d2
+24
       #####
  ######   ######
  #   $  *  $   #
@@ -648,7 +648,7 @@ Comment:
 added 5 walls, 2 boxes stoned, symmetryzation one
 Comment-End:
 
-24d3
+24
       #####
  ######   ######
  #   $  *  $   #
@@ -672,7 +672,7 @@ Comment:
 added 5 walls, 2 boxes stoned, symmetryzation two
 Comment-End:
 
-25a
+25
  ######   ######
 ##    ## ##    ##
 # *.   ###   .* #
@@ -696,7 +696,7 @@ Comment:
 added 2 boxes
 Comment-End:
 
-25b
+25
  ######   ######
 ##    ## ##    ##
 # *.   ###   .* #
@@ -720,7 +720,7 @@ Comment:
 added 6 boxes
 Comment-End:
 
-26a
+26
  ###############################
 ##      #       #       #      ##
 # *$ $*$ $*$ $*$ $*$ $*$ $*$ $* #
@@ -752,7 +752,7 @@ Comment:
 added 216 boxes
 Comment-End:
 
-26b
+26
  ###############################
 ##      #       #       #      ##
 # *$ $*$$$*$ $*$$$*$ $*$$$*$ $* #
@@ -784,7 +784,7 @@ Comment:
 added 226 boxes
 Comment-End:
 
-26c
+26
  ###############
 ##      #      ##
 # *$ $*$$$*$ $* #
@@ -808,7 +808,7 @@ Comment:
 added 1 box
 Comment-End:
 
-26d
+26
  ###############
 ##      #      ##
 # *$ $*$$$*$ $* #
@@ -832,7 +832,7 @@ Comment:
 added 2 boxes
 Comment-End:
 
-26e
+26
  ###############
 ##      #      ##
 # *$ $#$$$#$ $* #
@@ -857,7 +857,7 @@ added 2 boxes
 changed 8 boxes to walls
 Comment-End:
 
-26e1
+26
  ###############
 ##      #      ##
 # *$ $#$$$#$ $* #
@@ -883,7 +883,7 @@ changed 8 boxes to walls
 stoned 4 boxes - M.L.
 Comment-End:
 
-26f
+26
  ###############
 ##      #      ##
 # *$ $#$$$#$ $* #
@@ -908,7 +908,7 @@ added 2 boxes
 changed 10 boxes to walls
 Comment-End:
 
-27a
+27
   #####################
  ## .   .   .   .   . ##
 ## $.$ $.$ $.$ $.$ $.$ ##
@@ -940,7 +940,7 @@ Comment:
 added 136 boxes
 Comment-End:
 
-27b
+27
   #############
  ## .   *   . ##
 ## $.$ $.$ $.$ ##
@@ -964,7 +964,7 @@ Comment:
 added 4 boxes (easy target position arrange)
 Comment-End:
 
-27c
+27
   #####################
  ## .   .   *   .   . ##
 ## $.$ $.$ $.$ $.$ $.$ ##
@@ -996,7 +996,7 @@ Comment:
 added 140 boxes (easy target position arrange)
 Comment-End:
 
-27d
+27
   #####################
  ## .   *   .   *   . ##
 ## $.$ $.$.$.$.$.$ $.$ ##
@@ -1028,7 +1028,7 @@ Comment:
 added 142 boxes (easy target position arrange)
 Comment-End:
 
-27e
+27
   #####################
  ## .   *   .   *   . ##
 ## $.$ $.$ $.$ $.$ $.$ ##
@@ -1060,7 +1060,7 @@ Comment:
 added 144 boxes (easy target position arrange)
 Comment-End:
 
-27f
+27
   #####################
  ## .   *   .   *   . ##
 ## $.$ * * $.$ * * $.$ ##
@@ -1092,7 +1092,7 @@ Comment:
 added 142 boxes (difficult target position arrange)
 Comment-End:
 
-27g
+27
   #####################
  ## .   *   .   *   . ##
 ## $.$ * * $.$ * * $.$ ##
@@ -1124,7 +1124,7 @@ Comment:
 added 144 boxes (difficult target position arrange)
 Comment-End:
 
-27g1
+27
   #####################
  ## .   *   .   *   . ##
 ## $.$ * * $.$ * * $.$ ##
@@ -1153,7 +1153,7 @@ Comment-End:
 Title: Sasquatch III 27g1
 Author: David W. Skinner, York Shen, Lzy
 
-27g2
+27
   #####################
  ## .   *   *   *   . ##
 ## $.$ * * *.* * * $.$ ##
@@ -1182,7 +1182,7 @@ Author: David W. Skinner, York Shen, Lzy
 Title: Sasquatch III 27g2
 Author: David W. Skinner, York Shen, Lzy
 
-27g3
+27
   #####################
  ## .   *   *   *   . ##
 ## $.$ * * *.* * * $.$ ##
@@ -1211,7 +1211,7 @@ Author: David W. Skinner, York Shen, Lzy
 Title: Sasquatch III 27g3
 Author: David W. Skinner, York Shen, Lzy
 
-27g4
+27
   #####################
  ## .   *   *   *   . ##
 ## $.$ * * *.* * * $.$ ##
@@ -1240,7 +1240,7 @@ Author: David W. Skinner, York Shen, Lzy
 Title: Sasquatch III 27g4
 Author: David W. Skinner, York Shen, Lzy
 
-27h
+27
   #############
  ## .   *   . ##
 ## $.$ * * $.$ ##
@@ -1264,7 +1264,7 @@ Comment:
 added 4 boxes (difficult target position arrange)
 Comment-End:
 
-27i
+27
   #############
  ## .   *   . ##
 ## $.$ * * $.$ ##
@@ -1289,7 +1289,7 @@ added 4 boxes (difficult target position arrange)
 stoned 4 walls
 Comment-End:
 
-27j
+27
    ############
  ###.   *   . ##
 ## $.$ * * $.$ #
@@ -1313,7 +1313,7 @@ Comment:
 stoned 2 boxes, 4 walls added
 Comment-End:
 
-27k
+27
   #############
  ## .   *   . ##
  # $.$ * * $.$ #
@@ -1334,7 +1334,7 @@ Comment-End:
 Title: Sasquatch III 27k
 Author: David W. Skinner, unknown
 
-28a
+28
       #####
       # . #
     ###$.$###
@@ -1358,7 +1358,7 @@ Comment:
 added 1 box
 Comment-End:
 
-28b
+28
       #####
       # . #
     ###$.$###
@@ -1382,7 +1382,7 @@ Comment:
 added 1 wall
 Comment-End:
 
-29a
+29
 #################
 #  .    .    .  #
 # ##$###$###$## #############
@@ -1406,7 +1406,7 @@ Comment:
 deleted 4 boxes
 Comment-End:
 
-30a
+30
  ###############
 ##             ##
 #  ##### #####  # ###########
@@ -1430,7 +1430,7 @@ Comment:
 added 2 boxes
 Comment-End:
 
-30b
+30
  ###############
 ##             ##
 #  ##### #####  # ###########
@@ -1454,7 +1454,7 @@ Comment:
 added 4 boxes
 Comment-End:
 
-30c
+30
  ###############
 ##             ##
 #  #####$#####  # ###########
@@ -1478,7 +1478,7 @@ Comment:
 added 8 boxes
 Comment-End:
 
-31a
+31
    ###########
  ###    #  @ ####
 ##    # $  #    ##
@@ -1502,7 +1502,7 @@ Comment:
 added 4 boxes
 Comment-End:
 
-33v1a
+33
          ####
    #######  ####
    #         $ ##
@@ -1526,7 +1526,7 @@ added 3 boxes
 added 1 wall
 Comment-End:
 
-33v2a
+33
          ####
     ######  ####
    ##        $ ##
@@ -1550,7 +1550,7 @@ added 2 boxes
 added 2 walls
 Comment-End:
 
-34a
+34
             ####
     #####   #  #####
    ##   #   #      #
@@ -1575,7 +1575,7 @@ Comment:
 added 1 box
 Comment-End:
 
-37a
+37
 #########     #######
 #   #   #######  #  #
 # .$. $       # . . #
@@ -1598,7 +1598,7 @@ Comment:
 added 2 boxes
 Comment-End:
 
-37b
+37
 #########     #######
 #   #   #######  #  #
 # .$. $       # . . #
@@ -1621,7 +1621,7 @@ Comment:
 added 2 boxes
 Comment-End:
 
-38a
+38
 ####
 #  ###############
 # $   * @ *  #   #
@@ -1641,7 +1641,7 @@ Comment:
 added 1 wall
 Comment-End:
 
-38b
+38
 ####
 #  ###############
 # $   * @ *  #   #
@@ -1662,7 +1662,7 @@ added 1 wall
 added 1 wall - M.L.
 Comment-End:
 
-39a
+39
    ####   ####
    #  #####  ####
 #### $ $        ##
@@ -1687,7 +1687,7 @@ Comment:
 added 1 box
 Comment-End:
 
-40a
+40
   #######    #######
   #     ######     ##
   #.###  ##  .  ##  ##
@@ -1711,7 +1711,7 @@ Comment:
 added 2 boxes
 Comment-End:
 
-40b
+40
   #######    #######
   #     ######     ##
   #.###  ## ..  ##  ##
@@ -1735,7 +1735,7 @@ Comment:
 added 4 boxes
 Comment-End:
 
-42a
+42
 #########################
 #   #   #   #   #   #   #
 # $ # $ # $ # $ # $ # $ #
@@ -1759,7 +1759,7 @@ Comment:
 added 12 boxes
 Comment-End:
 
-42b
+42
      #################
  #####   #   #   #   #####
  #    $ * * * * * * $    #
@@ -1785,7 +1785,7 @@ Comment:
 enlarged map
 Comment-End:
 
-42c
+42
      #################
  #####   #   #   #   #####
  #    $ * * * * * * $    #
@@ -1812,7 +1812,7 @@ enlarged map
 added 2 boxes - LZY
 Comment-End:
 
-42d
+42
      #################
  #####   #   #   #   #####
  #    * $ * * * * * $    #
@@ -1840,7 +1840,7 @@ added 2 boxes - LZY
 added 5 boxes - gyjgw
 Comment-End:
 
-43f
+43
     ####
    ##  ####
    # $   .########
@@ -1866,7 +1866,7 @@ added 1 box
 added some walls
 Comment-End:
 
-48a
+48
  #########################
  #  #  #  #  #  #  #  #  #
  # $#$ # $#$ # $#$ # $#$ #
@@ -1890,7 +1890,7 @@ Comment:
 added 2 boxes
 Comment-End:
 
-48c
+48
  ###############################
  #  #  #  #  #  #  #  #  #  #  #
  # $#$ # $#$ # $#$ # $#$ # $#$ #
@@ -1912,7 +1912,7 @@ Comment:
 added 6 boxes
 Comment-End:
 
-48d
+48
  #####################################
  #  #  #  #  #  #  #  #  #  #  #  #  #
  # $#$ # $#$ # $#$ # $#$ # $#$ # $#$ #
@@ -1934,7 +1934,7 @@ Comment:
 added 12 boxes
 Comment-End:
 
-49a
+49
   #########################
   #     #     #     #     #
 ###$$ $$ $$ $$.$$ $$ $$ $$###
@@ -1958,7 +1958,7 @@ Comment:
 added 4 walls
 Comment-End:
 
-49b
+49
   #########################
   #     #     #     #     #
 ###$$ $$*$$.$$$$$.$$*$$ $$###
@@ -1982,7 +1982,7 @@ Comment:
 added 6 boxes
 Comment-End:
 
-49c
+49
   #########################
   #     #     #     #     #
 ###$$ $$*$$.$$*$$.$$*$$ $$###
@@ -2006,7 +2006,7 @@ Comment:
 added 8 boxes
 Comment-End:
 
-49d
+49
   #########################
   #     #     #     #     #
 ###$$ $$.$$ $$.$$ $$.$$ $$###
@@ -2036,7 +2036,7 @@ Comment:
 added 68 boxes
 Comment-End:
 
-49e
+49
   #########################
   #     #     #     #     #
 ###$$ $$*$$ $$*$$ $$*$$ $$###
@@ -2066,7 +2066,7 @@ Comment:
 added 78 boxes
 Comment-End:
 
-49f
+49
   #########################
   #     #     #     #     #
 ###$$ $$*$$ $$*$$ $$*$$ $$###
@@ -2096,7 +2096,7 @@ Comment:
 added 85 boxes
 Comment-End:
 
-49f1
+49
   #########################
   #     #     #     #     #
 ###$$ $$*$$ $$*$$ $$*$$ $$###
@@ -2127,7 +2127,7 @@ added 85 boxes
 stoned 7 boxes
 Comment-End:
 
-49f2
+49
   #########################
   #     #     #     #     #
 ###$$ $$*$$ $$*$$ $$*$$ $$###
@@ -2154,7 +2154,7 @@ Comment-End:
 Title: Sasquatch III 49f2
 Author: David W. Skinner, York Shen, LZY
 
-49f3
+49
   #########################
   #     #     #     #     #
 ###$$ $$*$$ $$*$$ $$*$$ $$###
@@ -2185,7 +2185,7 @@ added 85 boxes
 stoned 7 boxes
 Comment-End:
 
-49f4
+49
   #########################
   #     #     #     #     #
 ###$$ $$*$$.$$*$$.$$*$$ $$###
@@ -2216,7 +2216,7 @@ added 85 boxes
 stoned 7 boxes
 Comment-End:
 
-49f5
+49
   #########################
   #     #     #     #     #
 ###$$ $$#$$.$$#$$.$$#$$ $$###
@@ -2247,7 +2247,7 @@ added 85 boxes
 stoned 7 boxes
 Comment-End:
 
-49f5a
+49
   #########################
   #     #     #     #     #
 ####$ $$#$$ $$#$$ $$#$$ $####
@@ -2278,7 +2278,7 @@ added 85 boxes
 stoned 7 boxes
 Comment-End:
 
-49f6
+49
   #########################
   #     #     #     #     #
 ###$$ $$#$$ $$#$$ $$#$$ $$###
@@ -2305,7 +2305,7 @@ Comment-End:
 Title: Sasquatch III 49f6
 Author: David W. Skinner, York Shen, LZY
 
-49f6a
+49
   #########################
   #     #     #     #     #
 ###$$ $$#$$ $$#$$ $$#$$ $$###
@@ -2332,7 +2332,7 @@ Author: David W. Skinner, York Shen, LZY
 Title: Sasquatch III 49f6a
 Author: David W. Skinner, York Shen, LZY
 
-49f6b
+49
   #########################
   #     #     #     #     #
 ###$$ $$#$$ $$#$$ $$#$$ $$###
@@ -2359,7 +2359,7 @@ Author: David W. Skinner, York Shen, LZY
 Title: Sasquatch III 49f6b
 Author: David W. Skinner, York Shen, LZY
 
-49f6c
+49
    ########################
    #    #     #     #     #
 ####$ $$#$$ $$#$$ $$#$$ $$###
@@ -2386,7 +2386,7 @@ Author: David W. Skinner, York Shen, LZY
 Title: Sasquatch III 49f6c
 Author: David W. Skinner, York Shen, LZY
 
-49f6d
+49
   #########################
   #     #     #     #     #
 ####$ $$#$$.$$#$$.$$#$$ $####
@@ -2413,7 +2413,7 @@ Author: David W. Skinner, York Shen, LZY
 Title: Sasquatch III 49f6d
 Author: David W. Skinner, York Shen, LZY
 
-49g
+49
   #########################
   #     #     #     #     #
 ###$$ $$*$$.$$*$$.$$*$$ $$###
@@ -2437,7 +2437,7 @@ Comment:
 added 9 boxes
 Comment-End:
 
-49g1
+49
   #########################
   #     #     #     #     #
 ###$$ $$*$$.$$*$$.$$*$$ $$###
