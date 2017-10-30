@@ -52,7 +52,7 @@ in agent implementation, much more smaller code base).
 
 ------------------------------------------------------------
 
-##PROJECT STRUCTURE
+## PROJECT STRUCTURE
 
 **Sokoban4J** -> main project containing the simulator and visualizer of the game
 
@@ -62,7 +62,7 @@ in agent implementation, much more smaller code base).
 
 **Sokoban4J-Tournament** -> meant for batch-assessing of your Java agents from console.
 
-##COMPILATION
+## COMPILATION
 
 Compile Sokoban4J project (from within Sokoban4J directory):
 
@@ -74,7 +74,7 @@ Linux (from bash, assuming you have mvn on path):
 
     mvn package
 
-##MAVEN [REPOSITORY](http://diana.ms.mff.cuni.cz:8081/artifactory)
+## MAVEN [REPOSITORY](http://diana.ms.mff.cuni.cz:8081/artifactory)
 
     <repository>
         <id>amis-artifactory</id>
@@ -82,7 +82,7 @@ Linux (from bash, assuming you have mvn on path):
         <url>http://diana.ms.mff.cuni.cz:8081/artifactory/repo</url>
     </repository>
     
-##MAVEN DEPENDENCY
+## MAVEN DEPENDENCY
 
     <dependency>
         <groupId>cz.sokoban4j</groupId>
