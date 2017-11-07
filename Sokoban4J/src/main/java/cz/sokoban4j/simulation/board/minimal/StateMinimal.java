@@ -9,17 +9,21 @@ import cz.sokoban4j.simulation.board.oop.Board;
  * Runtime-part of the Sokoban game state (excluding static board configuration, just positions).
  * 
  * Can be used to mark the state of the board (e.g., create list of no-good states, etc.)
+ * 
+ * Cannot be used with multicolored-boxes.
  *
  * @author Jimmy
  */
 public class StateMinimal {
 	
+	public static final int Y_MASK = (Integer.MAX_VALUE >> 16);
+	
 	/**
 	 * PLAYER
-	 * [0][1] = player-x, player-y
+	 * [0] = player-x, player-y
 	 * 
 	 * BOXES (for n>0)
-	 * [2n][2n+1] = box-x, box-y
+	 * [n] = nth-box-x (the first 16bits), nth-box-y (the second 16bits)
 	 */
 	public int[] positions;
 	
@@ -31,15 +35,17 @@ public class StateMinimal {
 	 */
 	public StateMinimal(Board board) {
 		int elements = 1 + board.boxes.size();
-		positions = new int[elements * 2];
-		
-		positions[0] = board.player.getTileX();
-		positions[1] = board.player.getTileY();
-		
-		for (int i = 0; i < board.boxes.size(); ++i) {
-			positions[(i+1)*2]   = board.boxes.get(i).getTileX();
-			positions[(i+1)*2+1] = board.boxes.get(i).getTileY();
-		}
+		positions = new int[elements];
+		positions[0] = getPacked(board.player.getTileX(), board.player.getTileY());
+		int index = 1;
+		for (int x = 0; x < board.width; ++x) {
+			for (int y = 0; y < board.height; ++y) {
+				if (board.tile(x, y).isSomeBox()) {
+					positions[index] = getPacked(x, y);
+					++index;
+				}
+			}
+		}			
 	}
 	
 	/**
@@ -48,31 +54,52 @@ public class StateMinimal {
 	 */
 	public StateMinimal(BoardCompact board) {
 		int elements = 1 + board.boxCount;
-		positions = new int[elements * 2];
-
-		positions[0] = board.playerX;
-		positions[1] = board.playerY;
-		
+		positions = new int[elements];
+		positions[0] = getPacked(board.playerX, board.playerY);
 		int index = 1;
 		for (int x = 0; x < board.width(); ++x) {
 			for (int y = 0; y < board.height(); ++y) {
 				if (CTile.isSomeBox(board.tile(x, y))) {
-					positions[index*2]   = x;
-					positions[index*2+1] = y;
+					positions[index] = getPacked(x, y);
 					++index;
 				}
 			}
 		}		
 	}
 	
+	/**
+	 * Packs [x;y] into single integer.
+	 * @param x
+	 * @param y
+	 * @return
+	 */
+	public int getPacked(int x, int y) {
+		return x << 16 | y;
+	}
+	
+	/**
+	 * Returns X coordinate from packed value.
+	 * @param packed
+	 * @return
+	 */
+	public int getX(int packed) {
+		return packed >> 16;
+	}
+	
+	/**
+	 * Returns Y coordinate from packed value.
+	 * @param packed
+	 * @return
+	 */
+	public int getY(int packed) {
+		return packed & Y_MASK;
+	}
+	
 	public int hashCode() {
 		if (hash == null) {
 			hash = 0;
-			int[] coefs = new int[] { 290317, 97 };
-			int coef = 0;
 			for (int p : positions) {
-				hash += coefs[coef % 2] * p;
-				++coef;
+				hash += getX(p) * 290317 + getY(p) * 97;
 			}
 		}
 		return hash;
