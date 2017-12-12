@@ -18,7 +18,7 @@ import cz.sokoban4j.utils.S4JLReader;
 import cz.sokoban4j.utils.SokReader;
 import cz.sokoban4j.utils.TextLevelS4JL;
 
-public class Board {
+public class Board implements Cloneable {
 
 	public final int width;
 	
@@ -47,6 +47,61 @@ public class Board {
 				tiles[x][y] = tile;
 			}			
 		}
+	}
+	
+	/**
+	 * Whether the 'other' board represents the same Sokoban state as this one. Width/Height/Position must match.
+	 * @param other
+	 * @return
+	 */
+	public boolean equalsState(Board other) {
+		if (other == null) return false;
+		if (other.width != width) return false;
+		if (other.height != height) return false;
+		for (int x = 0; x < width; ++x) {
+			for (int y = 0; y < height; ++y) {
+				if (tiles[x][y].forAnyBox() != other.tiles[x][y].forAnyBox()) return false;
+				for (EEntity boxType : EEntity.values()) {
+					if (boxType.isSomeBox()) {
+						if (tiles[x][y].forBox(boxType) != other.tiles[x][y].forBox(boxType)) return false;
+						if (tiles[x][y].isBox(boxType) != other.tiles[x][y].isBox(boxType)) return false;
+					}
+					
+				}
+				for (int i = 0; i < 8; ++i) {
+					if (tiles[x][y].forBox(i) != other.tiles[x][y].forBox(i)) return false;
+				}
+				if (tiles[x][y].forSomeBox() != other.tiles[x][y].forSomeBox()) return false;				
+				if (tiles[x][y].isFree() != other.tiles[x][y].isFree()) return false;
+				if (tiles[x][y].isPlayer() != other.tiles[x][y].isPlayer()) return false;
+				if (tiles[x][y].isSomeBox() != other.tiles[x][y].isSomeBox()) return false;
+				if (tiles[x][y].isWall() != other.tiles[x][y].isWall()) return false;				
+			}
+		}		
+		return true;
+	}
+	
+	@Override
+	public Board clone() {
+		Board result = new Board(width, height);
+		
+		result.level = level;
+		
+		result.boxes = new ArrayList<BoxEntity>(boxes.size());
+		
+		for (int x = 0; x < width; ++x) {
+			for (int y = 0; y < height; ++y) {
+				result.tiles[x][y] = tiles[x][y].clone();
+				if (result.tiles[x][y].isSomeBox()) {
+					result.boxes.add((BoxEntity)(result.tiles[x][y].entity));
+				} else
+				if (result.tiles[x][y].isPlayer()) {
+					result.player = (PlayerEntity)(result.tiles[x][y].entity);
+				}
+			}
+		}
+		
+		return result;
 	}
 	
 	/**

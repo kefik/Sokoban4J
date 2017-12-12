@@ -9,5 +9,10 @@ public class PlayerEntity extends Entity {
 		super(type, tile);
 		if (!type.isPlayer()) throw new RuntimeException("NOT A PLAYER");		
 	}
+	
+	@Override
+	public PlayerEntity clone() {
+		return new PlayerEntity(type, tile);
+	}
 
 }

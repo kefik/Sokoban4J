@@ -3,7 +3,7 @@ package cz.sokoban4j.simulation.board.oop.entities;
 import cz.sokoban4j.simulation.board.oop.EEntity;
 import cz.sokoban4j.simulation.board.oop.Tile;
 
-public class Entity {
+public class Entity implements Cloneable {
 
 	protected EEntity type;
 	protected Tile tile;
@@ -33,6 +33,9 @@ public class Entity {
 		this.tile = tile;		
 	}
 	
-	
+	@Override
+	public Entity clone() {
+		return new Entity(type, tile);
+	}
 
 }

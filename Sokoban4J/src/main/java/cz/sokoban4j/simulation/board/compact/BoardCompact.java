@@ -4,6 +4,13 @@ import cz.sokoban4j.simulation.board.oop.EEntity;
 import cz.sokoban4j.simulation.board.oop.EPlace;
 import cz.sokoban4j.simulation.board.oop.ESpace;
 
+/**
+ * More memory-compact representation of OOP-bulky {@link Board}.
+ * 
+ * BEWARE: once {@link #hashCode()} is called, it will compute the hash code and fix it for good...
+ * 
+ * @author Jimmy
+ */
 public class BoardCompact implements Cloneable {
 
 	private Integer hash = null;
@@ -66,7 +73,11 @@ public class BoardCompact implements Cloneable {
 		if (this == obj) return true;
 		if (obj.hashCode() != hashCode()) return false;
 		if (!(obj instanceof BoardCompact)) return false;		
-		BoardCompact other = (BoardCompact) obj;		
+		return equalsState((BoardCompact) obj);
+	}
+	
+	public boolean equalsState(BoardCompact other) {
+		if (other == null) return false;
 		if (width() != other.width() || height() != other.height()) return false;
 		for (int x = 0; x < width(); ++x) {
 			for (int y = 0; y < height(); ++y) {

@@ -3,7 +3,7 @@ package cz.sokoban4j.simulation.board.oop;
 import cz.sokoban4j.simulation.board.oop.entities.Entity;
 import cz.sokoban4j.simulation.board.oop.entities.EntityFactory;
 
-public class Tile {
+public class Tile implements Cloneable {
 
 	public ESpace space;
 	public EPlace place;
@@ -22,6 +22,15 @@ public class Tile {
 		this.entity = EntityFactory.createEntity(entity, this);
 		this.place = place;
 		this.space = space;
+	}
+	
+	/**
+	 * Deep-copy, clones Entity as well
+	 */
+	@Override
+	public Tile clone() {
+		Tile result = new Tile(tileX, tileY, space, place, entity == null ? EEntity.NONE : entity.getType());
+		return result;
 	}
 	
 	public boolean isFree() {

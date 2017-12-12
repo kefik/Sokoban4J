@@ -13,5 +13,10 @@ public class BoxEntity extends Entity {
 	public boolean inPlace() {
 		return tile != null && tile.forBox(type);
 	}
+	
+	@Override
+	public Entity clone() {
+		return new BoxEntity(type, tile);
+	}
 
 }
