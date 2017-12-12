@@ -7,7 +7,8 @@ import cz.sokoban4j.simulation.board.oop.ESpace;
 /**
  * More memory-compact representation of OOP-bulky {@link Board}.
  * 
- * BEWARE: once {@link #hashCode()} is called, it will compute the hash code and fix it for good...
+ * BEWARE: once {@link #hashCode()} is called and you use {@link #moveBox(int, int, int, int)} or {@link #movePlayer(int, int, int, int)} it will
+ *         force {@link #hashCode()} recomputation.
  * 
  * @author Jimmy
  */
@@ -99,6 +100,13 @@ public class BoardCompact implements Cloneable {
 		return tiles[x][y];
 	}
 	
+	/**
+	 * Fair warning: by moving the player you're invalidating {@link #hashCode()}...
+	 * @param sourceTileX
+	 * @param sourceTileY
+	 * @param targetTileX
+	 * @param targetTileY
+	 */
 	public void movePlayer(int sourceTileX, int sourceTileY, int targetTileX, int targetTileY) {
 		int entity = tiles[sourceTileX][sourceTileY] & EEntity.SOME_ENTITY_FLAG;
 		
@@ -110,8 +118,17 @@ public class BoardCompact implements Cloneable {
 		
 		playerX = targetTileX;
 		playerY = targetTileY;
+		
+		hash = null;
 	}
 	
+	/**
+	 * Fair warning: by moving the box you're invalidating {@link #hashCode()}...
+	 * @param sourceTileX
+	 * @param sourceTileY
+	 * @param targetTileX
+	 * @param targetTileY
+	 */
 	public void moveBox(int sourceTileX, int sourceTileY, int targetTileX, int targetTileY) {
 		int entity = tiles[sourceTileX][sourceTileY] & EEntity.SOME_ENTITY_FLAG;
 		int boxNum = CTile.getBoxNum(tiles[sourceTileX][sourceTileY]);
@@ -127,6 +144,8 @@ public class BoardCompact implements Cloneable {
 		}
 		tiles[sourceTileX][sourceTileY] &= EEntity.NULLIFY_ENTITY_FLAG;
 		tiles[sourceTileX][sourceTileY] |= EEntity.NONE.getFlag();
+		
+		hash = null;
 	}
 	
 	/**
