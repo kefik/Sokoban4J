@@ -46,6 +46,14 @@ public class CWalk extends CAction implements IAction {
 	public EDirection[] getDirections() {
 		return path;
 	}
+	
+	/**
+	 * How many steps do you need in order to perform the walk; defined only if directions are provided during construction using {@link CWalk#CWalk(int, int, EDirection[])}.
+	 * @return
+	 */
+	public int getSteps() {
+		return path == null ? -1 : path.length;
+	}
 
 	@Override
 	public boolean isPossible(BoardCompact board) {

@@ -45,6 +45,15 @@ public class CWalkPush extends CAction implements IAction {
 		
 		return result;
 	}
+	
+	/**
+	 * How many steps do you need in order to perform the walk+push;
+	 *  defined only if directions are provided for {@link CWalk} during construction using {@link CWalk#CWalk(int, int, EDirection[])}.
+	 * @return
+	 */	
+	public int getSteps() {
+		return 1 + walk.getSteps();
+	}
 
 	@Override
 	public boolean isPossible(BoardCompact board) {

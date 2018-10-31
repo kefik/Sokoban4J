@@ -59,6 +59,11 @@ public class CMove extends CAction {
 	}
 	
 	@Override
+	public int getSteps() {
+		return 1;
+	}
+	
+	@Override
 	public boolean isPossible(BoardCompact board) {
 		// PLAYER ON THE EDGE
 		if (!onBoard(board, board.playerX, board.playerY, dir)) return false;

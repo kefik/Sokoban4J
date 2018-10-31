@@ -59,6 +59,11 @@ public class CPush extends CAction {
 	}
 	
 	@Override
+	public int getSteps() {
+		return 1;
+	}
+	
+	@Override
 	public boolean isPossible(BoardCompact board) {
 		return isPushPossible(board, board.playerX, board.playerY, dir);
 	}
