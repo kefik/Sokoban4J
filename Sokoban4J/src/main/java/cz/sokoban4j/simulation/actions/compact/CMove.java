@@ -10,7 +10,6 @@ import cz.sokoban4j.simulation.actions.oop.IAction;
 import cz.sokoban4j.simulation.actions.oop.MoveOrPush;
 import cz.sokoban4j.simulation.board.compact.BoardCompact;
 import cz.sokoban4j.simulation.board.compact.CTile;
-import cz.sokoban4j.simulation.board.oop.Board;
 
 /**
  * MOVE ONLY, if there is a box, an edge or no free space, then the action is considered "not possible".
@@ -37,8 +36,11 @@ public class CMove extends CAction {
 	
 	private EDirection dir;
 	
+	private EDirection[] dirs;
+	
 	public CMove(EDirection dir) {
 		this.dir = dir;
+		this.dirs = new EDirection[]{ dir };
 	}
 	
 	@Override
@@ -49,6 +51,11 @@ public class CMove extends CAction {
 	@Override
 	public EDirection getDirection() {
 		return dir;
+	}
+	
+	@Override
+	public EDirection[] getDirections() {
+		return dirs;
 	}
 	
 	@Override

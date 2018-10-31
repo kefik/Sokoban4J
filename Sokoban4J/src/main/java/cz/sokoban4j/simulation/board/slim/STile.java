@@ -1,7 +1,5 @@
 package cz.sokoban4j.simulation.board.slim;
 
-import cz.sokoban4j.simulation.board.oop.EEntity;
-
 public class STile {
 
 	public static final byte NONE_FLAG = 0;
@@ -20,7 +18,7 @@ public class STile {
 	}
 	
 	public static boolean isFree(byte tileSlimFlag) {
-		return !isThis(WALL_FLAG, tileSlimFlag);
+		return !isThis(WALL_FLAG, tileSlimFlag) && !isThis(SOME_ENTITY_FLAG, tileSlimFlag);
 	}
 	
 	public static boolean isWall(byte tileSlimFlag) {

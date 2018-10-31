@@ -37,6 +37,10 @@ public class Tile implements Cloneable {
 		return space.isWalkable() && (entity == null || entity.getType() == EEntity.NONE);
 	}
 	
+	public boolean isWalkable() {
+		return isFree() || isPlayer();
+	}
+	
 	public boolean isWall() {
 		return space == ESpace.WALL;
 	}

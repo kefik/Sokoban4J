@@ -3,9 +3,9 @@ package cz.jsokoban.simulation.board;
 import java.util.ArrayList;
 import java.util.List;
 
-import cz.sokoban4j.simulation.board.compressed.BoardCompressed;
+import cz.sokoban4j.simulation.board.compact.BoardCompact;
 
-public class BoardCompressedTest {
+public class BoardCompactTest_Memory {
 
 	private static void printMemory() {
 		int mb = 1024*1024;
@@ -37,12 +37,12 @@ public class BoardCompressedTest {
 	public static void main(String[] args) {
 		long count = 0;
 		
-		List<BoardCompressed> boards = new ArrayList<BoardCompressed>();
+		List<BoardCompact> boards = new ArrayList<BoardCompact>();
 		
-		BoardCompressed board;
+		BoardCompact board;
 		
 		while (true) {
-			board = new BoardCompressed(16,16);
+			board = new BoardCompact(16,16);
 			boards.add(board);
 			++count;
 			if (count % 100 == 0) {
@@ -52,8 +52,8 @@ public class BoardCompressedTest {
 			}
 		}
 		
-		// COUNT HITS 3176100 AT MY MACHINE @Jimmy ~ 200% more than BoardCompactTest
-		//                                         ~  50% more than BoardSlimTest
+		// COUNT HITS 1120000 AT MY MACHINE @Jimmy ~ > 50% less than BoardSlimTest
+		//                                         ~ > 65% less then BoardCompressedTest
 	}
 	
 }

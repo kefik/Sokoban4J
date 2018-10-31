@@ -18,9 +18,20 @@ public class BoardCompressed {
 	
 	private Integer hash = null;
 	
+	/**
+	 * Each int is storing information about 4 tiles (2x2 square), therefore the dimension of the array is 1/4 than compared to other BoardXXX implementations.
+	 * You have to access them through {@link SubSlimTile} flags, get one by calling {@link MTile#getSubSlimTile(int, int)}.
+	 */
 	public int[][] tiles;
 	
+	/**
+	 * Note that this X is "full-X", i.e., not index into {@link #tiles} but actual full board X position.
+	 */
 	public int playerX;
+	
+	/**
+	 * Note that this Y is "full-Y", i.e., not index into {@link #tiles} but actual full board Y position.
+	 */
 	public int playerY;
 	
 	public int boxCount;
@@ -112,13 +123,15 @@ public class BoardCompressed {
 		SubSlimTile sourceSubSlimTile = MTile.getSubSlimTile(sourceTileX, sourceTileY);
 		SubSlimTile targetSubSlimTile = MTile.getSubSlimTile(targetTileX, targetTileY);
 		
-		int entity = tiles[sourceTileX][sourceTileY] & sourceSubSlimTile.getSomeEntityFlag();
+		int stx = sourceTileX / 2;
+		int sty = sourceTileY / 2;
+		int ttx = targetTileX / 2;
+		int tty = targetTileY / 2;
+				
+		tiles[ttx][tty] &= targetSubSlimTile.getNullifyEntityFlag();
+		tiles[ttx][tty] |= targetSubSlimTile.getPlayerFlag();
 		
-		tiles[targetTileX][targetTileY] &= targetSubSlimTile.getNullifyEntityFlag();
-		tiles[targetTileX][targetTileY] |= entity;
-		
-		tiles[sourceTileX][sourceTileY] &= sourceSubSlimTile.getNullifyEntityFlag();
-		tiles[sourceTileX][sourceTileY] |= sourceSubSlimTile.getNoneFlag();	
+		tiles[stx][sty] &= sourceSubSlimTile.getNullifyEntityFlag();
 		
 		playerX = targetTileX;
 		playerY = targetTileY;
@@ -128,19 +141,21 @@ public class BoardCompressed {
 		SubSlimTile sourceSubSlimTile = MTile.getSubSlimTile(sourceTileX, sourceTileY);
 		SubSlimTile targetSubSlimTile = MTile.getSubSlimTile(targetTileX, targetTileY);
 		
-		int entity = tiles[sourceTileX][sourceTileY] & sourceSubSlimTile.getSomeEntityFlag();
+		int stx = sourceTileX / 2;
+		int sty = sourceTileY / 2;
+		int ttx = targetTileX / 2;
+		int tty = targetTileY / 2;
 		
-		if ((tiles[targetTileX][targetTileY] & targetSubSlimTile.getPlaceFlag()) > 0) {
+		if ((tiles[ttx][tty] & targetSubSlimTile.getPlaceFlag()) > 0) {
 			++boxInPlaceCount;
 		}
-		tiles[targetTileX][targetTileY] &= targetSubSlimTile.getNullifyEntityFlag();
-		tiles[targetTileX][targetTileY] |= entity;
+		tiles[ttx][tty] &= targetSubSlimTile.getNullifyEntityFlag();
+		tiles[ttx][tty] |= targetSubSlimTile.getBoxFlag();
 		
-		if ((tiles[sourceTileX][sourceTileY] & sourceSubSlimTile.getPlaceFlag()) > 0) {
+		if ((tiles[stx][sty] & sourceSubSlimTile.getPlaceFlag()) > 0) {
 			--boxInPlaceCount;
 		}
-		tiles[sourceTileX][sourceTileY] &= sourceSubSlimTile.getNullifyEntityFlag();
-		tiles[sourceTileX][sourceTileY] |= sourceSubSlimTile.getNoneFlag();
+		tiles[stx][sty] &= sourceSubSlimTile.getNullifyEntityFlag();
 	}
 	
 	/**

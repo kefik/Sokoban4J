@@ -16,6 +16,7 @@ public class MTile {
 	
 	public static final class SubSlimTile {
 		
+		private final String name;
 		private final int shift;
 		private final int boxFlag;
 		private final int placeFlag;
@@ -24,8 +25,8 @@ public class MTile {
 		private final int someEntityFlag;
 		private final int nullifyEntityFlag;
 		
-		public SubSlimTile(int shift, int boxFlag, int placeFlag, int playerFlag, int wallFlag, int someEntityFlag) {
-			super();
+		public SubSlimTile(String name, int shift, int boxFlag, int placeFlag, int playerFlag, int wallFlag, int someEntityFlag) {
+			this.name = name;
 			this.shift = shift;
 			this.boxFlag = boxFlag;
 			this.placeFlag = placeFlag;
@@ -33,6 +34,10 @@ public class MTile {
 			this.wallFlag = wallFlag;
 			this.someEntityFlag = someEntityFlag;
 			this.nullifyEntityFlag = Integer.MAX_VALUE ^ someEntityFlag;
+		}
+		
+		public final String getName() {
+			return name;
 		}
 		
 		public final int getSlimFlagShift() {
@@ -61,27 +66,32 @@ public class MTile {
 			return nullifyEntityFlag;
 		}
 		
+		@Override
+		public String toString() {
+			return "SubSlimTile[" + name + "]";
+		}
+		
 	}
 	
 	public static final SubSlimTile[] SUB_SLIM_TILES = new SubSlimTile[] {
 			
-			new SubSlimTile( 0, STile.BOX_FLAG,       STile.PLACE_FLAG,       STile.PLAYER_FLAG,       STile.WALL_FLAG,        STile.BOX_FLAG | STile.PLAYER_FLAG),
-			new SubSlimTile( 4, STile.BOX_FLAG << 4,  STile.PLACE_FLAG << 4,  STile.PLAYER_FLAG << 4,  STile.WALL_FLAG << 4,  (STile.BOX_FLAG | STile.PLAYER_FLAG) << 4),
-			new SubSlimTile( 8, STile.BOX_FLAG << 8,  STile.PLACE_FLAG << 8,  STile.PLAYER_FLAG << 8,  STile.WALL_FLAG << 8,  (STile.BOX_FLAG | STile.PLAYER_FLAG) << 8),
-			new SubSlimTile(12, STile.BOX_FLAG << 12, STile.PLACE_FLAG << 12, STile.PLAYER_FLAG << 12, STile.WALL_FLAG << 12, (STile.BOX_FLAG | STile.PLAYER_FLAG) << 1)
+			new SubSlimTile("0,0", 0, STile.BOX_FLAG,       STile.PLACE_FLAG,       STile.PLAYER_FLAG,       STile.WALL_FLAG,        STile.BOX_FLAG | STile.PLAYER_FLAG),
+			new SubSlimTile("1,0", 4, STile.BOX_FLAG << 4,  STile.PLACE_FLAG << 4,  STile.PLAYER_FLAG << 4,  STile.WALL_FLAG << 4,  (STile.BOX_FLAG | STile.PLAYER_FLAG) << 4),
+			new SubSlimTile("0,1", 8, STile.BOX_FLAG << 8,  STile.PLACE_FLAG << 8,  STile.PLAYER_FLAG << 8,  STile.WALL_FLAG << 8,  (STile.BOX_FLAG | STile.PLAYER_FLAG) << 8),
+			new SubSlimTile("1,1", 12, STile.BOX_FLAG << 12, STile.PLACE_FLAG << 12, STile.PLAYER_FLAG << 12, STile.WALL_FLAG << 12, (STile.BOX_FLAG | STile.PLAYER_FLAG) << 12)
 			
 	};
 	
-	public static int getSlimTileIndex(int width, int height) {
+	public static int getSlimTileIndex(int x, int y) {
 		// 0,0 => 0
 		// 1,0 => 1
 		// 0,1 => 2
 		// 1,1 => 3
-		return (height % 2) * 2 + width % 2;
+		return (y % 2) * 2 + x % 2;
 	}
 	
-	public static SubSlimTile getSubSlimTile(int width, int height) {
-		return SUB_SLIM_TILES[getSlimTileIndex(width, height)];
+	public static SubSlimTile getSubSlimTile(int x, int y) {
+		return SUB_SLIM_TILES[getSlimTileIndex(x, y)];
 	}
 	
 	private static boolean isThis(int whatFlag, int tileCompressedFlag) {
@@ -89,7 +99,7 @@ public class MTile {
 	}
 	
 	public static boolean isFree(SubSlimTile subSlimTile, int tileCompressedFlag) {
-		return !isThis(subSlimTile.getWallFlag(), tileCompressedFlag);
+		return !isThis(subSlimTile.getWallFlag(), tileCompressedFlag) && !isThis(subSlimTile.getSomeEntityFlag(), tileCompressedFlag);
 	}
 	
 	public static boolean isWall(SubSlimTile subSlimTile, int tileCompressedFlag) {

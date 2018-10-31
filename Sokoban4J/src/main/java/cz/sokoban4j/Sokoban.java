@@ -698,8 +698,20 @@ public class Sokoban {
 	 * @param agent
 	 * @return
 	 */
+	public static SokobanResult playAgentLevel(String levelFilePath, int levelNumber, IAgent agent) {
+		return playAgentLevel(null, levelFilePath, null, levelNumber, -1, agent);
+	}
+	
+	/**
+	 * 'agent' will play (visualized) FIRST level from file on 'levelFilePath'.
+	 * 
+	 * @param levelFilePath file to load
+	 * @param levelNumber
+	 * @param agent
+	 * @return
+	 */
 	public static SokobanResult playAgentLevel(String levelFilePath, IAgent agent) {
-		return playAgentLevel(null, levelFilePath, null, 0, -1, agent);
+		return playAgentLevel(levelFilePath, 0, agent);
 	}
 	
 	/**

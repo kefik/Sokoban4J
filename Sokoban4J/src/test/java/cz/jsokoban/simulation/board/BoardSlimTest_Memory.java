@@ -4,8 +4,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 import cz.sokoban4j.simulation.board.compact.BoardCompact;
+import cz.sokoban4j.simulation.board.slim.BoardSlim;
 
-public class BoardCompactTest {
+public class BoardSlimTest_Memory {
 
 	private static void printMemory() {
 		int mb = 1024*1024;
@@ -37,12 +38,12 @@ public class BoardCompactTest {
 	public static void main(String[] args) {
 		long count = 0;
 		
-		List<BoardCompact> boards = new ArrayList<BoardCompact>();
+		List<BoardSlim> boards = new ArrayList<BoardSlim>();
 		
-		BoardCompact board;
+		BoardSlim board;
 		
 		while (true) {
-			board = new BoardCompact(16,16);
+			board = new BoardSlim((byte)16,(byte)16);
 			boards.add(board);
 			++count;
 			if (count % 100 == 0) {
@@ -52,8 +53,8 @@ public class BoardCompactTest {
 			}
 		}
 		
-		// COUNT HITS 1120000 AT MY MACHINE @Jimmy ~ > 50% less than BoardSlimTest
-		//                                         ~ > 65% less then BoardCompressedTest
+		// COUNT HITS 2419100 AT MY MACHINE @Jimmy ~ > 100% more than BoardCompactTest
+		//                                         ~    50% less then BoardCompressedTest
 	}
 	
 }

@@ -4,13 +4,22 @@ import cz.sokoban4j.simulation.actions.EDirection;
 import cz.sokoban4j.simulation.actions.compact.CAction;
 import cz.sokoban4j.simulation.actions.compact.CMove;
 import cz.sokoban4j.simulation.actions.compact.CPush;
+import cz.sokoban4j.simulation.actions.compressed.MAction;
+import cz.sokoban4j.simulation.actions.compressed.MMove;
+import cz.sokoban4j.simulation.actions.compressed.MPush;
 import cz.sokoban4j.simulation.actions.oop.EActionType;
 import cz.sokoban4j.simulation.actions.oop.IAction;
 import cz.sokoban4j.simulation.actions.oop.MoveOrPush;
+import cz.sokoban4j.simulation.actions.slim.SAction;
+import cz.sokoban4j.simulation.actions.slim.SMove;
+import cz.sokoban4j.simulation.actions.slim.SPush;
 import cz.sokoban4j.simulation.board.compact.BoardCompact;
 import cz.sokoban4j.simulation.board.compact.CTile;
 import cz.sokoban4j.simulation.board.compressed.BoardCompressed;
+import cz.sokoban4j.simulation.board.compressed.MTile;
+import cz.sokoban4j.simulation.board.compressed.MTile.SubSlimTile;
 import cz.sokoban4j.simulation.board.oop.Board;
+import cz.sokoban4j.simulation.board.slim.BoardSlim;
 
 public class ValidatingAgent {
 
@@ -136,15 +145,137 @@ public class ValidatingAgent {
 	// ==================
 
 	public void validateBoardCompressed() {
-		throw new RuntimeException("NOT IMPLEMENTED YET");
+		BoardCompressed compressed = board.makeBoardCompact().makeBoardCompressed();
+				
+		BoardCompressed clone = compressed.clone();
+		checkEqual(compressed, clone, "CLONING");
+				
+		for (int x = 0; x < compressed.width(); ++x) {
+			for (int y = 0; y < compressed.height(); ++y) {
+				clone = compressed.clone();
+				
+				SubSlimTile sst = MTile.getSubSlimTile(x, y);
+				
+				if (MTile.isFree(sst, clone.tile(x, y))) {
+					clone.movePlayer(clone.playerX, clone.playerY, x, y);
+				}
+				
+				// CHECK CLONING				
+				BoardCompressed clone2 = clone.clone();
+				checkEqual(clone, clone2, "CLONING");
+				
+				// TEST ACTIONS
+				testPlayerActions(clone);
+			}
+		}		
+	}
+	
+	private void checkEqual(BoardCompressed b1, BoardCompressed b2, String msg) {
+		if (b1.hashCode() != b2.hashCode()) {
+			System.out.println("HASH CODE DIFFERS: " + msg);
+			System.out.println("-- BOARD B1 ---");
+			b1.debugPrint();
+			System.out.println("-- BOARD B2 ---");
+			b2.debugPrint();
+			throw new RuntimeException("HASH CODE DIFFERS: " + msg);
+		}
+		if (!b1.equals(b2)) {
+			System.out.println("NOT EQUAL: " + msg);
+			System.out.println("-- BOARD B1 ---");
+			b1.debugPrint();
+			System.out.println("-- BOARD B2 ---");
+			b2.debugPrint();
+			throw new RuntimeException("NOT EQUAL: " + msg);
+		}
+	}
+	
+	private void testPlayerActions(BoardCompressed board) {
+		for (EDirection direction : EDirection.arrows()) {
+			BoardCompressed clone = board.clone();
+			
+			MAction action = MMove.getAction(direction);
+			
+			if (action.isPossible(clone)) {
+				action.perform(clone);
+				action.reverse(clone);
+				checkEqual(board, clone, "ACTION: " + action);
+			}
+			
+			action = MPush.getAction(direction);
+			if (action.isPossible(clone)) {
+				action.perform(clone);
+				action.reverse(clone);
+				checkEqual(board, clone, "ACTION: " + action);
+			}
+		}
 	}
 
 	// ============
 	// BOARD - SLIM
 	// ============
 	
-	public void validateSlimBoard() {
-		throw new RuntimeException("NOT IMPLEMENTED YET");
+	public void validateBoardSlim() {
+		BoardSlim slim = board.makeBoardCompact().makeBoardSlim();
+				
+		BoardSlim clone = slim.clone();
+		checkEqual(slim, clone, "CLONING");
+				
+		for (byte x = 0; x < slim.width(); ++x) {
+			for (byte y = 0; y < slim.height(); ++y) {
+				clone = slim.clone();
+				
+				if (CTile.isFree(clone.tile(x, y))) {
+					clone.movePlayer(clone.playerX, clone.playerY, x, y);
+				}
+				
+				// CHECK CLONING				
+				BoardSlim clone2 = clone.clone();
+				checkEqual(clone, clone2, "CLONING");
+				
+				// TEST ACTIONS
+				testPlayerActions(clone);
+			}
+		}		
+	}
+	
+	private void checkEqual(BoardSlim b1, BoardSlim b2, String msg) {
+		if (b1.hashCode() != b2.hashCode()) {
+			System.out.println("HASH CODE DIFFERS: " + msg);
+			System.out.println("-- BOARD B1 ---");
+			b1.debugPrint();
+			System.out.println("-- BOARD B2 ---");
+			b2.debugPrint();
+			throw new RuntimeException("HASH CODE DIFFERS: " + msg);
+		}
+		if (!b1.equals(b2)) {
+			System.out.println("NOT EQUAL: " + msg);
+			System.out.println("-- BOARD B1 ---");
+			b1.debugPrint();
+			System.out.println("-- BOARD B2 ---");
+			b2.debugPrint();
+			throw new RuntimeException("NOT EQUAL: " + msg);
+		}
+	}
+	
+	private void testPlayerActions(BoardSlim board) {
+		for (EDirection direction : EDirection.arrows()) {
+			BoardSlim clone = board.clone();
+			
+			SAction action = SMove.getAction(direction);
+			
+			if (action.isPossible(clone)) {
+				action.perform(clone);
+				action.reverse(clone);
+				checkEqual(board, clone, "ACTION: " + action);
+			}
+			
+			action = SPush.getAction(direction);
+			if (action.isPossible(clone)) {
+				action.perform(clone);
+				action.reverse(clone);
+				checkEqual(board, clone, "ACTION: " + action);
+			}
+		}
 	}
 		
 

@@ -36,8 +36,11 @@ public class CPush extends CAction {
 	
 	private EDirection dir;
 	
+	private EDirection[] dirs;
+	
 	public CPush(EDirection dir) {
 		this.dir = dir;
+		this.dirs = new EDirection[]{ dir };
 	}
 	
 	@Override
@@ -51,18 +54,63 @@ public class CPush extends CAction {
 	}
 	
 	@Override
+	public EDirection[] getDirections() {
+		return dirs;
+	}
+	
+	@Override
 	public boolean isPossible(BoardCompact board) {
+		return isPushPossible(board, board.playerX, board.playerY, dir);
+	}
+	
+	/**
+	 * Is it possible to push the box from [playerX, playerY] in 'pushDirection' ?
+	 * @param board
+	 * @param playerX
+	 * @param playerY
+	 * @param pushDirection
+	 * @return
+	 */
+	public static boolean isPushPossible(BoardCompact board, int playerX, int playerY, EDirection pushDirection) {
 		// PLAYER ON THE EDGE
-		if (!onBoard(board, board.playerX, board.playerY, dir)) return false;
+		if (!CAction.isOnBoard(board, playerX, playerY, pushDirection)) return false;
 		
 		// TILE TO THE DIR IS NOT BOX
-		if (!CTile.isSomeBox(board.tile(board.playerX+dir.dX, board.playerY+dir.dY))) return false;
+		if (!CTile.isSomeBox(board.tile(playerX+pushDirection.dX, playerY+pushDirection.dY))) return false;
 		
 		// BOX IS ON THE EDGE IN THE GIVEN DIR
-		if (!onBoard(board, board.playerX+dir.dX, board.playerY+dir.dY, dir)) return false;
+		if (!CAction.isOnBoard(board, playerX+pushDirection.dX, playerY+pushDirection.dY, pushDirection)) return false;
 		
 		// TILE TO THE DIR OF THE BOX IS NOT FREE
-		if (!CTile.isFree(board.tile(board.playerX+dir.dX+dir.dX, board.playerY+dir.dY+dir.dY))) return false;
+		if (!CTile.isFree(board.tile(playerX+pushDirection.dX+pushDirection.dX, playerY+pushDirection.dY+pushDirection.dY))) return false;
+				
+		// YEP, WE CAN PUSH
+		return true;
+	}
+	
+	/**
+	 * Is it possible to push the box from [playerX, playerY] in 'pushDirection' ? 
+	 * 
+	 * This deem the box pushable even if there is a player in that direction.
+	 * 
+	 * @param board
+	 * @param playerX
+	 * @param playerY
+	 * @param pushDirection
+	 * @return
+	 */
+	public static boolean isPushPossibleIgnorePlayer(BoardCompact board, int playerX, int playerY, EDirection pushDirection) {
+		// PLAYER ON THE EDGE
+		if (!CAction.isOnBoard(board, playerX, playerY, pushDirection)) return false;
+		
+		// TILE TO THE DIR IS NOT BOX
+		if (!CTile.isSomeBox(board.tile(playerX+pushDirection.dX, playerY+pushDirection.dY))) return false;
+		
+		// BOX IS ON THE EDGE IN THE GIVEN DIR
+		if (!CAction.isOnBoard(board, playerX+pushDirection.dX, playerY+pushDirection.dY, pushDirection)) return false;
+		
+		// TILE TO THE DIR OF THE BOX IS NOT FREE
+		if (!CTile.isWalkable(board.tile(playerX+pushDirection.dX+pushDirection.dX, playerY+pushDirection.dY+pushDirection.dY))) return false;
 				
 		// YEP, WE CAN PUSH
 		return true;

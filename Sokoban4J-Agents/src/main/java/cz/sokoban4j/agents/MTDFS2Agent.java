@@ -7,7 +7,6 @@ import java.util.Map;
 import java.util.concurrent.atomic.AtomicInteger;
 
 import cz.sokoban4j.Sokoban;
-import cz.sokoban4j.SokobanConfig.ELevelFormat;
 import cz.sokoban4j.simulation.SokobanResult;
 import cz.sokoban4j.simulation.actions.EDirection;
 import cz.sokoban4j.simulation.actions.compact.CAction;
@@ -311,7 +310,7 @@ public class MTDFS2Agent extends ArtificialAgent {
 		result = Sokoban.playAgentLevel("../Sokoban4J/levels/Easy/level0002.3.s4jl", new MTDFS2Agent()); // 37 steps required
 		
 		// THIS LEVEL IS BIT TOO MUCH
-		//result = Sokoban.playAgentLevel("../Sokoban4J/levels/Easy/level0003.s4jl", new MTDFS2Agent()); // 66 steps required
+		//result = Sokoban.playAgentLevel("../Sokoban4J/levels/Easy/level0003.s4jl", new MTDFS2Agent()); // 60 steps required
 		
 		// HEADLESS == SIMULATED-ONLY GAME
 		//result = Sokoban.simAgentLevel("../Sokoban4J/levels/Easy/level0001.s4jl", new MTDFS2Agent());

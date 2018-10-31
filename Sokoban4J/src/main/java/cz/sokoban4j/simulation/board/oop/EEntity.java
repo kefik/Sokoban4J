@@ -13,9 +13,24 @@ public enum EEntity {
 	BOX_6(6,    true,  false, 256, STile.BOX_FLAG,    "fF", "CrateDark_Black.png", "Crate_Black.png"),
 	PLAYER(-1, false,   true, 512, STile.PLAYER_FLAG, "pP@+", null, null);
 	
+	/**
+	 * Any box, i.e., it can be any of {@link #BOX_1}, {@link #BOX_2}, {@link #BOX_3}, {@link #BOX_4}, {@link #BOX_5}, {@link #BOX_6}.
+	 */
 	public static final int SOME_BOX_FLAG = 8 | 16 | 32 | 64 | 128 | 256;
-	public static final int SOME_ENTITY_FLAG = 8 | 16 | 32 | 64 | 128 | 256 | 512;	
+	
+	/**
+	 * A box or a {@link #PLAYER};
+	 */
+	public static final int SOME_ENTITY_FLAG = SOME_BOX_FLAG | 512;	
+	
+	/**
+	 * Technical; any {@link EEntity} {@link #flag}.
+	 */
 	public static final int ALL_ENTITY_FLAG = 4 | 8 | 16 | 32 | 64 | 128 | 256 | 512;
+	
+	/**
+	 * Flag containing zeroes at all {@link EEntity} {@link #flag} positions.
+	 */
 	public static final int NULLIFY_ENTITY_FLAG = 0xFFFFFFFF ^ ALL_ENTITY_FLAG;
 	
 	private final int flag;

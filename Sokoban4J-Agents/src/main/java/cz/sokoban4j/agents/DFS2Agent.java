@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import cz.sokoban4j.Sokoban;
-import cz.sokoban4j.SokobanConfig.ELevelFormat;
 import cz.sokoban4j.simulation.SokobanResult;
 import cz.sokoban4j.simulation.actions.EDirection;
 import cz.sokoban4j.simulation.actions.compact.CAction;
@@ -14,7 +13,7 @@ import cz.sokoban4j.simulation.actions.oop.EActionType;
 import cz.sokoban4j.simulation.board.compact.BoardCompact;
 
 /**
- * Trer-DFS update that forbids the search to immediately return to the previous state effectively cutting at least 1/4 of all "move" search nodes;
+ * Tree-DFS update that forbids the search to immediately return to the previous state effectively cutting at least 1/4 of all "move" search nodes;
  * very effective in "corridors" as it prevents the agent to return and forces it to mvoe through the whole corridor first.
  * 
  * @author Jimmy
@@ -146,7 +145,7 @@ public class DFS2Agent extends ArtificialAgent {
 		result = Sokoban.playAgentLevel("../Sokoban4J/levels/Easy/level0002.3.s4jl", new DFS2Agent()); // 37 steps required
 		
 		// THIS LEVEL IS BIT TOO MUCH
-		//result = Sokoban.playAgentLevel("../Sokoban4J/levels/Easy/level0003.s4jl", new DFS2Agent()); // 66 steps required
+		//result = Sokoban.playAgentLevel("../Sokoban4J/levels/Easy/level0003.s4jl", new DFS2Agent()); // 60 steps required
 		
 		// HEADLESS == SIMULATED-ONLY GAME
 		//result = Sokoban.simAgentLevel("../Sokoban4J/levels/Easy/level0001.s4jl", new DFS2Agent());

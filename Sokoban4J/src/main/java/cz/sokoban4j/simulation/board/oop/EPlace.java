@@ -5,13 +5,13 @@ import cz.sokoban4j.simulation.board.slim.STile;
 public enum EPlace {
 
 	NONE(-1,     1024, (byte)0,             " #abcdefp$@", null),
-	BOX_ANY(0,   2048, STile.BOX_FLAG, "oOABCDEFP", "EndPoint_Brown.png"),
-	BOX_1(1,     4096, STile.BOX_FLAG, "1.*+", "EndPoint_Yellow.png"),
-	BOX_2(2,     8192, STile.BOX_FLAG, "2", "EndPoint_Blue.png"),
-	BOX_3(3,    16384, STile.BOX_FLAG, "3", "EndPoint_Red.png"),
-	BOX_4(4,    32768, STile.BOX_FLAG, "4", "EndPoint_Purple.png"),
-	BOX_5(5,    65536, STile.BOX_FLAG, "5", "EndPoint_Gray.png"),
-	BOX_6(6,   131072, STile.BOX_FLAG, "6", "EndPoint_Black.png");
+	BOX_ANY(0,   2048, STile.PLACE_FLAG, "oOABCDEFP", "EndPoint_Brown.png"),
+	BOX_1(1,     4096, STile.PLACE_FLAG, "1.*+", "EndPoint_Yellow.png"),
+	BOX_2(2,     8192, STile.PLACE_FLAG, "2", "EndPoint_Blue.png"),
+	BOX_3(3,    16384, STile.PLACE_FLAG, "3", "EndPoint_Red.png"),
+	BOX_4(4,    32768, STile.PLACE_FLAG, "4", "EndPoint_Purple.png"),
+	BOX_5(5,    65536, STile.PLACE_FLAG, "5", "EndPoint_Gray.png"),
+	BOX_6(6,   131072, STile.PLACE_FLAG, "6", "EndPoint_Black.png");
 	
 	public static final int SOME_BOX_PLACE_FLAG = 2048 | 4096 | 8192 | 16384 | 32768 | 65536 | 131072;
 	

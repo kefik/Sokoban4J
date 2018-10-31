@@ -4,6 +4,10 @@ import cz.sokoban4j.simulation.board.compact.BoardCompact;
 import cz.sokoban4j.simulation.board.compact.CTile;
 import cz.sokoban4j.simulation.board.compressed.StateCompressed;
 import cz.sokoban4j.simulation.board.oop.Board;
+import cz.sokoban4j.simulation.board.oop.EEntity;
+import cz.sokoban4j.simulation.board.oop.EPlace;
+import cz.sokoban4j.simulation.board.oop.ESpace;
+import cz.sokoban4j.simulation.board.oop.entities.Entity;
 
 /**
  * Runtime-part of the Sokoban game state (excluding static board configuration, just positions).
@@ -97,9 +101,9 @@ public class StateMinimal {
 	
 	public int hashCode() {
 		if (hash == null) {
-			hash = 0;
-			for (int p : positions) {
-				hash += getX(p) * 290317 + getY(p) * 97;
+			hash = (getX(positions[0]) + 5) * 290317 * getX(positions[1]) + (getY(positions[0]) + 7) * 290317 * getY(positions[1]);			
+			for (int i = 1; i < positions.length; ++i) {
+				hash += getX(positions[i]) * 290317 + getY(positions[i]) * 97;
 			}
 		}
 		return hash;
@@ -117,6 +121,11 @@ public class StateMinimal {
 			if (positions[index] != other.positions[index]) return false;
 		}
 		return true;
+	}
+	
+	@Override
+	public String toString() {
+		return "StateMinimal[" + hashCode() + "]";
 	}
 	
 	

@@ -9,36 +9,11 @@ import org.junit.Test;
 import cz.sokoban4j.simulation.board.oop.Board;
 
 public class SokobanActionsTest {
-	
-	public static List<Board> loadBoards() {
-		List<Board> boards = new ArrayList<Board>();
 		
-		File sokFile = new File("Levels/Sokobano.de/A.K.K._Informatika.sok");
-		
-		int levelNumber = 0;
-		while (true) {			
-			Board board;
-			
-			try {
-				board = Board.fromFileSok(sokFile, levelNumber);
-				if (board != null) {
-					boards.add(board);
-				} else {
-					break;
-				}
-			} catch (Exception e) {
-				break;
-			}
-			++levelNumber;
-		}
-		
-		return boards;
-	}
-	
 	//@Test
 	public void testBoardOOP() {
 		System.out.println("=== TESTING ACTIONS ON BOARD - OOP ===");
-		List<Board> boards = loadBoards();
+		List<Board> boards = SokobanBoards.loadBoards();
 		for (Board board : boards) {
 			ValidatingAgent agent = new ValidatingAgent(board);
 			System.out.println("Testing: " + board.level);
@@ -50,7 +25,7 @@ public class SokobanActionsTest {
 	//@Test
 	public void testBoardCompact() {
 		System.out.println("=== TESTING ACTIONS ON BOARD - COMPACT ===");
-		List<Board> boards = loadBoards();
+		List<Board> boards = SokobanBoards.loadBoards();
 		for (Board board : boards) {
 			ValidatingAgent agent = new ValidatingAgent(board);
 			System.out.println("Testing: " + board.level);
@@ -59,11 +34,37 @@ public class SokobanActionsTest {
 		System.out.println("---// TEST OK //---");
 	}
 	
+	//@Test
+	public void testBoardCompressed() {
+		System.out.println("=== TESTING ACTIONS ON BOARD - COMPRESSED ===");
+		List<Board> boards = SokobanBoards.loadBoards();
+		for (Board board : boards) {
+			ValidatingAgent agent = new ValidatingAgent(board);
+			System.out.println("Testing: " + board.level);
+			agent.validateBoardCompressed();
+		}
+		System.out.println("---// TEST OK //---");
+	}
+	
+	//@Test
+	public void testBoardSlim() {
+		System.out.println("=== TESTING ACTIONS ON BOARD - SLIM ===");
+		List<Board> boards = SokobanBoards.loadBoards();
+		for (Board board : boards) {
+			ValidatingAgent agent = new ValidatingAgent(board);
+			System.out.println("Testing: " + board.level);
+			agent.validateBoardSlim();
+		}
+		System.out.println("---// TEST OK //---");
+	}
+	
 	public static void main(String[] args) {
 		SokobanActionsTest test = new SokobanActionsTest();
 		
 		//test.testBoardOOP();
-		test.testBoardCompact();
+		//test.testBoardCompact();
+		//test.testBoardSlim();
+		test.testBoardCompressed();
 	}
 
 }
